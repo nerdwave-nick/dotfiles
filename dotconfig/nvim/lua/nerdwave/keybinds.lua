@@ -1,10 +1,20 @@
 -- SETUP
+local silentNoremap = { noremap=true, silent=true }
+local noremap = { noremap=true }
 local mapn = function (keys, func, opts)
   if opts == nil then
-    opts= {noremap = true}
+    opts = noremap
   end
   vim.keymap.set('n', keys, func, opts)
 end
+
+local mapv = function (keys, func, opts)
+  if opts == nil then 
+    opt = noremap
+  end
+  vim.keymap.set('v', keys, func, opts)
+end
+
 
 -- ###########################################################################################
 -- KEYMAP ####################################################################################
@@ -47,3 +57,7 @@ mapn('<leader>pn', ':Telescope noice<CR>')
 
 ----------
 -- General
+mapn('<M-Up>', ':m-2<CR>', silentNoremap)
+mapn('<M-Down>', ':m+1<CR>', silentNoremap)
+mapn('<M-k>', ':m-2<CR>', silentNoremap)
+mapn('<M-j>', ':m+1<CR>', silentNoremap)
