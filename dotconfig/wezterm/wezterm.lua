@@ -4,10 +4,12 @@ local theme = require("theme")
 -- Look for more of his setup at https://github.com/nekowinston/dotfiles
 local hostname = wezterm.hostname()
 local wallpaper_prefix_map = {
-  ["debian"] = "/home/nerdwave/Pictures/"
+  ["debian"] = "/home/nerdwave/Pictures/",
+  ["HBV83038406"] = "/Users/nick.mueller/Documents/"
 }
 local wallpaper_map = {
-  ["debian"] = "alex-knight-5-GNa303REg-unsplash.jpg"
+  ["debian"] = "alex-knight-5-GNa303REg-unsplash.jpg",
+  ["HBV83038406"] = "wp.jpg"
 }
 
 require("bar").setup({
