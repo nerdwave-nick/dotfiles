@@ -46,14 +46,16 @@ local function changePaneOrTab (win, direction)
   end
 end
 -- map 1-9 to switch to tab 1-9, 0 for the last tab
-for i = 1, 9 do
+for i = 1, 3 do
   map(tostring(i), { "CTRL|ALT" }, act.ActivateTab(i - 1))
 end
 map("0", { "CTRL|ALT" }, act.ActivateTab(-1))
-map("=", { "CTRL|ALT" }, wezterm.action_callback(function(win, _) changePaneOrTab(win, 'Right') end))
+map("6", { "CTRL|ALT" }, wezterm.action_callback(function(win, _) changePaneOrTab(win, 'Right') end))
 map(";", { "CTRL|ALT" }, wezterm.action_callback(function (win, _) changePaneOrTab(win, 'Left') end))
-map("\\", { "CTRL|ALT" }, act.AdjustPaneSize({ "Right", 5 }))
-map("`", { "CTRL|ALT" }, act.AdjustPaneSize({ "Left", 5 }))
+map("^", { "CTRL|ALT" }, act.AdjustPaneSize({ "Right", 5 }))
+map(":", { "CTRL|ALT" }, act.AdjustPaneSize({ "Left", 5 }))
+map("%", { "CTRL|ALT" }, act.RotatePanes("Clockwise"))
+map("$", { "CTRL|ALT" }, act.RotatePanes("CounterClockwise"))
 -- spawn & close
 map("c", "CTRL|ALT", act.SpawnTab("CurrentPaneDomain"))
 map("s", "CTRL|ALT", act.SplitHorizontal({domain = "CurrentPaneDomain"}))
