@@ -5,7 +5,7 @@ vim.o.hlsearch = true
 
 -- vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor"
 
-vim.o.signcolumn = "auto:4"
+vim.o.signcolumn = "number"
 
 vim.o.relativenumber = true
 
