@@ -1,9 +1,3 @@
-------------------------------------------------------------------------
--- lsp config plugins
--- nvim-lspconfig (https://github.com/neovim/nvim-lspconfig)
--- mason (https://github.com/williamboman/mason.nvim)
--- mason-lspconfig (https://github.com/williamboman/mason-lspconfig.nvim)
-------------------------------------------------------------------------
 local lsp_servers = {
   lua_ls = {
     settings = {

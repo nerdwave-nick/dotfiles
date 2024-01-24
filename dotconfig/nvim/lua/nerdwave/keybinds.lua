@@ -9,6 +9,9 @@ end
 -- ###########################################################################################
 -- KEYMAP ####################################################################################
 
+----------
+-- Plugins
+
 local telescope = require("telescope")
 local harpoon = require("harpoon")
 local telescopeBuiltin = require('telescope.builtin')
@@ -41,3 +44,6 @@ mapn('<leader>ps', telescopeBuiltin.live_grep)
 mapn('<leader>ph', telescopeBuiltin.help_tags)
 mapn('<leader>pe', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 mapn('<leader>pn', ':Telescope noice<CR>')
+
+----------
+-- General
