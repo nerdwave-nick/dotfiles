@@ -9,8 +9,8 @@ local mapn = function (keys, func, opts)
 end
 
 local mapv = function (keys, func, opts)
-  if opts == nil then 
-    opt = noremap
+  if opts == nil then
+    opts = noremap
   end
   vim.keymap.set('v', keys, func, opts)
 end
@@ -57,7 +57,14 @@ mapn('<leader>pn', ':Telescope noice<CR>')
 
 ----------
 -- General
+
+-- move line up/down
 mapn('<M-Up>', ':m-2<CR>', silentNoremap)
 mapn('<M-Down>', ':m+1<CR>', silentNoremap)
 mapn('<M-k>', ':m-2<CR>', silentNoremap)
 mapn('<M-j>', ':m+1<CR>', silentNoremap)
+-- move selection up/down
+mapv('<M-Up>', ":m '<-2<CR>vgv=vgv", silentNoremap)
+mapv('<M-Down>', ":m '>+1<CR>vgv=vgv", silentNoremap)
+mapv('<M-k>', ":m '<-2<CR>vgv=vgv", silentNoremap)
+mapn('<M-j>', ":m '>+1<CR>vgv=vgv", silentNoremap)
