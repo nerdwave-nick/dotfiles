@@ -146,6 +146,7 @@ end
 
 return {
   "hrsh7th/nvim-cmp",
+  version = false,
   lazy = true,
   event = "InsertEnter",
   config = cmp_setup,
