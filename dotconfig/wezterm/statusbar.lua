@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 M.config = {
-	dividers = "slant_right",
+	dividers = "slant_left",
 	indicator = {
 		leader = {
 			enabled = true,
@@ -31,27 +31,20 @@ M.config = {
 		enabled = true,
 		format = "%H:%M",
 	},
+	workspace = {
+		enabled = true,
+	},
 }
-
-local function tableMerge(t1, t2)
-	for k, v in pairs(t2) do
-		if type(v) == "table" then
-			if type(t1[k] or false) == "table" then
-				tableMerge(t1[k] or {}, t2[k] or {})
-			else
-				t1[k] = v
-			end
-		else
-			t1[k] = v
-		end
-	end
-	return t1
-end
 
 local C = {}
 
-M.setup = function(config)
-	M.config = tableMerge(M.config, config)
+M.setup = function(opts)
+	opts.use_fancy_tab_bar = false
+	opts.tab_bar_at_bottom = true
+	opts.tab_max_width = 80
+	opts.hide_tab_bar_if_only_one_tab = false
+	opts.enable_tab_bar = true
+
 	local dividers = {
 		slant_right = {
 			left = utf8.char(0xe0be),
@@ -297,22 +290,6 @@ wezterm.on("update-status", function(window, pane)
 		})
 	end
 
-	local mode = ""
-	if C.mode.enabled then
-		local mode_text = ""
-		local active = window:active_key_table()
-		if C.mode.names[active] ~= nil then
-			mode_text = C.mode.names[active] .. ""
-		end
-		mode = wezterm.format({
-			{ Foreground = { Color = palette.background } },
-			{ Background = { Color = palette.ansi[5] } },
-			{ Attribute = { Intensity = "Bold" } },
-			{ Text = mode_text },
-			"ResetAttributes",
-		})
-	end
-
 	local first_tab_active = window:mux_window():tabs_with_info()[1].is_active
 	local divider_bg = first_tab_active and palette.ansi[2] or palette.tab_bar.inactive_tab.bg_color
 
@@ -322,14 +299,25 @@ wezterm.on("update-status", function(window, pane)
 		{ Text = C.div.r },
 	})
 
-	window:set_left_status(leader .. mode .. divider)
+	local workspace = wezterm.format({
+		{ Foreground = { Color = palette.background } },
+		{ Background = { Color = palette.ansi[5] } },
+		{ Text = " ws:" },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Text = wezterm.mux.get_active_workspace() .. C.p },
+		"ResetAttributes",
+	})
+
+	window:set_left_status(leader .. workspace .. divider)
 
 	if C.clock.enabled then
 		local time = wezterm.time.now():format(C.clock.format)
 		window:set_right_status(wezterm.format({
 			{ Background = { Color = palette.tab_bar.background } },
 			{ Foreground = { Color = palette.ansi[6] } },
+			{ Attribute = { Intensity = "Bold" } },
 			{ Text = time },
+			"ResetAttributes",
 		}))
 	end
 end)

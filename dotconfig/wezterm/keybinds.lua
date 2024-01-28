@@ -46,46 +46,6 @@ local function changePaneOrTab(win, direction)
 	end
 end
 
-local function serializeWorkspaces(ws)
-	local tmp = " [\n"
-	for i, w in ipairs(ws) do
-		tmp = tmp .. "\t" .. w .. ",\n"
-	end
-	tmp = tmp .. "]"
-	return tmp
-end
-
-local function serializeTable(val, name, skipnewlines, depth)
-	skipnewlines = skipnewlines or false
-	depth = depth or 0
-
-	local tmp = string.rep(" ", depth)
-
-	if name then
-		tmp = tmp .. name .. " = "
-	end
-
-	if type(val) == "table" then
-		tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
-
-		for k, v in pairs(val) do
-			tmp = tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
-		end
-
-		tmp = tmp .. string.rep(" ", depth) .. "}"
-	elseif type(val) == "number" then
-		tmp = tmp .. tostring(val)
-	elseif type(val) == "string" then
-		tmp = tmp .. string.format("%q", val)
-	elseif type(val) == "boolean" then
-		tmp = tmp .. (val and "true" or "false")
-	else
-		tmp = tmp .. '"[inserializeable datatype:' .. type(val) .. ']"'
-	end
-
-	return tmp
-end
-
 ----------------------------------------------------------------------------------------
 
 map(
@@ -120,38 +80,20 @@ map(".", { "CTRL|ALT", "SUPER" }, act.DecreaseFontSize)
 map("-", { "CTRL|ALT", "SUPER" }, act.IncreaseFontSize)
 map("0", { "CTRL|ALT", "SUPER" }, act.ResetFontSize)
 -- sessions
-map(
-	"r",
-	"LEADER",
-	act.PromptInputLine({
-		description = "Enter new name for tab",
-		action = wezterm.action_callback(function(window, pane, line)
-			if line then
-				window:active_tab():set_title(line)
-			end
-		end),
-	})
-)
-map(
-	"l",
-	"LEADER",
-	act.PromptInputLine({
-		description = wezterm.format({
-			{ Attribute = { Intensity = "Bold" } },
-			{ Text = "Enter name for new workspace" },
-		}),
-		action = wezterm.action_callback(function(window, pane, line)
-			if line then
-				window:perform_action(wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line), pane)
-			end
-		end),
-	})
-)
-map("s", "LEADER", wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
-map("p", "LEADER", wezterm.action.EmitEvent("save-workspaces"))
-return {
-	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 },
+local sessionizer = require("sessionizer")
+map("f", "LEADER", wezterm.action_callback(sessionizer.toggle))
+map("F", "LEADER", wezterm.action_callback(sessionizer.resetCacheAndToggle))
+
+local keybind_settings = {
+	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 10000 },
 	keys = shortcuts,
 	disable_default_key_bindings = true,
-	-- key_tables = key_tables,
 }
+
+local function setup(opts)
+	for k, v in pairs(keybind_settings) do
+		opts[k] = v
+	end
+	return opts
+end
+return { setup = setup }
