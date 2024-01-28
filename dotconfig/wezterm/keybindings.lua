@@ -45,7 +45,49 @@ local function changePaneOrTab(win, direction)
 		end
 	end
 end
--- map 1-9 to switch to tab 1-9, 0 for the last tab
+
+local function serializeWorkspaces(ws)
+	local tmp = " [\n"
+	for i, w in ipairs(ws) do
+		tmp = tmp .. "\t" .. w .. ",\n"
+	end
+	tmp = tmp .. "]"
+	return tmp
+end
+
+local function serializeTable(val, name, skipnewlines, depth)
+	skipnewlines = skipnewlines or false
+	depth = depth or 0
+
+	local tmp = string.rep(" ", depth)
+
+	if name then
+		tmp = tmp .. name .. " = "
+	end
+
+	if type(val) == "table" then
+		tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
+
+		for k, v in pairs(val) do
+			tmp = tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
+		end
+
+		tmp = tmp .. string.rep(" ", depth) .. "}"
+	elseif type(val) == "number" then
+		tmp = tmp .. tostring(val)
+	elseif type(val) == "string" then
+		tmp = tmp .. string.format("%q", val)
+	elseif type(val) == "boolean" then
+		tmp = tmp .. (val and "true" or "false")
+	else
+		tmp = tmp .. '"[inserializeable datatype:' .. type(val) .. ']"'
+	end
+
+	return tmp
+end
+
+----------------------------------------------------------------------------------------
+
 map(
 	"6",
 	{ "CTRL|ALT" },
@@ -60,75 +102,53 @@ map(
 		changePaneOrTab(win, "Left")
 	end)
 )
-map("3", { "CTRL|ALT" }, act.AdjustPaneSize({ "Right", 5 }))
-map("`", { "CTRL|ALT" }, act.AdjustPaneSize({ "Left", 5 }))
-map("4", { "CTRL|ALT" }, act.RotatePanes("Clockwise"))
-map("5", { "CTRL|ALT" }, act.RotatePanes("CounterClockwise"))
+map("3", "CTRL|ALT", act.AdjustPaneSize({ "Right", 5 }))
+map("`", "CTRL|ALT", act.AdjustPaneSize({ "Left", 5 }))
+map("4", "CTRL|ALT", act.RotatePanes("Clockwise"))
+map("5", "CTRL|ALT", act.RotatePanes("CounterClockwise"))
 -- spawn & close
 map("c", "CTRL|ALT", act.SpawnTab("CurrentPaneDomain"))
 map("s", "CTRL|ALT", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
--- map("x", "CTRL|ALT", act.CloseCurrentPane({ confirm = true }))
--- map("t", { "SHIFT|CTRL", "SUPER" }, act.SpawnTab("CurrentPaneDomain"))
-map("w", { "CTRL|ALT" }, act.CloseCurrentPane({ confirm = true }))
--- map("n", { "SHIFT|CTRL", "SUPER" }, act.SpawnWindow)
+map("w", "CTRL|ALT", act.CloseCurrentPane({ confirm = true }))
 -- zoom states
--- map("z", { "LEADER", "SUPER" }, act.TogglePaneZoomState)
--- map("Z", { "LEADER", "SUPER" }, toggleTabBar)
 -- copy & paste
--- map("v", "LEADER", act.ActivateCopyMode)
 map("c", { "SHIFT|CTRL", "SUPER" }, act.CopyTo("Clipboard"))
 map("v", { "SHIFT|CTRL", "SUPER" }, act.PasteFrom("Clipboard"))
--- map("f", { "SHIFT|CTRL", "SUPER" }, act.Search("CurrentSelectionOrEmptyString"))
--- rotation
--- map("e", { "LEADER", "SUPER" }, act.RotatePanes("Clockwise"))
--- pickers
--- map(" ", "LEADER", act.QuickSelect)
--- map("o", { "LEADER", "SUPER" }, openUrl)
--- map("p", { "LEADER", "SUPER" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
--- map("R", { "LEADER", "SUPER" }, act.ReloadConfiguration)
--- map("u", "SHIFT|CTRL", act.CharSelect)
--- map("p", { "SHIFT|CTRL", "SHIFT|SUPER" }, act.ActivateCommandPalette)
 -- view
-map("Enter", "ALT", act.ToggleFullScreen)
--- map("-", { "CTRL", "SUPER" }, act.DecreaseFontSize)
--- map("=", { "CTRL", "SUPER" }, act.IncreaseFontSize)
--- map("0", { "CTRL", "SUPER" }, act.ResetFontSize)
--- switch fonts
--- map("f", "LEADER", act.EmitEvent("switch-font"))
--- debug
--- map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
-
--- map(
---   "r",
---   { "LEADER", "SUPER" },
---   act.ActivateKeyTable({
---     name = "resize_mode",
---     one_shot = false,
---   })
-
--- local key_tables = {
---   resize_mode = {
---     { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
---     { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
---     { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
---     { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
---     { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
---     { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
---     { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
---     { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
---   },
--- }
-
--- add a common escape sequence to all key tables
--- for k, _ in pairs(key_tables) do
---   table.insert(key_tables[k], { key = "Escape", action = "PopKeyTable" })
---   table.insert(key_tables[k], { key = "Enter", action = "PopKeyTable" })
---   table.insert(
---     key_tables[k],
---     { key = "c", mods = "CTRL", action = "PopKeyTable" }
---   )
--- end
-
+map("Enter", "CTRL|ALT", act.ToggleFullScreen)
+map(".", { "CTRL|ALT", "SUPER" }, act.DecreaseFontSize)
+map("-", { "CTRL|ALT", "SUPER" }, act.IncreaseFontSize)
+map("0", { "CTRL|ALT", "SUPER" }, act.ResetFontSize)
+-- sessions
+map(
+	"r",
+	"LEADER",
+	act.PromptInputLine({
+		description = "Enter new name for tab",
+		action = wezterm.action_callback(function(window, pane, line)
+			if line then
+				window:active_tab():set_title(line)
+			end
+		end),
+	})
+)
+map(
+	"l",
+	"LEADER",
+	act.PromptInputLine({
+		description = wezterm.format({
+			{ Attribute = { Intensity = "Bold" } },
+			{ Text = "Enter name for new workspace" },
+		}),
+		action = wezterm.action_callback(function(window, pane, line)
+			if line then
+				window:perform_action(wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line), pane)
+			end
+		end),
+	})
+)
+map("s", "LEADER", wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
+map("p", "LEADER", wezterm.action.EmitEvent("save-workspaces"))
 return {
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 },
 	keys = shortcuts,
