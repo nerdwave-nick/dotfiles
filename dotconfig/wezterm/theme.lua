@@ -1,21 +1,17 @@
 local wezterm = require("wezterm")
 
-local F = {}
-
-F.scheme_for_appearance = function(appearance, theme)
-  if appearance:find("Dark") then
-    return theme.dark
-  else
-    return theme.light
-  end
+local scheme_for_appearance = function()
+	if wezterm.gui.get_appearance():find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
 end
 
-F.custom_colorscheme = function()
-  local americano = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-
-  return {
-    ["Catppuccin Americano"] = americano
-  }
+local function setup(opts)
+	opts.color_scheme = scheme_for_appearance()
 end
 
-return F
+return {
+	setup = setup,
+}

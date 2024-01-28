@@ -5,7 +5,7 @@ vim.o.hlsearch = true
 
 -- vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor"
 
-vim.o.signcolumn = "number"
+vim.o.signcolumn = "auto:1-4"
 
 vim.o.relativenumber = true
 
@@ -49,7 +49,9 @@ vim.o.softtabstop = 2
 -- vim.o.listchars = "tab:▸,eol:↲"
 vim.opt.list = true
 
-vim.api.nvim_create_autocmd('BufEnter', {
-  pattern = '*',
-  callback = function() require('lazygit.utils').project_root_dir() end
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		require("lazygit.utils").project_root_dir()
+	end,
 })
