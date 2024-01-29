@@ -101,6 +101,7 @@ M.setup = function(opts)
 	C.p = (M.config.dividers == "rounded") and "" or " "
 
 	wezterm.log_info(C)
+	return opts
 end
 
 -- superscript/subscript

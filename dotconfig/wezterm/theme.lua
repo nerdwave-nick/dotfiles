@@ -10,6 +10,7 @@ end
 
 local function setup(opts)
 	opts.color_scheme = scheme_for_appearance()
+	return opts
 end
 
 return {

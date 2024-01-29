@@ -1,10 +1,12 @@
-local theme = require("theme")
-local keybinds = require("keybinds")
-local statusbar = require("statusbar")
-local background = require("background")
-local font = require("fonts")
+local theme = require("theme").setup
+local keybinds = require("keybinds").setup
+local statusbar = require("statusbar").setup
+local background = require("background").setup
+local font = require("fonts").setup
 
-local opts = {
+require("sessionizer").setup("/usr/bin/fdfind", { os.getenv("HOME") .. "/repos", os.getenv("HOME") .. "/dotfiles" })
+
+return statusbar(keybinds(background(font(theme({
 	front_end = "OpenGL",
 	window_decorations = "RESIZE",
 	window_padding = {
@@ -23,12 +25,4 @@ local opts = {
 	default_cursor_style = "BlinkingBar",
 	enable_scroll_bar = false,
 	check_for_updates = true,
-}
-
-theme.setup(opts)
-statusbar.setup(opts)
-keybinds.setup(opts)
-font.setup(opts)
-background.setup(opts)
-
-return opts
+})))))

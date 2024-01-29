@@ -3,43 +3,43 @@ local act = wezterm.action
 
 local M = {}
 
-local fd = "/usr/bin/fdfind" -- TODO: make sure you have fd installed and linked here
-local rootPath = "/home/nerdwave/" -- TODO: change this to the directory where your git projects live
+local fd = ""
+local rootPaths = {}
 
 local cached = {}
 
 M.resetCacheAndToggle = function(window, pane)
+	wezterm.log_info("toggle sessionizer cache clear")
 	cached = {}
 	M.toggle(window, pane)
 end
 
 M.toggle = function(window, pane)
-	local projects = {}
-
+	wezterm.log_info("toggle sessionizer")
 	if next(cached) == nil then
-		local success, stdout, stderr = wezterm.run_child_process({
-			fd,
-			"-H",
-			"-I",
-			"-td",
-			"^.git$",
-			rootPath,
-		})
+		for _, path in pairs(rootPaths) do
+			local success, stdout, stderr = wezterm.run_child_process({
+				fd,
+				"-H",
+				"-I",
+				"-td",
+				"^.git$",
+				path,
+			})
 
-		if not success then
-			wezterm.log_error("Failed to run fd: " .. stderr)
-			return
-		end
+			if not success then
+				wezterm.log_error("Failed to run fd: " .. stderr)
+				return
+			end
 
-		for line in stdout:gmatch("([^\n]*)\n?") do
-			local project = line:gsub("/.git/$", "")
-			local label = project
-			local id = project:gsub(".*/", "")
-			table.insert(projects, { label = tostring(label), id = tostring(id) })
+			for line in stdout:gmatch("([^\n]*)\n?") do
+				local project = line:gsub("/.git/$", "")
+				local label = project
+				local id = project:gsub(".*/", "")
+				table.insert(cached, { label = tostring(label), id = tostring(id) })
+			end
 		end
-		cached = projects
 	end
-
 	window:perform_action(
 		act.InputSelector({
 			action = wezterm.action_callback(function(win, _, id, label)
@@ -56,6 +56,11 @@ M.toggle = function(window, pane)
 		}),
 		pane
 	)
+end
+
+M.setup = function(fd_path, root_paths)
+	fd = fd_path
+	rootPaths = root_paths
 end
 
 return M
