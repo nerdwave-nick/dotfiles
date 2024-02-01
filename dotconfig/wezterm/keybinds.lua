@@ -47,38 +47,39 @@ local function changePaneOrTab(win, direction)
 end
 
 ----------------------------------------------------------------------------------------
+local default_mods = "CTRL|SUPER"
 
 map(
 	"6",
-	{ "CTRL|ALT" },
+	default_mods,
 	wezterm.action_callback(function(win, _)
 		changePaneOrTab(win, "Right")
 	end)
 )
 map(
 	";",
-	{ "CTRL|ALT" },
+	default_mods,
 	wezterm.action_callback(function(win, _)
 		changePaneOrTab(win, "Left")
 	end)
 )
-map("3", "CTRL|ALT", act.AdjustPaneSize({ "Right", 5 }))
-map("`", "CTRL|ALT", act.AdjustPaneSize({ "Left", 5 }))
-map("4", "CTRL|ALT", act.RotatePanes("Clockwise"))
-map("5", "CTRL|ALT", act.RotatePanes("CounterClockwise"))
+map("3", default_mods, act.AdjustPaneSize({ "Right", 5 }))
+map("`", default_mods, act.AdjustPaneSize({ "Left", 5 }))
+map("4", default_mods, act.RotatePanes("Clockwise"))
+map("5", default_mods, act.RotatePanes("CounterClockwise"))
 -- spawn & close
-map("c", "CTRL|ALT", act.SpawnTab("CurrentPaneDomain"))
-map("s", "CTRL|ALT", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
-map("w", "CTRL|ALT", act.CloseCurrentPane({ confirm = true }))
+map("c", default_mods, act.SpawnTab("CurrentPaneDomain"))
+map("s", default_mods, act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
+map("w", default_mods, act.CloseCurrentPane({ confirm = true }))
 -- zoom states
 -- copy & paste
 map("c", { "SHIFT|CTRL", "SUPER" }, act.CopyTo("Clipboard"))
 map("v", { "SHIFT|CTRL", "SUPER" }, act.PasteFrom("Clipboard"))
 -- view
-map("Enter", "CTRL|ALT", act.ToggleFullScreen)
-map(".", { "CTRL|ALT", "SUPER" }, act.DecreaseFontSize)
-map("-", { "CTRL|ALT", "SUPER" }, act.IncreaseFontSize)
-map("0", { "CTRL|ALT", "SUPER" }, act.ResetFontSize)
+map("Enter", "LEADER", act.ToggleFullScreen)
+map(".", { default_mods, "SUPER" }, act.DecreaseFontSize)
+map("-", { default_mods, "SUPER" }, act.IncreaseFontSize)
+map("0", { default_mods, "SUPER" }, act.ResetFontSize)
 -- sessions
 local sessionizer = require("sessionizer")
 map("f", "LEADER", wezterm.action_callback(sessionizer.toggle))
