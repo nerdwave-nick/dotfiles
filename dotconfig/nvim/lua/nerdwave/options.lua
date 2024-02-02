@@ -55,3 +55,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		require("lazygit.utils").project_root_dir()
 	end,
 })
+
+vim.o.fillchars = "stlnc:─,vert:│,horiz:─"
