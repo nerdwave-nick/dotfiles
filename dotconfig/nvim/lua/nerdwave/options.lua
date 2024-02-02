@@ -56,4 +56,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
-vim.o.fillchars = "stlnc:─,vert:│,horiz:─"
+vim.o.fillchars = "stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬"
+vim.o.laststatus = 3
+vim.o.title = true
