@@ -128,3 +128,5 @@ mapn("<C-M-w>", "<C-w>q", noremap)
 mapn("<C-M-9>", "<C-w>_", noremap)
 mapn("<C-M-8>", "<C-w>|", noremap)
 mapn("<C-M-7>", "<C-w>=", noremap)
+-- terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", noremap)
