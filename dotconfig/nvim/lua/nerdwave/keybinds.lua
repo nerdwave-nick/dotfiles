@@ -1,20 +1,4 @@
 -- SETUP
-local silentNoremap = { noremap = true, silent = true }
-local noremap = { noremap = true }
-local mapn = function(keys, func, opts)
-	if opts == nil then
-		opts = noremap
-	end
-	vim.keymap.set("n", keys, func, opts)
-end
-
-local mapv = function(keys, func, opts)
-	if opts == nil then
-		opts = noremap
-	end
-	vim.keymap.set("v", keys, func, opts)
-end
-
 local format_with_notif = function()
 	local callback = function(err, did_edit)
 		if err ~= nil then
@@ -29,10 +13,6 @@ local format_with_notif = function()
 	end
 	require("conform").format({ lsp_fallback = true }, callback)
 end
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = format_with_notif,
-})
 
 -- ###########################################################################################
 -- KEYMAP ####################################################################################
@@ -45,88 +25,88 @@ local harpoon = require("harpoon")
 local telescopeBuiltin = require("telescope.builtin")
 
 -- vstask
-mapn("<leader>vt", function()
+vim.keymap.set("n", "<leader>vt", function()
 	telescope.extensions.vstask.task()
 end)
 -- undotree
-mapn("<leader>ut", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
 -- harpoon
-mapn("<leader>a", function()
+vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():append()
 end)
-mapn("<C-e>", function()
+vim.keymap.set("n", "<C-e>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
-mapn("<C-h>", function()
+vim.keymap.set("n", "<C-h>", function()
 	harpoon:list():select(1)
 end)
-mapn("<C-t>", function()
+vim.keymap.set("n", "<C-t>", function()
 	harpoon:list():select(2)
 end)
-mapn("<C-n>", function()
+vim.keymap.set("n", "<C-n>", function()
 	harpoon:list():select(3)
 end)
-mapn("<C-s>", function()
+vim.keymap.set("n", "<C-s>", function()
 	harpoon:list():select(4)
 end)
 -- lazygit
-mapn("<leader>gg", function()
+vim.keymap.set("n", "<leader>gg", function()
 	telescope.extensions.lazygit.lazygit()
 end)
 -- nvim-comment
-mapn("<leader>/", vim.cmd.CommentToggle)
-mapv("<leader>/", vim.cmd.CommentToggle)
+vim.keymap.set("n", "<leader>/", vim.cmd.CommentToggle)
+vim.keymap.set("v", "<leader>/", vim.cmd.CommentToggle)
 -- zen-mode
-mapn("<leader>zm", function()
+vim.keymap.set("n", "<leader>zm", function()
 	require("zen-mode").toggle()
 end)
 -- gitsigns
-mapn("<leader>tb", function()
+vim.keymap.set("n", "<leader>tb", function()
 	require("gitsigns").toggle_current_line_blame()
 end)
 -- telescope
-mapn("<leader>pf", telescopeBuiltin.find_files)
-mapn("<leader>pp", function()
+vim.keymap.set("n", "<leader>pf", telescopeBuiltin.find_files)
+vim.keymap.set("n", "<leader>pp", function()
 	telescopeBuiltin.find_files({ hidden = true })
 end)
-mapn("<C-p>", telescopeBuiltin.git_files)
--- mapn('<leader>ps', function() telescopeBuiltin.grep_string({search = vim.fn.input("Grep >")}) end)
-mapn("<leader>ps", telescopeBuiltin.live_grep)
-mapn("<leader>ph", telescopeBuiltin.help_tags)
-mapn("<leader>pe", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
-mapn("<leader>pn", ":Telescope noice<CR>")
+vim.keymap.set("n", "<C-p>", telescopeBuiltin.git_files)
+-- vim.keymap.set("n",'<leader>ps', function() telescopeBuiltin.grep_string({search = vim.fn.input("Grep >")}) end)
+vim.keymap.set("n", "<leader>ps", telescopeBuiltin.live_grep)
+vim.keymap.set("n", "<leader>ph", telescopeBuiltin.help_tags)
+vim.keymap.set("n", "<leader>pe", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>pn", ":Telescope noice<CR>")
 
 ----------
 -- General
 
 -- move line up/down
-mapn("<M-Up>", ":m-2<CR>", silentNoremap)
-mapn("<M-Down>", ":m+1<CR>", silentNoremap)
-mapn("<M-k>", ":m-2<CR>", silentNoremap)
-mapn("<M-j>", ":m+1<CR>", silentNoremap)
+vim.keymap.set("n", "<M-Up>", ":m-2<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<M-Down>", ":m+1<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<M-k>", ":m-2<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<M-j>", ":m+1<CR>", { silent = true, noremap = true })
 -- move selection up/down
-mapv("<M-Up>", ":m '<-2<CR>vgv=vgv", silentNoremap)
-mapv("<M-Down>", ":m '>+1<CR>vgv=vgv", silentNoremap)
-mapv("<M-k>", ":m '<-2<CR>vgv=vgv", silentNoremap)
-mapn("<M-j>", ":m '>+1<CR>vgv=vgv", silentNoremap)
+vim.keymap.set("v", "<M-Up>", ":m '<-2<CR>vgv=vgv", { silent = true, noremap = true })
+vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>vgv=vgv", { silent = true, noremap = true })
+vim.keymap.set("v", "<M-k>", ":m '<-2<CR>vgv=vgv", { silent = true, noremap = true })
+vim.keymap.set("n", "<M-j>", ":m '>+1<CR>vgv=vgv", { silent = true, noremap = true })
 -- formatting
-mapn("<leader>ff", format_with_notif, noremap)
+vim.keymap.set("n", "<leader>ff", format_with_notif, { noremap = true })
 -- pane navigation, spllitting, etc
-mapn("<C-M-;>", "<C-w>h", noremap)
-mapn("<C-M-6>", "<C-w>l", noremap)
-mapn("<C-M-5>", "<C-w>k", noremap)
-mapn("<C-M-4>", "<C-w>j", noremap)
+vim.keymap.set("n", "<C-M-;>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<C-M-6>", "<C-w>l", { noremap = true })
+vim.keymap.set("n", "<C-M-5>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<C-M-4>", "<C-w>j", { noremap = true })
 -- resizing
-mapn("<C-M-`>", "<C-w><", noremap)
-mapn("<C-M-3>", "<C-w>>", noremap)
-mapn("<C-M-2>", "<C-w>+", noremap)
-mapn("<C-M-1>", "<C-w>-", noremap)
+vim.keymap.set("n", "<C-M-`>", "<C-w><", { noremap = true })
+vim.keymap.set("n", "<C-M-3>", "<C-w>>", { noremap = true })
+vim.keymap.set("n", "<C-M-2>", "<C-w>+", { noremap = true })
+vim.keymap.set("n", "<C-M-1>", "<C-w>-", { noremap = true })
 -- creating and closing splits
-mapn("<C-M-s>", "<C-w>v<C-w>l", noremap)
-mapn("<C-M-c>", "<C-w>s<C-w>k", noremap)
-mapn("<C-M-w>", "<C-w>q", noremap)
-mapn("<C-M-9>", "<C-w>_", noremap)
-mapn("<C-M-8>", "<C-w>|", noremap)
-mapn("<C-M-7>", "<C-w>=", noremap)
+vim.keymap.set("n", "<C-M-s>", "<C-w>v<C-w>l", { noremap = true })
+vim.keymap.set("n", "<C-M-c>", "<C-w>s<C-w>k", { noremap = true })
+vim.keymap.set("n", "<C-M-w>", "<C-w>q", { noremap = true })
+vim.keymap.set("n", "<C-M-9>", "<C-w>_", { noremap = true })
+vim.keymap.set("n", "<C-M-8>", "<C-w>|", { noremap = true })
+vim.keymap.set("n", "<C-M-7>", "<C-w>=", { noremap = true })
 -- terminal mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", noremap)
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
