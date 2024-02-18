@@ -12,6 +12,8 @@ Keybinds are often reasonable, but some are based on dvorak, so be mindful of th
 - [nvm](https://github.com/nvm-sh/nvm) as a dependency for some parts
 - [rust](https://forge.rust-lang.org/infra/other-installation-methods.html) best installed via rustup
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for telescope
+- [fd](https://github.com/sharkdp/fd) for the sessionizer
+- [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) as the font of choice
 
 Some might be missing, so be sure to check. 
 
