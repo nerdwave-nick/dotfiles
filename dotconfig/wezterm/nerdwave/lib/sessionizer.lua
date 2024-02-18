@@ -58,9 +58,10 @@ M.toggle = function(window, pane)
     )
 end
 
-M.setup = function(fd_path, root_paths)
-    fd = fd_path
-    rootPaths = root_paths
+---@param sessionizer SessionizerConfig
+M.setup = function(sessionizer)
+    fd = sessionizer.fd
+    rootPaths = sessionizer.paths
 end
 
 return M
