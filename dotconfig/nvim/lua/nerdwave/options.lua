@@ -1,5 +1,5 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- floating window via noice.nvim, so no need
 vim.o.cmdheight = 0
@@ -8,14 +8,14 @@ vim.o.cmdheight = 0
 vim.o.hlsearch = false
 vim.o.incsearch = true
 
-vim.o.signcolumn = "auto:1-4"
+vim.o.signcolumn = 'auto:1-4'
 
 -- line numbers by default
 vim.o.nu = true
 vim.o.relativenumber = true
 
 -- mouse mode disabled
-vim.o.mouse = ""
+vim.o.mouse = ''
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -24,7 +24,7 @@ vim.o.wrap = false
 
 -- Save undo history
 vim.o.undofile = true
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.o.swapfile = false
 vim.o.backup = false
 
@@ -49,13 +49,11 @@ vim.o.expandtab = true
 
 vim.o.list = true
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	callback = function()
-		require("lazygit.utils").project_root_dir()
-	end,
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  callback = function() require('lazygit.utils').project_root_dir() end,
 })
 
-vim.o.fillchars = "stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬"
+vim.o.fillchars = 'stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬'
 vim.o.laststatus = 3
 vim.o.title = true

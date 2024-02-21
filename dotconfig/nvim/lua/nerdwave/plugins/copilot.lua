@@ -1,11 +1,11 @@
 return {
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  event = "InsertEnter",
+  'zbirenbaum/copilot.lua',
+  cmd = 'Copilot',
+  event = 'InsertEnter',
   opts = {
     cmp = {
       enabled = true,
-      method = "getCompletionsCycling",
+      method = 'getCompletionsCycling',
     },
     panel = {
       enabled = false,
@@ -14,13 +14,14 @@ return {
       enabled = false,
     },
     filetypes = {
-      ["dap-repl"] = false,
-      ["big_file_disabled_ft"] = false,
+      ['dap-repl'] = false,
+      ['big_file_disabled_ft'] = false,
     },
   },
   dependencies = {
     {
-      "zbirenbaum/copilot-cmp", opts = {}
+      'zbirenbaum/copilot-cmp',
+      opts = {},
     },
   },
 }

@@ -1,4 +1,6 @@
 return {
-    cmd = { "bash-language-server", "start" },
-    filetypes = { "bash", "sh" },
+  custom_opts = {
+    cmd = { 'bash-language-server', 'start' },
+    filetypes = { 'bash', 'sh' },
+  },
 }

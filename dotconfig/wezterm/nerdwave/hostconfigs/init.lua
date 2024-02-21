@@ -5,15 +5,13 @@
 
 ---@type table<string, HostConfig>
 local hostConfigs = {
-    ["debian"] = require("nerdwave.hostconfigs.debian-vm"),
-    ["HBV83038406"] = require("nerdwave.hostconfigs.macos-work"),
-    ["Ishtar"] = require("nerdwave.hostconfigs.ishtar-wsl")
+  ['debian'] = require('nerdwave.hostconfigs.debian-vm'),
+  ['HBV83038406'] = require('nerdwave.hostconfigs.macos-work'),
+  ['Ishtar'] = require('nerdwave.hostconfigs.ishtar-wsl'),
 }
 
-local function getHostConfig(hostname)
-    return hostConfigs[hostname]
-end
+local function getHostConfig(hostname) return hostConfigs[hostname] end
 
 return {
-    getHostConfig = getHostConfig
+  getHostConfig = getHostConfig,
 }

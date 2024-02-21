@@ -1,8 +1,8 @@
 return {
-  "EthanJWright/vs-tasks.nvim",
+  'EthanJWright/vs-tasks.nvim',
   dependencies = {
-    "nvim-lua/popup.nvim",
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
   },
 }

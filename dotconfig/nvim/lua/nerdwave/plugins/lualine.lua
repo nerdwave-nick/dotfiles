@@ -1,26 +1,23 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  lazy = true, event = "BufRead",
+  'nvim-lualine/lualine.nvim',
+  lazy = true,
+  event = 'BufRead',
   config = function()
     local function filename_plus_project()
-      local dir = vim.fn.getcwd() or ""
-      local buffer_dir = vim.fn.expand("%")
-      local project = "[" .. string.match(dir, ".+/(.+)$") .. "]"
-      local relative_path = buffer_dir:gsub(dir, "")
-      local modified_suffix = ""
-      if vim.bo.modified then
-        modified_suffix = "[+]"
-      end
-      return project .. " " .. relative_path .. " " .. modified_suffix
+      local dir = vim.fn.getcwd() or ''
+      local buffer_dir = vim.fn.expand('%')
+      local project = '[' .. string.match(dir, '.+/(.+)$') .. ']'
+      local relative_path = buffer_dir:gsub(dir, '')
+      local modified_suffix = ''
+      if vim.bo.modified then modified_suffix = '[+]' end
+      return project .. ' ' .. relative_path .. ' ' .. modified_suffix
     end
 
-    local clients_lsp = function ()
+    local clients_lsp = function()
       local bufnr = vim.api.nvim_get_current_buf()
 
       local clients = vim.lsp.buf_get_clients(bufnr)
-      if next(clients) == nil then
-        return ''
-      end
+      if next(clients) == nil then return '' end
 
       local c = {}
       for _, client in pairs(clients) do
@@ -29,33 +26,33 @@ return {
       return '\u{f085} ' .. table.concat(c, '|')
     end
     -- lvim.builtin.lualine.sections.lualine_c = { current_project }
-    require("lualine").setup {
+    require('lualine').setup({
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        theme = 'catppuccin',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { filename_plus_project, clients_lsp },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" }
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
-    }
-  end
+      extensions = {},
+    })
+  end,
 }

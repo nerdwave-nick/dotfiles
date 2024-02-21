@@ -1,1 +1,1 @@
-require("nerdwave")
+require('nerdwave')
