@@ -30,16 +30,16 @@ local lsp_config_setup = function()
   }
   local nvim_lsp = require('lspconfig')
   local function mason_lsp_handler(lsp_name)
-    local custom_handler = {
-      on_attach = set_lsp_keymap,
-    }
+    local custom_handler = {}
     if lsp_servers[lsp_name] ~= nil then
       custom_handler = lsp_servers[lsp_name].custom_opts
       if lsp_servers[lsp_name].on_attach ~= nil then
-        custom_handler.on_attach = function(client, buffnr)
+        opts.on_attach = function(client, buffnr)
           lsp_servers[lsp_name].on_attach(client, buffnr)
           set_lsp_keymap(client, buffnr)
         end
+      else
+        opts.on_attach = set_lsp_keymap
       end
     end
     nvim_lsp[lsp_name].setup(vim.tbl_deep_extend('force', opts, custom_handler))

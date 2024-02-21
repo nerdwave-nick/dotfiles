@@ -1,5 +1,6 @@
 ---@diagnostic disable-next-line: unused-local
 local on_attach_keymap = function(client, bufnr)
+  vim.notify('LSP: ' .. client.name .. ' attached')
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, buffer = 0 })
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, buffer = 0 })
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true, buffer = 0 })
