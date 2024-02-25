@@ -4,6 +4,7 @@
 ----------
 -- General
 
+
 -- move line up/down
 vim.keymap.set('n', '<M-Up>', ':m-2<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<M-Down>', ':m+1<CR>', { silent = true, noremap = true })
@@ -15,7 +16,6 @@ vim.keymap.set('v', '<M-Up>', ':m \'<-2<CR>vgv=vgv', { silent = true, noremap = 
 vim.keymap.set('v', '<M-Down>', ':m \'>+1<CR>vgv=vgv', { silent = true, noremap = true })
 vim.keymap.set('v', '<M-k>', ':m \'<-2<CR>vgv=vgv', { silent = true, noremap = true })
 vim.keymap.set('n', '<M-j>', ':m \'>+1<CR>vgv=vgv', { silent = true, noremap = true })
-
 -- formatting
 vim.keymap.set('n', '<leader>ff', require('nerdwave.formatting').format_with_notif, { noremap = true })
 
@@ -96,5 +96,5 @@ vim.keymap.set('n', '<leader>pn', ':Telescope noice<CR>')
 -- vstask
 vim.keymap.set('n', '<leader>vt', function() telescope.extensions.vstask.task() end)
 
--- lazygit
+-- lazygirl
 vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygit() end)
