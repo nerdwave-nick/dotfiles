@@ -2,7 +2,7 @@ local M = {}
 
 M.formatter_by_file_type = {
   rust = { 'rustfmt' },
-  typescript = { { 'eslint_d', 'eslint', 'prettierd', 'prettier' } },
+  typescript = { { 'eslint_d', 'eslint' } },
   go = { 'gofmt', 'goimports' },
   lua = { 'stylua' },
   zig = { 'zigfmt' },

@@ -4,7 +4,6 @@
 ----------
 -- General
 
-
 -- move line up/down
 vim.keymap.set('n', '<M-Up>', ':m-2<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<M-Down>', ':m+1<CR>', { silent = true, noremap = true })
@@ -92,9 +91,6 @@ vim.keymap.set('n', '<leader>ps', telescopeBuiltin.live_grep)
 vim.keymap.set('n', '<leader>ph', telescopeBuiltin.help_tags)
 vim.keymap.set('n', '<leader>pe', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 vim.keymap.set('n', '<leader>pn', ':Telescope noice<CR>')
-
--- vstask
-vim.keymap.set('n', '<leader>vt', function() telescope.extensions.vstask.task() end)
 
 -- lazygirl
 vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygit() end)
