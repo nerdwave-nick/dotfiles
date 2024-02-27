@@ -25,6 +25,16 @@ return {
       end
       return '\u{f085} ' .. table.concat(c, '|')
     end
+
+    local clients_formatter = function()
+      local formatters = require('conform').list_formatters
+      local c = {}
+      for _, formatter in pairs(formatters()) do
+        table.insert(c, formatter.name)
+      end
+      if #c == 0 then table.insert(c, 'fallback') end
+      return '\u{f0753} ' .. table.concat(c, '|')
+    end
     -- lvim.builtin.lualine.sections.lualine_c = { current_project }
     require('lualine').setup({
       options = {
@@ -36,7 +46,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { filename_plus_project, clients_lsp },
+        lualine_c = { filename_plus_project, clients_lsp, clients_formatter },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
