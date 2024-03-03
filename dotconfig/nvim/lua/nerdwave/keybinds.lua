@@ -84,13 +84,45 @@ vim.keymap.set('n', '<leader>tb', function() require('gitsigns').toggle_current_
 -- telescope
 local telescope = require('telescope')
 local telescopeBuiltin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', telescopeBuiltin.find_files)
-vim.keymap.set('n', '<leader>pp', function() telescopeBuiltin.find_files({ hidden = true }) end)
-vim.keymap.set('n', '<C-p>', telescopeBuiltin.git_files)
-vim.keymap.set('n', '<leader>ps', telescopeBuiltin.live_grep)
-vim.keymap.set('n', '<leader>ph', telescopeBuiltin.help_tags)
-vim.keymap.set('n', '<leader>pe', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
-vim.keymap.set('n', '<leader>pn', ':Telescope noice<CR>')
+vim.keymap.set('n', '<leader>pf', telescopeBuiltin.find_files, { noremap = true, desc = 'Find files' })
+vim.keymap.set(
+  'n',
+  '<leader>pp',
+  function() telescopeBuiltin.find_files({ hidden = true }) end,
+  { noremap = true, desc = 'Find files, including hidden files' }
+)
+vim.keymap.set('n', '<C-p>', telescopeBuiltin.git_files, { noremap = true, desc = 'Find git files' })
+vim.keymap.set('n', '<leader>ps', telescopeBuiltin.live_grep, { noremap = true, desc = 'Search in files' })
+vim.keymap.set('n', '<leader>ph', telescopeBuiltin.help_tags, { noremap = true, desc = 'Find help tags' })
+vim.keymap.set(
+  'n',
+  '<leader>pc',
+  telescopeBuiltin.current_buffer_fuzzy_find,
+  { noremap = true, desc = 'Find in current buffer' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>sk',
+  function()
+    telescopeBuiltin.keymaps(
+      require('telescope.themes').get_dropdown({ previewer = false, layout_config = { width = 0.6 } })
+    )
+  end,
+  { noremap = true, desc = 'Show keymaps' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>ss',
+  function() telescopeBuiltin.builtin(require('telescope.themes').get_dropdown({ previewer = false })) end,
+  { noremap = true, desc = 'Show telescope builtin' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>pe',
+  ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
+  { noremap = true, desc = 'Open file browser at current path' }
+)
+vim.keymap.set('n', '<leader>pn', ':Telescope noice<CR>', { noremap = true, desc = 'Open noice in telescope' })
 
 -- lazygirl
 vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygit() end)
