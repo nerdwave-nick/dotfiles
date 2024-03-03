@@ -8,21 +8,12 @@ return {
         },
         workspace = {
           library = {
-            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            '${3rd}/luv/library',
+            unpack(vim.api.nvim_list_runtime_paths()),
           },
-          maxPreload = 100000,
-          preloadFileSize = 10000,
         },
         format = {
-          enable = true,
-          defaultConfig = {
-            indent_style = 'space',
-            indent_size = 2,
-            quote_style = 'single',
-            align_call_args = true,
-            end_statement_with_semicolon = 'replace_with_newline',
-          },
+          enable = false,
         },
         telemetry = { enable = false },
         semantic = { enable = true },
