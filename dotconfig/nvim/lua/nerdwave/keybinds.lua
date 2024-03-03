@@ -118,7 +118,7 @@ vim.keymap.set(
 )
 vim.keymap.set(
   'n',
-  '<leader>pe',
+  '<leader>pg',
   ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
   { noremap = true, desc = 'Open file browser at current path' }
 )
