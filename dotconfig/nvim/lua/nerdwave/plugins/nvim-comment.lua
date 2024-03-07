@@ -4,9 +4,7 @@ return {
     'JoosepAlviste/nvim-ts-context-commentstring',
   },
   config = function()
-    require('ts_context_commentstring').setup({
-      enable_autocmd = false,
-    })
+    require('ts_context_commentstring').setup({})
     require('nvim_comment').setup({
       create_mappings = false,
       comment_empty = false,
