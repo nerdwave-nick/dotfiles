@@ -1,3 +1,4 @@
+-- TODO fix this shit
 ---@type HostConfig
 local M = {
   wallpaper = {

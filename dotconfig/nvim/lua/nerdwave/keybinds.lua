@@ -123,6 +123,7 @@ vim.keymap.set(
   { noremap = true, desc = 'Open file browser at current path' }
 )
 vim.keymap.set('n', '<leader>pn', ':Telescope noice<CR>', { noremap = true, desc = 'Open noice in telescope' })
+vim.keymap.set('n', '<leader>pt', ':TodoTelescope<CR>', { noremap = true, silent=true, desc = 'Open todos in telescope' })
 
 -- lazygirl
 vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygit() end)
