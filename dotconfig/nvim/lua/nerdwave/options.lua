@@ -57,3 +57,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.o.fillchars = 'stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬'
 vim.o.laststatus = 3
 vim.o.title = true
+
+vim.filetype.add({ name = 'lazygit', extension = '.git' })
+vim.filetype.add({ name = 'templ', extension = 'templ' })
