@@ -20,7 +20,7 @@ M.format_with_notif = function()
       vim.notify('No changes occurred', vim.log.levels.INFO, { title = 'Formatting succeeded' })
     end
   end
-  require('conform').format({ timeout_ms = 500, lsp_fallback = true }, callback)
+  require('conform').format({ timeout_ms = 1500, lsp_fallback = true }, callback)
 end
 
 return M
