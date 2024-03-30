@@ -1,6 +1,4 @@
 local cmp_setup = function()
-  local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
-
   local border = function(hl)
     return {
       { '┌', hl },
@@ -32,7 +30,7 @@ local cmp_setup = function()
       fields = { 'abbr', 'kind', 'menu' },
       format = function(entry, vim_item)
         vim_item.menu = setmetatable({
-          copilot = '[CPLT]',
+          -- copilot = '[CPLT]',
           nvim_lsp = '[LSP]',
           nvim_lua = '[LUA]',
           path = '[PATH]',
@@ -80,7 +78,7 @@ local cmp_setup = function()
       { name = 'path' },
       { name = 'treesitter' },
       { name = 'buffer' },
-      { name = 'copilot' },
+      -- { name = 'copilot' },
       -- { name = "codeium" },
       -- { name = "cmp_tabnine" },
     },
