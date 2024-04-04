@@ -57,16 +57,31 @@ local cmp_setup = function()
     },
     performance = {
       async_budget = 1,
-      max_view_entries = 120,
+      max_view_entries = 10,
     },
     -- You can set mappings if you want
     mapping = {
-      ['<C-CR>'] = cmp.mapping.confirm({
-        select = false,
-        behavior = cmp.ConfirmBehavior.Replace,
-      }),
-      ['<C-t>'] = cmp.mapping.select_next_item({ }),
-      ['<C-n>'] = cmp.mapping.select_prev_item({ }),
+      ['<C-CR>'] = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() ~= nil then
+          cmp.confirm({
+            select = false,
+            behavior = cmp.ConfirmBehavior.Insert,
+          })
+        elseif require('luasnip').expand_or_locally_jumpable() then
+          require('luasnip').expand_or_jump()
+        else
+          fallback()
+        end
+      end,
+      ['<C-S-CR>'] = function(fallback)
+        if require('luasnip').jumpable(-1) then
+          require('luasnip').jump(-1)
+        else
+          fallback()
+        end
+      end,
+      ['<C-t>'] = cmp.mapping.select_next_item({}),
+      ['<C-n>'] = cmp.mapping.select_prev_item({}),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-w>'] = cmp.mapping.close(),
@@ -95,7 +110,6 @@ end
 local luasnip_setup = function()
   local snippet_path = vim.fn.stdpath('config') .. '/snips/'
   if not vim.tbl_contains(vim.opt.rtp:get(), snippet_path) then vim.opt.rtp:append(snippet_path) end
-
   require('luasnip').setup({
     history = true,
     update_events = 'TextChanged,TextChangedI',
