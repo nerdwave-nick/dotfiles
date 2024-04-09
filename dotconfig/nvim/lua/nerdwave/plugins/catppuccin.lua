@@ -46,8 +46,8 @@ return {
         gitsigns = true,
         indent_blankline = {
           enabled = true,
-          scope_color = '', -- catppuccin color (eg. `lavender`) Default: text
-          colored_indent_levels = false,
+          scope_color = 'lavender', -- catppuccin color (eg. `lavender`) Default: text
+          colored_indent_levels = true,
         },
       },
     })

@@ -1,6 +1,4 @@
 local cmp_setup = function()
-  local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
-
   local border = function(hl)
     return {
       { '┌', hl },
@@ -21,7 +19,7 @@ local cmp_setup = function()
       completion = {
         border = border('PmenuBorder'),
         winhighlight = 'Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel',
-        scrollbar = false,
+        scrollbar = true,
       },
       documentation = {
         border = border('CmpDocBorder'),
@@ -57,7 +55,6 @@ local cmp_setup = function()
     },
     performance = {
       async_budget = 1,
-      max_view_entries = 10,
     },
     -- You can set mappings if you want
     mapping = {
@@ -80,8 +77,8 @@ local cmp_setup = function()
           fallback()
         end
       end,
-      ['<C-t>'] = cmp.mapping.select_next_item({}),
-      ['<C-n>'] = cmp.mapping.select_prev_item({}),
+      ['<C-t>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<C-n>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-w>'] = cmp.mapping.close(),
