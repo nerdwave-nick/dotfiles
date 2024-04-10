@@ -4,41 +4,9 @@ local M = {
     prefix = os.getenv('HOME') .. '/Pictures/',
     wallpapers = {
       {
-        image = 'backiee-257465-landscape.jpg',
-        hsb = {
-          brightness = 0.014,
-          hue = 1.0,
-          saturation = 1.0,
-        },
-      },
-      {
         image = 'light-night-forest-winter-foggy-dark-3840x2161-5431.jpg',
         hsb = {
           brightness = 0.024,
-          hue = 1.0,
-          saturation = 1.0,
-        },
-      },
-      {
-        image = 'e98d5a5788893b9846455e946e058936.jpg',
-        hsb = {
-          brightness = 0.014,
-          hue = 1.0,
-          saturation = 1.0,
-        },
-      },
-      {
-        image = 'u7u8bqnya8v11.jpg',
-        hsb = {
-          brightness = 0.005,
-          hue = 1.0,
-          saturation = 1.0,
-        },
-      },
-      {
-        image = 'alex-knight-5-GNa303REg-unsplash.jpg',
-        hsb = {
-          brightness = 0.030,
           hue = 1.0,
           saturation = 1.0,
         },
