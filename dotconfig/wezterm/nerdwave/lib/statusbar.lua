@@ -175,47 +175,45 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     config.resolved_palette.indexed[16],
     config.resolved_palette.ansi[4],
     config.resolved_palette.ansi[3],
+    config.resolved_palette.ansi[7],
     config.resolved_palette.ansi[5],
-    config.resolved_palette.ansi[1],
   }
 
   local i = tab.tab_index % 6
-  local active_bg = rainbow[i + 1]
-  local active_fg = colours.background
-  local inactive_bg = colours.inactive_tab.bg_color
-  local inactive_fg = colours.inactive_tab.fg_color
-  local new_tab_bg = colours.new_tab.bg_color
+  local tab_rgb = rainbow[i + 1]
+  local inactive_tab_bg = colours.inactive_tab.bg_color
+  local active_tab_bg = colours.new_tab.bg_color
 
   local s_bg, s_fg, e_bg, e_fg
 
   -- the last tab
   if tab.tab_index == #tabs - 1 then
     if tab.is_active then
-      s_bg = active_bg
-      s_fg = active_fg
-      e_bg = new_tab_bg
-      e_fg = active_bg
+      s_bg = active_tab_bg
+      s_fg = tab_rgb
+      e_bg = active_tab_bg
+      e_fg = active_tab_bg
     else
-      s_bg = inactive_bg
-      s_fg = inactive_fg
-      e_bg = new_tab_bg
-      e_fg = inactive_bg
+      s_bg = inactive_tab_bg
+      s_fg = tab_rgb
+      e_bg = active_tab_bg
+      e_fg = inactive_tab_bg
     end
   elseif tab.tab_index == active_tab_index - 1 then
-    s_bg = inactive_bg
-    s_fg = inactive_fg
-    e_bg = rainbow[(i + 1) % 6 + 1]
-    e_fg = inactive_bg
+    s_bg = inactive_tab_bg
+    s_fg = tab_rgb
+    e_bg = active_tab_bg
+    e_fg = inactive_tab_bg
   elseif tab.is_active then
-    s_bg = active_bg
-    s_fg = active_fg
-    e_bg = inactive_bg
-    e_fg = active_bg
+    s_bg = active_tab_bg
+    s_fg = tab_rgb
+    e_bg = inactive_tab_bg
+    e_fg = active_tab_bg
   else
-    s_bg = inactive_bg
-    s_fg = inactive_fg
-    e_bg = inactive_bg
-    e_fg = inactive_bg
+    s_bg = inactive_tab_bg
+    s_fg = tab_rgb
+    e_bg = inactive_tab_bg
+    e_fg = inactive_tab_bg
   end
 
   local pane_count = ''
@@ -226,7 +224,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     pane_count = numberStyle(count, C.tabs.pane_count_style)
   end
 
-  local index_i
+  local index_i, index
   if C.tabs.numerals == 'roman' then
     index_i = roman_numerals[tab.tab_index + 1]
   else
@@ -280,24 +278,24 @@ wezterm.on('update-status', function(window, pane)
     local leader_text = C.leader.off
     if window:leader_is_active() then leader_text = C.leader.on end
     leader = wezterm.format({
-      { Foreground = { Color = palette.background } },
-      { Background = { Color = palette.ansi[5] } },
+      { Foreground = { Color = palette.ansi[5] } },
+      { Background = { Color = palette.background } },
       { Text = ' ' .. leader_text .. C.p },
     })
   end
 
   local first_tab_active = window:mux_window():tabs_with_info()[1].is_active
-  local divider_bg = first_tab_active and palette.ansi[2] or palette.tab_bar.inactive_tab.bg_color
+  local divider_bg = first_tab_active and palette.tab_bar.new_tab.bg_color or palette.tab_bar.inactive_tab.bg_color
 
   local divider = wezterm.format({
+    { Foreground = { Color = palette.background } },
     { Background = { Color = divider_bg } },
-    { Foreground = { Color = palette.ansi[5] } },
     { Text = C.div.r },
   })
 
   local workspace = wezterm.format({
-    { Foreground = { Color = palette.background } },
-    { Background = { Color = palette.ansi[5] } },
+    { Foreground = { Color = palette.ansi[5] } },
+    { Background = { Color = palette.background } },
     { Text = ' ws:' },
     { Attribute = { Intensity = 'Bold' } },
     { Text = wezterm.mux.get_active_workspace() .. C.p },
@@ -310,7 +308,7 @@ wezterm.on('update-status', function(window, pane)
     local time = wezterm.time.now():format(C.clock.format)
     window:set_right_status(wezterm.format({
       { Background = { Color = palette.tab_bar.background } },
-      { Foreground = { Color = palette.ansi[6] } },
+      { Foreground = { Color = palette.ansi[5] } },
       { Attribute = { Intensity = 'Bold' } },
       { Text = time },
       'ResetAttributes',
