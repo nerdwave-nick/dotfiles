@@ -135,3 +135,6 @@ vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygi
 
 -- go
 vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR><Tab>return err<CR>}<ESC>')
+
+-- oil 
+vim.keymap.set('n', '-', '<CMD>Oil<CR>')
