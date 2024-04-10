@@ -3,6 +3,11 @@ return {
   priority = 1000,
   config = function()
     require('catppuccin').setup({
+      custom_highlights = function()
+        return {
+          Comment = { fg = '#545d7d' },
+        }
+      end,
       flavour = 'mocha', -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = 'latte',

@@ -1,0 +1,27 @@
+#!/bin/sh
+root_path="$HOME/repos/go/src"
+
+[ -z "$1" ] && echo "no argument given" &&  exit 1
+if [ "$1" = "-h" ]; then 
+  echo "[c]reate [g]o [p]roject"
+  echo "-----------------------"
+  echo "creates a go project at \"$root_path/\$1\""
+  echo ""
+  echo "Usage"
+  echo "-----"
+  echo "$0 <location>"
+  echo ""
+  echo ""
+  exit 0
+fi
+
+echo "Creating new go project in $root_path/$1"
+cd $root_path
+mkdir $1
+cd $1
+git init
+mkdir cmd
+mkdir internal
+mkdir pkg
+go mod init github.com/nerdwave-nick/$1
+
