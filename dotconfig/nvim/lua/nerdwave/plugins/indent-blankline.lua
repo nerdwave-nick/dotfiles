@@ -34,6 +34,9 @@ return {
         char = { '│' },
         highlight = highlight,
       },
+      whitespace = {
+        highlight = { 'Comment' },
+      },
       scope = { enabled = false },
     })
   end,
