@@ -59,9 +59,9 @@ map('c', { 'SHIFT|CTRL', 'SUPER' }, act.CopyTo('Clipboard'))
 map('v', { 'SHIFT|CTRL', 'SUPER' }, act.PasteFrom('Clipboard'))
 -- view
 map('Enter', 'LEADER', act.ToggleFullScreen)
-map('.', { default_mods, 'SUPER' }, act.DecreaseFontSize)
-map('-', { default_mods, 'SUPER' }, act.IncreaseFontSize)
-map('0', { default_mods, 'SUPER' }, act.ResetFontSize)
+map(' ', { default_mods }, act.DecreaseFontSize)
+map('.', { default_mods }, act.IncreaseFontSize)
+map('*', { default_mods }, act.ResetFontSize)
 -- sessions
 local sessionizer = require('nerdwave.lib.sessionizer')
 map('f', 'LEADER', wezterm.action_callback(sessionizer.toggle))
