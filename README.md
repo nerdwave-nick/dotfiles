@@ -19,3 +19,9 @@ Some might be missing, so be sure to check.
 
 ## Installation
 There's a very simple install script in this repository, which just symlinks the dotfiles. 
+
+
+### Todo
+leader y for yanking into system clipboard
+recheck all plugins
+
