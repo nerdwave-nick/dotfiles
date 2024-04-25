@@ -4,6 +4,12 @@
 ----------
 -- General
 
+-- move through wrapped lines
+vim.keymap.set('n', 'k', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true, silent = true })
+vim.keymap.set('n', 'j', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true, silent = true })
+vim.keymap.set('n', '<Up>', 'v:count == 0 ? \'gk\' : \'k\'', { expr = true, silent = true })
+vim.keymap.set('n', '<Down>', 'v:count == 0 ? \'gj\' : \'j\'', { expr = true, silent = true })
+
 -- move line up/down
 vim.keymap.set('n', '<M-Up>', ':m-2<CR>', { silent = true, noremap = true })
 vim.keymap.set('n', '<M-Down>', ':m+1<CR>', { silent = true, noremap = true })
@@ -136,5 +142,5 @@ vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygi
 -- go
 vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR><Tab>return err<CR>}<ESC>')
 
--- oil 
+-- oil
 vim.keymap.set('n', '-', '<CMD>Oil<CR>')

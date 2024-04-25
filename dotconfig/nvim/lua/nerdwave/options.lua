@@ -18,9 +18,11 @@ vim.o.relativenumber = true
 vim.o.mouse = ''
 
 -- Enable break indent
+vim.o.wrap = true
 vim.o.breakindent = true
 vim.o.smartindent = true
-vim.o.wrap = false
+vim.o.linebreak = true
+vim.o.showbreak = "  "
 
 -- Save undo history
 vim.o.undofile = true
