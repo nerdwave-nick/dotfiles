@@ -21,3 +21,5 @@ create_dir_symlink dotconfig/wezterm ~/.config/wezterm
 # nvim
 create_dir_symlink dotconfig/nvim ~/.config/nvim
 
+#fastfetch
+create_dir_symlink dotconfig/fastfetch ~/.config/fastfetch
