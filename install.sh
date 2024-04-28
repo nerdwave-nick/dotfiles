@@ -21,5 +21,17 @@ create_dir_symlink dotconfig/wezterm ~/.config/wezterm
 # nvim
 create_dir_symlink dotconfig/nvim ~/.config/nvim
 
+# alacritty
+create_dir_symlink dotconfig/alacritty ~/.config/alacritty
+
 #fastfetch
 create_dir_symlink dotconfig/fastfetch ~/.config/fastfetch
+
+#kitty
+create_dir_symlink dotconfig/kitty ~/.config/kitty
+
+#awesome wm
+create_dir_symlink dotconfig/awesome ~/.config/awesome
+
+#picom
+create_dir_symlink dotconfig/picom ~/.config/picom

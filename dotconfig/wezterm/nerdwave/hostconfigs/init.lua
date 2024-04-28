@@ -8,6 +8,7 @@ local hostConfigs = {
   ['debian'] = require('nerdwave.hostconfigs.debian-vm'),
   ['HBV83038406'] = require('nerdwave.hostconfigs.macos-work'),
   ['Ishtar'] = require('nerdwave.hostconfigs.ishtar-wsl'),
+  ['archlinux'] = require('nerdwave.hostconfigs.arch')
 }
 
 local function getHostConfig(hostname) return hostConfigs[hostname] end
