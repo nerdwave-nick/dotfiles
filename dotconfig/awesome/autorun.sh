@@ -7,6 +7,7 @@ function run {
     fi
 }
 
-run vmware-user-suid-wrapper --no--startup-id
+run vmware-user-suid-wrapper
 # run picom --config $HOME/.config/picom/picom.conf
 run picom 
+run ~/.fehbg

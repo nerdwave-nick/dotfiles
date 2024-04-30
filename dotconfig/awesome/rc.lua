@@ -61,7 +61,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
@@ -69,7 +70,6 @@ awful.layout.layouts = {
     awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
@@ -562,4 +562,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-awful.util.spawn_with_shell("/home/nerdwave/.config/awesome/autorun.sh")
+awful.util.spawn_with_shell("~/.config/awesome/autorun.sh")

@@ -13,6 +13,15 @@ create_dir_symlink() {
   ln -s $DOTFILES_DIR/$1 $2
 }
 
+create_file_symlink() {
+  echo "Attempting to create symlink for file $DOTFILES_DIR/$1 to $2"
+  if [ -f $2 ]; then
+    echo "$2 already exists, skipping"
+    return
+  fi
+  ln -s $DOTFILES_DIR/$1 $2
+}
+
 ######################################################################################
 
 # wezterm
@@ -24,14 +33,20 @@ create_dir_symlink dotconfig/nvim ~/.config/nvim
 # alacritty
 create_dir_symlink dotconfig/alacritty ~/.config/alacritty
 
-#fastfetch
+# fastfetch
 create_dir_symlink dotconfig/fastfetch ~/.config/fastfetch
 
-#kitty
+# kitty
 create_dir_symlink dotconfig/kitty ~/.config/kitty
 
-#awesome wm
+# awesome wm
 create_dir_symlink dotconfig/awesome ~/.config/awesome
 
-#picom
+# picom
 create_dir_symlink dotconfig/picom ~/.config/picom
+
+# picom
+create_dir_symlink dotconfig/fish ~/.config/fish
+
+# starship
+create_file_symlink dotconfig/starship/starship.toml ~/.config/starship.toml

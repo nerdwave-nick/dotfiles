@@ -1,0 +1,143 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os \
+$username\
+$hostname \
+$directory \
+$git_branch\
+$git_status\
+$fill \
+$all\
+$time \
+$line_break$character"""
+
+# Sets user-defined palette
+palette = "catppuccin_mocha"
+
+[os]
+disabled = false
+style = "fg:blue bold"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "mauve"
+style_root = "teal bold"
+format = '[$user]($style)'
+
+[hostname]
+disabled = false
+ssh_only = true
+style = "cyan"
+format = "[[@](overlay2)$hostname]($style)"
+
+[directory]
+format='[$path]($style)[$read_only]($read_only_style)'
+style = "green"
+truncation_length = 1
+truncation_symbol = ""
+truncate_to_repo = true
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+symbol = ""
+style = "maroon"
+format = '[\($symbol $branch\)]($style)'
+
+[git_status]
+style = "peach"
+format = '[\[$all_status$ahead_behind\]]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[[$symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[golang]
+symbol = ""
+style = "sapphire"
+format = '[$symbol$version ]($style)'
+
+[lua]
+symbol = "\ue620"
+format = '[$symbol ]($style)'
+style = 'sapphire'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "lavender"
+format = '[ $time]($style)'
+
+[line_break]
+disabled = false
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration ](bold yellow)"
+# [character]
+# disabled = false
+# success_symbol = '[](bold fg:color_green)'
+# error_symbol = '[](bold fg:color_red)'
+# vimcmd_symbol = '[](bold fg:color_green)'
+# vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+# vimcmd_replace_symbol = '[](bold fg:color_purple)'
+# vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[character]
+success_symbol = "[[♥](green) ❯](pink)"
+error_symbol = "[[\uea87](maroon) ❯](pink)"
+vimcmd_symbol = "[[\ue7c5](sapphire) ❯](pink)"
+vimcmd_visual_symbol = "[[\ue7c5](mauve) ❯](pink)"
+vimcmd_replace_one_symbol= "[[\ue7c5](yellow) ❯](pink)"
+vimcmd_replace_symbol = "[[\ue7c5](peach) ❯](pink)"
+
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
