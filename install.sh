@@ -30,9 +30,6 @@ create_dir_symlink dotconfig/wezterm ~/.config/wezterm
 # nvim
 create_dir_symlink dotconfig/nvim ~/.config/nvim
 
-# alacritty
-create_dir_symlink dotconfig/alacritty ~/.config/alacritty
-
 # fastfetch
 create_dir_symlink dotconfig/fastfetch ~/.config/fastfetch
 
@@ -45,8 +42,14 @@ create_dir_symlink dotconfig/awesome ~/.config/awesome
 # picom
 create_dir_symlink dotconfig/picom ~/.config/picom
 
-# picom
+# fish
 create_dir_symlink dotconfig/fish ~/.config/fish
 
+# oh my fish
+create_dir_symlink dotconfig/omf ~/.config/omf
+ 
 # starship
 create_file_symlink dotconfig/starship/starship.toml ~/.config/starship.toml
+
+# bashrc
+create_file_symlink dotconfig/bashrc ~/.bashrc

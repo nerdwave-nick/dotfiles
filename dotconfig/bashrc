@@ -1,0 +1,42 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+. "$HOME/.cargo/env"
+
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
+
+alias ls="exa"
+alias ll="exa -al"
+alias cat="bat --paging=never --style=plain"
+alias catte="bat"
+alias bathelp='bat --plain --language=help'
+alias vim=nvim
+alias vi=nvim
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+rfv() {
+  rg --color=always --line-number --no-heading --smart-case "${*:-}" |
+    fzf --ansi \
+      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+      --delimiter : \
+      --preview 'bat --color=always {1} --highlight-line {2}' \
+      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+      --bind 'enter:become(nvim {1} +{2})'
+}
+
+
+eval "$(starship init bash)"
+eval "$(fzf --bash)"
+exec fish
+# fastfetch
