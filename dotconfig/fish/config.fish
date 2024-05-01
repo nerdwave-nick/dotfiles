@@ -1,6 +1,7 @@
 starship init fish | source
 fastfetch
 set fish_greeting
+fish_vi_key_bindings
 
 # set PATH $PATH ~/.cargo/bin;
 

@@ -7,6 +7,7 @@ $hostname \
 $directory \
 $git_branch\
 $git_status\
+$git_state\
 $fill \
 $all\
 $time \
@@ -67,12 +68,12 @@ format = '[\($symbol $branch\)]($style)'
 
 [git_status]
 style = "peach"
-format = '[\[$all_status$ahead_behind\]]($style)'
+format = '[\[$modified$ahead_behind\]]($style)'
 
 [nodejs]
 symbol = ""
 style = "bg:color_blue"
-format = '[[$symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[$symbol ]($style)'
 
 [golang]
 symbol = ""

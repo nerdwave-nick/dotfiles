@@ -3,13 +3,22 @@ return {
     settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' },
+          globals = {
+            -- nvim
+            'vim',
+            -- awesome
+            'awesome',
+            'client',
+            'screen',
+            'root',
+          },
           disable = { 'different-requires' },
         },
         workspace = {
           library = {
             '${3rd}/luv/library',
             unpack(vim.api.nvim_list_runtime_paths()),
+            '/usr/share/awesome/lib',
           },
         },
         format = {
