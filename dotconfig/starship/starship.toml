@@ -68,11 +68,11 @@ format = '[\($symbol $branch]($style)'
 
 [git_status]
 style = "maroon"
-format = '[$modified\)[\[$ahead_behind\]](peach)]($style)'
-ahead = "󱦲${count}"
-behind = "󱦳${count}"
+format = '[$modified\)[$ahead_behind](peach)]($style)'
+ahead = '\[󱦲${count}\]'
+behind = '\[󱦳${count}\]'
 modified = "*"
-diverged = "󱦲${ahead_count}󱦳${behind_count}"
+diverged = '\[󱦲${ahead_count}󱦳${behind_count}\]'
 
 [nodejs]
 symbol = ""
