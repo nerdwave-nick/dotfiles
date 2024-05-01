@@ -64,11 +64,14 @@ fish_style_pwd_dir_length = 1
 [git_branch]
 symbol = ""
 style = "maroon"
-format = '[\($symbol $branch\)]($style)'
+format = '[\($symbol $branch]($style)'
 
 [git_status]
-style = "peach"
-format = '[\[$modified$ahead_behind\]]($style)'
+style = "maroon"
+format = '[$modified\)[\[$ahead_behind\]](peach)]($style)'
+ahead = "󱦲${count}"
+behind = "󱦳${count}"
+modified = "*"
 
 [nodejs]
 symbol = ""
