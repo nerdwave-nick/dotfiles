@@ -4,7 +4,21 @@ local on_attach_keymap = function(client, bufnr)
     vim.keymap.set(mode, key, fn, { noremap = true, buffer = bufnr, desc = 'LSP: ' .. desc })
   end
   local telescopeBuiltin = require('telescope.builtin')
-  map('n', 'K', vim.lsp.buf.hover, 'Show little hover window, o[k]ay?')
+  local function peekOrHover()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if winid then
+      -- local bufnr = vim.api.nvim_win_get_buf(winid)
+      local keys = { 'a', 'i', 'o', 'A', 'I', 'O', 'gd', 'gr' }
+      for _, k in ipairs(keys) do
+        -- Add a prefix key to fire `trace` action,
+        -- if Neovim is 0.8.0 before, remap yourself
+        vim.keymap.set('n', k, '<CR>' .. k, { noremap = false, buffer = bufnr })
+      end
+    else
+      vim.lsp.buf.hover()
+    end
+  end
+  map('n', 'K', peekOrHover, 'Show little hover window, o[k]ay?')
   map('n', 'gD', vim.lsp.buf.declaration, '[g]o to [D]eclaration')
   map('n', 'gi', telescopeBuiltin.lsp_implementations, '[g]o to [i]mplementation')
   map('n', 'gr', telescopeBuiltin.lsp_references, '[g]o to [r]eferences')
