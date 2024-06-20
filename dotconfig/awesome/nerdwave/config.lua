@@ -1,19 +1,21 @@
-local beautiful = require('beautiful')
-local dpi = beautiful.xresources.apply_dpi
-
 --- @class AwesomeWMConfig
---- @field gaps number|nil
 --- @field editor string
 --- @field terminal string
 --- @field modifier string
 --- @field editor_cmd fun(AwesomeWmConfig): string
 
+---@type string|nil
+local editor = nil
+---@type string|nil
+local terminal = nil
+---@type string|nil
+local modifier = nil
+
 ---@type AwesomeWMConfig
 local config = {
-  gaps = dpi(7),
-  editor = os.getenv('EDITOR') or 'nvim',
-  terminal = 'kitty',
-  modifier = 'Mod4',
+  editor = editor or 'nvim',
+  terminal = terminal or 'kitty',
+  modifier = modifier or 'Mod4',
   editor_cmd = function(self) return self.terminal .. ' -e' .. self.editor end,
 }
 return config

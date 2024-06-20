@@ -34,7 +34,6 @@ local function changePaneOrTab(win, direction)
     if direction == 'Right' then
       if current_idx + 1 <= max_idx then tabs[current_idx + 1].tab:activate() end
     elseif direction == 'Left' then
-      wezterm.log_info('switch to tab: ' .. current_idx - 1)
       if current_idx - 1 >= min_idx then tabs[current_idx - 1].tab:activate() end
     end
   end
@@ -50,8 +49,8 @@ map('`', default_mods, act.AdjustPaneSize({ 'Left', 5 }))
 map('4', default_mods, act.RotatePanes('Clockwise'))
 map('5', default_mods, act.RotatePanes('CounterClockwise'))
 -- spawn & close
-map('c', default_mods, act.SpawnTab('CurrentPaneDomain'))
-map('s', default_mods, act.SplitHorizontal({ domain = 'CurrentPaneDomain' }))
+map('c', default_mods, act.SpawnWindow)
+map('s', default_mods, act.SpawnWindow)--SplitHorizontal({ domain = 'CurrentPaneDomain' }))
 map('w', default_mods, act.CloseCurrentPane({ confirm = true }))
 -- zoom states
 -- copy & paste

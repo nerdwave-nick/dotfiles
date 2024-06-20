@@ -9,12 +9,12 @@ return function(hostname)
   local hostopts = require('nerdwave.hostconfigs').getHostConfig(hostname)
   local opts = {
     front_end = 'OpenGL',
-    window_decorations = 'RESIZE',
+    window_decorations = 'NONE',
     window_padding = {
-      left = 10,
-      right = 10,
-      top = 15,
-      bottom = 10,
+      left = 3,
+      right = 3,
+      top = 3,
+      bottom = 3,
     },
     inactive_pane_hsb = {
       saturation = 1.0,

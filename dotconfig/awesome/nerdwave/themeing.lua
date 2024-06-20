@@ -1,10 +1,5 @@
 local beautiful = require('beautiful')
-local gears = require('gears')
+local catpuccin = require('nerdwave.themes.catppuccin')
 
----@param config AwesomeWMConfig
-return function (config)
-  -- Themes define colours, icons, font and wallpapers.
-  beautiful.init(gears.filesystem.get_themes_dir() .. 'default/theme.lua')
-  beautiful.useless_gap = config.gaps
-  beautiful.gap_single_client = true
-end
+-- Themes define colours, icons, font and wallpapers.
+beautiful.init(catpuccin())

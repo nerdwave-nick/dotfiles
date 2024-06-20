@@ -39,6 +39,9 @@ create_dir_symlink dotconfig/kitty ~/.config/kitty
 # awesome wm
 create_dir_symlink dotconfig/awesome ~/.config/awesome
 
+# rofi
+create_dir_symlink dotconfig/rofi ~/.config/rofi
+
 # picom
 create_dir_symlink dotconfig/picom ~/.config/picom
 
@@ -47,9 +50,13 @@ create_dir_symlink dotconfig/fish ~/.config/fish
 
 # oh my fish
 create_dir_symlink dotconfig/omf ~/.config/omf
- 
+
+#yazi
+create_dir_symlink dotconfig/yazi ~/.config/yazi
+
 # starship
 create_file_symlink dotconfig/starship/starship.toml ~/.config/starship.toml
 
 # bashrc
 create_file_symlink dotconfig/bashrc ~/.bashrc
+

@@ -9,3 +9,5 @@ fish_vi_key_bindings
 # source /usr/share/nvm/nvm.sh
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

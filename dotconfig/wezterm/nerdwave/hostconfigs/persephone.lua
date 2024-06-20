@@ -1,27 +1,11 @@
-
 ---@type HostConfig
 local M = {
-  -- wallpaper = {
-  --   prefix = os.getenv('HOME') .. '/Pictures/',
-  --   wallpapers = {
-  --     {
-  --       image = 'light-night-forest-winter-foggy-dark-3840x2161-5431.jpg',
-  --       hsb = {
-  --         brightness = 0.024,
-  --         hue = 1.0,
-  --         saturation = 1.0,
-  --       },
-  --     },
-  --   },
-  -- },
   sessionizer = {
     fd = '/usr/bin/fd',
-    paths = { 
-      -- os.getenv('HOME') .. '/repos', 
-      os.getenv('HOME') .. '/dotfiles' },
+    paths = { os.getenv('HOME') .. '/repos', os.getenv('HOME') .. '/dotfiles' },
   },
   font = {
-    size = 10,
+    size = 10.5,
     family = 'FiraCode Nerd Font',
     harfbuzz_features = {
       'liga=0',

@@ -40,3 +40,5 @@ eval "$(starship init bash)"
 eval "$(fzf --bash)"
 exec fish
 # fastfetch
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
