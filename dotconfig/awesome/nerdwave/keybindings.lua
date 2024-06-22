@@ -34,7 +34,7 @@ awful.keyboard.append_global_keybindings({
     awesome.restart,
     { description = 'reload awesome', group = 'awesome' }
   ),
-  awful.key({ config.modifier, 'Shift' }, 'q', awesome.quit, { description = 'quit awesome', group = 'awesome' }),
+  awful.key({ config.modifier, 'Shift' }, 'q', powermenu, { description = 'quit awesome', group = 'awesome' }),
   awful.key(
     { config.modifier },
     'x',
