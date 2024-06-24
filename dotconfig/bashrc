@@ -8,12 +8,6 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-. "$HOME/.cargo/env"
-
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
 
 alias ls="exa"
 alias ll="exa -al"
@@ -36,9 +30,10 @@ rfv() {
 }
 
 
-eval "$(starship init bash)"
-eval "$(fzf --bash)"
-exec fish
-# fastfetch
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# eval "$(starship init bash)"
+# eval "$(fzf --bash)"
+# exec fish
+# # fastfetch
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
+# . "$HOME/.cargo/env"

@@ -17,6 +17,7 @@ end
 M.toggle = function(window, pane)
   wezterm.log_info('toggle sessionizer')
   if next(cached) == nil then
+    table.insert(cached, { label = '~', id = 'default' })
     for _, path in pairs(rootPaths) do
       local success, stdout, stderr = wezterm.run_child_process({
         fd,
@@ -36,7 +37,7 @@ M.toggle = function(window, pane)
         local project = line:gsub('/.git/$', '')
         local label = project
         local id = project:gsub('.*/', '')
-        table.insert(cached, { label = tostring(label), id = tostring(id) })
+        if label ~= '' then table.insert(cached, { label = tostring(label), id = tostring(id) }) end
       end
     end
   end

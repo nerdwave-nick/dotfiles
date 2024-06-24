@@ -1,0 +1,9 @@
+[submodule "dotconfig/awesome/awesome-wm-widgets"]
+	path = dotconfig/awesome/awesome-wm-widgets
+	url = git@github.com:streetturtle/awesome-wm-widgets.git
+[submodule "dotconfig/awesome/net_widgets"]
+	path = dotconfig/awesome/net_widgets
+	url = git@github.com:pltanton/net_widgets.git
+[submodule "dotconfig/awesome/lain"]
+	path = dotconfig/awesome/lain
+	url = git@github.com:lcpz/lain.git

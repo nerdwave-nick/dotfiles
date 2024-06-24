@@ -29,7 +29,9 @@ local M = {
     },
   },
   initial_rows = 50,
-  initial_cols = 200,
+  initial_cols = 144,
+  statusbar = true,
+  shell = 'fish'
 }
 
 return M

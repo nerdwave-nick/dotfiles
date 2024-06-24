@@ -184,6 +184,14 @@ awful.keyboard.append_global_keybindings({
 })
 
 awful.keyboard.append_global_keybindings({
+  awful.key({}, 'XF86MonBrightnessUp', function() os.execute('light -A 5') end, {description="brightness up", group="hotkeys"}),
+  awful.key({}, 'XF86MonBrightnessDown', function() os.execute('light -U 5') end, {description="brightness down", group="hotkeys"}),
+  awful.key({}, 'XF86AudioRaiseVolume', function() os.execute('amixer -q set Master 5%+') end, {description="volume up", group="hotkeys"}),
+  awful.key({}, 'XF86AudioLowerVolume', function() os.execute('amixer -q set Master 5%-') end, {description="volume down", group="hotkeys"}),
+  awful.key({}, 'XF86AudioMute', function() os.execute('amixer -q set Master toggle') end, {description="toggle volume", group="hotkeys"}),
+})
+
+awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { config.modifier },
     keygroup = 'numrow',

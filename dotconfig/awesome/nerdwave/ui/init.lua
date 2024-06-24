@@ -7,10 +7,10 @@ local wibox = require('wibox')
 local beautiful = require('beautiful')
 -- custom
 local config = require('nerdwave.config')
-local menubar = require('menubar')
-local sidebar = require('nerdwave.ui.sidebar')(config)
-local ruled = require('ruled')
 local gears = require('gears')
+local menubar = require('menubar')
+local ruled = require('ruled')
+local sidebar = require('nerdwave.ui.sidebar')(config)
 
 local dpi = beautiful.xresources.apply_dpi
 
@@ -25,16 +25,15 @@ screen.connect_signal(
     awful.wallpaper({
       screen = s,
       widget = {
-        {
-          image = beautiful.wallpaper,
-          upscale = true,
-          downscale = true,
-          widget = wibox.widget.imagebox,
-        },
+        image = beautiful.wallpaper,
+        upscale = true,
+        downscale = true,
+        widget = wibox.widget.imagebox,
         valign = 'center',
         halign = 'center',
+        vertical_fit_policy = 'fit',
+        horizontal_fit_policy = 'fit',
         tiled = false,
-        widget = wibox.container.tile,
       },
     })
   end
@@ -55,10 +54,22 @@ ruled.client.connect_signal('request::rules', function()
   })
 
   -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- ruled.client.append_rule {
-  --     rule       = { class = "Firefox"     },
-  --     properties = { screen = 1, tag = "2" }
-  -- }
+  ruled.client.append_rule({
+    rule = { class = 'firefox' },
+    properties = { tag = ' ' },
+  })
+  ruled.client.append_rule({
+    rule = { class = '1Password' },
+    properties = { tag = ' ' },
+  })
+  ruled.client.append_rule({
+    rule = { class = 'Google-chrome' },
+    properties = { tag = ' ' },
+  })
+  ruled.client.append_rule({
+    rule = { class = 'discord' },
+    properties = { tag = '  ' },
+  })
 end)
 
 ruled.notification.connect_signal('request::rules', function()

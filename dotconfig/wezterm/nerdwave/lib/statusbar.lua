@@ -37,69 +37,71 @@ M.config = {
 
 local C = {}
 
-M.setup = function(opts)
-  opts.use_fancy_tab_bar = false
-  opts.tab_bar_at_bottom = true
-  opts.tab_max_width = 30
-  opts.hide_tab_bar_if_only_one_tab = false
-  opts.enable_tab_bar = true
+M.setup = function(opts, hostopts)
+  if hostopts.statusbar == true then
+    opts.use_fancy_tab_bar = false
+    opts.tab_bar_at_bottom = true
+    opts.tab_max_width = 30
+    opts.hide_tab_bar_if_only_one_tab = false
+    opts.enable_tab_bar = true
 
-  local dividers = {
-    slant_right = {
-      left = utf8.char(0xe0be),
-      right = utf8.char(0xe0bc),
-    },
-    slant_left = {
-      left = utf8.char(0xe0ba),
-      right = utf8.char(0xe0b8),
-    },
-    arrows = {
-      left = utf8.char(0xe0b2),
-      right = utf8.char(0xe0b0),
-    },
-    rounded = {
-      left = utf8.char(0xe0b6),
-      right = utf8.char(0xe0b4),
-    },
-  }
+    local dividers = {
+      slant_right = {
+        left = utf8.char(0xe0be),
+        right = utf8.char(0xe0bc),
+      },
+      slant_left = {
+        left = utf8.char(0xe0ba),
+        right = utf8.char(0xe0b8),
+      },
+      arrows = {
+        left = utf8.char(0xe0b2),
+        right = utf8.char(0xe0b0),
+      },
+      rounded = {
+        left = utf8.char(0xe0b6),
+        right = utf8.char(0xe0b4),
+      },
+    }
 
-  C.div = {
-    l = '',
-    r = '',
-  }
-  if M.config.dividers then
-    C.div.l = dividers[M.config.dividers].left
-    C.div.r = dividers[M.config.dividers].right
+    C.div = {
+      l = '',
+      r = '',
+    }
+    if M.config.dividers then
+      C.div.l = dividers[M.config.dividers].left
+      C.div.r = dividers[M.config.dividers].right
+    end
+
+    C.leader = {
+      enabled = M.config.indicator.leader.enabled or true,
+      off = M.config.indicator.leader.off,
+      on = M.config.indicator.leader.on,
+    }
+
+    C.mode = {
+      enabled = M.config.indicator.mode.enabled,
+      names = M.config.indicator.mode.names,
+    }
+
+    C.tabs = {
+      numerals = M.config.tabs.numerals,
+      pane_count_style = M.config.tabs.pane_count,
+      brackets = {
+        active = M.config.tabs.brackets.active,
+        inactive = M.config.tabs.brackets.inactive,
+      },
+    }
+
+    C.clock = {
+      enabled = M.config.clock.enabled,
+      format = M.config.clock.format,
+    }
+
+    C.p = (M.config.dividers == 'rounded') and '' or ' '
+
+    wezterm.log_info(C)
   end
-
-  C.leader = {
-    enabled = M.config.indicator.leader.enabled or true,
-    off = M.config.indicator.leader.off,
-    on = M.config.indicator.leader.on,
-  }
-
-  C.mode = {
-    enabled = M.config.indicator.mode.enabled,
-    names = M.config.indicator.mode.names,
-  }
-
-  C.tabs = {
-    numerals = M.config.tabs.numerals,
-    pane_count_style = M.config.tabs.pane_count,
-    brackets = {
-      active = M.config.tabs.brackets.active,
-      inactive = M.config.tabs.brackets.inactive,
-    },
-  }
-
-  C.clock = {
-    enabled = M.config.clock.enabled,
-    format = M.config.clock.format,
-  }
-
-  C.p = (M.config.dividers == 'rounded') and '' or ' '
-
-  wezterm.log_info(C)
   return opts
 end
 

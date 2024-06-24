@@ -60,3 +60,8 @@ create_file_symlink dotconfig/starship/starship.toml ~/.config/starship.toml
 # bashrc
 create_file_symlink dotconfig/bashrc ~/.bashrc
 
+# alacritty
+create_dir_symlink dotconfig/alacritty ~/.config/alacritty
+
+# lock screen utility
+sudo ln -s "$DOTFILES_DIR/lock.sh" /usr/local/bin/lock

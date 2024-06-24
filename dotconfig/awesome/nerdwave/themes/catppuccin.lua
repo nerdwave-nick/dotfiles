@@ -1,5 +1,4 @@
 return function()
-
   local rnotification = require('ruled.notification')
   local theme_assets = require('beautiful.theme_assets')
   local beautiful = require('beautiful')
@@ -10,8 +9,8 @@ return function()
 
   local theme = {}
 
-  -- theme.font = 'Fira Code Nerdfont 9'
-  theme.font = 'Noto Sans Semibold 9'
+  theme.font = 'Ubuntu Nerd Font Semibold 9'
+  -- theme.font = 'Noto Sans Semibold 9'
 
   theme.useless_gap = dpi(5)
   theme.border_width = dpi(1)
@@ -27,21 +26,33 @@ return function()
   theme.blue = '#a4b9ef'
   theme.purple = '#c6aae8'
   theme.grey = '#6e6c7c'
+  theme.black_transparent = theme.black .. 'bb'
+  theme.deep_black_transparent = theme.deep_black .. 'df'
 
-  theme.bg_normal = theme.black
-  theme.bg_focus = theme.deep_black
-  theme.bg_urgent = theme.white
+  theme.bg_normal = theme.black_transparent
+  theme.bg_focus = theme.deep_black_transparent
+  theme.bg_urgent = theme.yellow
   theme.bg_minimize = theme.grey
-  theme.bg_systray = theme.black
+  theme.bg_systray = theme.black_transparent
 
   theme.fg_normal = theme.white
   theme.fg_focus = theme.pink
-  theme.fg_urgent = theme.red
+  theme.fg_urgent = theme.black
   theme.fg_minimize = theme.light_white
 
   theme.border_normal = theme.blue
   theme.border_focus = theme.green
   theme.border_marked = theme.purple
+
+  theme.tasklist_bg_normal = theme.purple
+  theme.tasklist_bg_focus = theme.green
+  theme.tasklist_bg_urgent = theme.yellow
+
+  theme.taglist_bg_focus = '#00000000'
+  theme.taglist_bg_occupied = '#00000000'
+  theme.taglist_bg_empty = '#00000000'
+  theme.taglist_bg_urgent = theme.yellow
+  -- theme.taglist_bg_occupied = theme.black -- :w '#ffffff' -- theme.black .. 'ff'
 
   -- There are other variable sets
   -- overriding the default one when
@@ -57,13 +68,13 @@ return function()
   -- theme.taglist_bg_focus = "#ff0000"
 
   -- Generate taglist squares:
-  local taglist_square_size = dpi(6)
+  local taglist_square_size = dpi(4)
   theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.border_focus)
   theme.taglist_squares_unsel = theme_assets.taglist_squares_sel(taglist_square_size, theme.border_marked)
   theme.taglist_disable_icon = true
 
   -- Variables set for theming notifications:
-  theme.notification_font = 'Fira Code Nerd 12'
+  theme.notification_font = 'Ubuntu Nerd Font 12'
   theme.notification_margin = dpi(10)
   theme.notification_border_color = theme.border_normal
   theme.notification_border_width = theme.border_width
