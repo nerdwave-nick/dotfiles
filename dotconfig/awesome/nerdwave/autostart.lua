@@ -24,15 +24,18 @@ if awesome.hostname == 'hestia' then
   table.insert(M.startup_cmds, { cmd = 'vibrant-cli eDP 1.35', once = false })
 end
 if config.timeout.enabled then
-  table.insert(M.startup_cmds, { cmd = 'xset +dpms', once = false })
-  table.insert(M.startup_cmds, { cmd = 'xset s off', once = false })
+  table.insert(M.startup_cmds, { cmd = 'xset -dpms', once = false })
+  table.insert(M.startup_cmds, {
+    cmd = string.format('xset s %d %d', config.timeout.lockMinutes * 60 - 30, 30),
+    once = false,
+  })
   table.insert(M.startup_cmds, {
     cmd = string.format('xset dpms 0 0 %d', config.timeout.screenOffSeconds),
     once = false,
   })
   table.insert(M.startup_cmds, {
     cmd = string.format(
-      'exec xautolock -time %d -bell 0 -locker lock -notify 30 -notifier "notify-send -u critical -t 10000 -- \'LOCKING screen in 30 seconds\'"',
+      'exec xss-lock -n "notify-send -u critical -t 10000 -- \'LOCKING screen in 30 seconds\'" -- lock',
       config.timeout.lockMinutes
     ),
     once = false,
