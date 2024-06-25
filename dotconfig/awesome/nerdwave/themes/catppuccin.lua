@@ -1,3 +1,4 @@
+local config = require "nerdwave.config"
 return function()
   local rnotification = require('ruled.notification')
   local theme_assets = require('beautiful.theme_assets')
@@ -149,7 +150,9 @@ return function()
   -- Define the icon theme for application icons. If not set then the icons
   -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
   theme.icon_theme = '/usr/share/icons/Papirus-Dark'
-  theme.wallpaper = '~/dotfiles/feh/images/cherry_blossoms.jpg'
+  -- theme.wallpaper = '~/dotfiles/feh/images/cherry_blossoms.jpg'
+  -- theme.wallpaper = '~/dotfiles/feh/images/shaded_landscape.jpg'
+  theme.wallpaper = config.wallpaper
 
   -- Set different colors for urgent notifications.
   rnotification.connect_signal(
@@ -157,7 +160,7 @@ return function()
     function()
       rnotification.append_rule({
         rule = { urgency = 'critical' },
-        properties = { bg = '#ff0000', fg = '#ffffff' },
+        properties = { bg = beautiful.red,  fg = beautiful.white },
       })
     end
   )

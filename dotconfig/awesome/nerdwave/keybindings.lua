@@ -10,24 +10,18 @@ awful.mouse.append_global_mousebindings({
   awful.button({}, 5, awful.tag.viewnext),
 })
 
-local launcher = function()
-  awful.util.spawn_with_shell('sh ~/.config/rofi/bin/launcher')
-end
-local powermenu = function()
-  awful.util.spawn_with_shell('sh ~/.config/rofi/bin/powermenu')
-end
-local runner = function()
-  awful.util.spawn_with_shell('sh ~/.config/rofi/bin/runner')
-end
+local launcher = function() awful.util.spawn_with_shell('sh ~/.config/rofi/bin/launcher') end
+local powermenu = function() awful.util.spawn_with_shell('sh ~/.config/rofi/bin/powermenu') end
+local runner = function() awful.util.spawn_with_shell('sh ~/.config/rofi/bin/runner') end
 -- General Awesome keys
 awful.keyboard.append_global_keybindings({
   awful.key({ config.modifier }, 's', hotkeys_popup.show_help, { description = 'show help', group = 'awesome' }),
-  awful.key(
-    { config.modifier },
-    'w',
-    function() mymainmenu:show() end,
-    { description = 'show main menu', group = 'awesome' }
-  ),
+  -- awful.key(
+  --   { config.modifier },
+  --   'w',
+  --   function() mymainmenu:show() end,
+  --   { description = 'show main menu', group = 'awesome' }
+  -- ),
   awful.key(
     { config.modifier, 'Control' },
     'r',
@@ -35,31 +29,38 @@ awful.keyboard.append_global_keybindings({
     { description = 'reload awesome', group = 'awesome' }
   ),
   awful.key({ config.modifier, 'Shift' }, 'q', powermenu, { description = 'quit awesome', group = 'awesome' }),
-  awful.key(
-    { config.modifier },
-    'x',
-    function()
-      awful.prompt.run({
-        prompt = 'Run Lua code: ',
-        textbox = awful.screen.focused().mypromptbox.widget,
-        exe_callback = awful.util.eval,
-        history_path = awful.util.get_cache_dir() .. '/history_eval',
-      })
-    end,
-    { description = 'lua execute prompt', group = 'awesome' }
-  ),
+  -- awful.key(
+  --   { config.modifier },
+  --   'x',
+  --   function()
+  --     awful.prompt.run({
+  --       prompt = 'Run Lua code: ',
+  --       textbox = awful.screen.focused().mypromptbox.widget,
+  --       exe_callback = awful.util.eval,
+  --       history_path = awful.util.get_cache_dir() .. '/history_eval',
+  --     })
+  --   end,
+  --   { description = 'lua execute prompt', group = 'awesome' }
+  -- ),
   awful.key(
     { config.modifier },
     'Return',
     function() awful.spawn(config.terminal) end,
     { description = 'open a terminal', group = 'launcher' }
   ),
+  -- awful.key(
+  --   { config.modifier },
+  --   'r',
+  --   runner,
+  --   -- function() awful.screen.focused().mypromptbox:run() end,
+  --   { description = 'run prompt', group = 'launcher' }
+  -- ),
   awful.key(
     { config.modifier },
     'r',
     launcher,
     -- function() awful.screen.focused().mypromptbox:run() end,
-    { description = 'run prompt', group = 'launcher' }
+    { description = 'launcher prompt', group = 'launcher' }
   ),
   -- awful.key(
   --   { config.modifier },
@@ -184,11 +185,36 @@ awful.keyboard.append_global_keybindings({
 })
 
 awful.keyboard.append_global_keybindings({
-  awful.key({}, 'XF86MonBrightnessUp', function() os.execute('light -A 5') end, {description="brightness up", group="hotkeys"}),
-  awful.key({}, 'XF86MonBrightnessDown', function() os.execute('light -U 5') end, {description="brightness down", group="hotkeys"}),
-  awful.key({}, 'XF86AudioRaiseVolume', function() os.execute('amixer -q set Master 5%+') end, {description="volume up", group="hotkeys"}),
-  awful.key({}, 'XF86AudioLowerVolume', function() os.execute('amixer -q set Master 5%-') end, {description="volume down", group="hotkeys"}),
-  awful.key({}, 'XF86AudioMute', function() os.execute('amixer -q set Master toggle') end, {description="toggle volume", group="hotkeys"}),
+  awful.key(
+    {},
+    'XF86MonBrightnessUp',
+    function() os.execute('light -A 5') end,
+    { description = 'brightness up', group = 'hotkeys' }
+  ),
+  awful.key(
+    {},
+    'XF86MonBrightnessDown',
+    function() os.execute('light -U 5') end,
+    { description = 'brightness down', group = 'hotkeys' }
+  ),
+  awful.key(
+    {},
+    'XF86AudioRaiseVolume',
+    function() os.execute('amixer -q set Master 5%+') end,
+    { description = 'volume up', group = 'hotkeys' }
+  ),
+  awful.key(
+    {},
+    'XF86AudioLowerVolume',
+    function() os.execute('amixer -q set Master 5%-') end,
+    { description = 'volume down', group = 'hotkeys' }
+  ),
+  awful.key(
+    {},
+    'XF86AudioMute',
+    function() os.execute('amixer -q set Master toggle') end,
+    { description = 'toggle volume', group = 'hotkeys' }
+  ),
 })
 
 awful.keyboard.append_global_keybindings({
@@ -268,6 +294,7 @@ end)
 
 client.connect_signal('request::default_keybindings', function()
   awful.keyboard.append_client_keybindings({
+    awful.key({ config.modifier }, 'w', function(c) c:kill() end, { description = 'kill window', group = 'client' }),
     awful.key({ config.modifier }, 'f', function(c)
       c.fullscreen = not c.fullscreen
       c:raise()
