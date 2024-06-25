@@ -1,5 +1,5 @@
 #!/bin/bash
-scrot /tmp/screenshot.png
+scrot -z /tmp/screenshot.png
 magick /tmp/screenshot.png -scale 10% -gaussian-blur 0x2 -resize 1000% /tmp/screenshotblur.png
 # xset dpms force off
 physlock -l
