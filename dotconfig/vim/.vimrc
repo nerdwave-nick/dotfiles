@@ -1,3 +1,12 @@
+"  _   _                 _            
+" | \ | | ___  _____   _(_)_ __ ___   
+" |  \| |/ _ \/ _ \ \ / / | '_ ` _ \  
+" | |\  |  __/ (_) \ V /| | | | | | | 
+" |_| \_|\___|\___/ \_/ |_|_| |_| |_| 
+"                                     
+" by Stephan Raabe (2023) 
+" ----------------------------------------------------- 
+
 " Add line numbers
 set number
 
@@ -61,4 +70,3 @@ set hlsearch
 
 " Set the commands to save in history default number is 20.
 set history=1000
-
