@@ -22,12 +22,12 @@ packagesPacman=(
     # "mpv" 		    # media player?
     # "vlc" 		    # media player????
     "eza" 		    # exa but maintained
-    # "python-pip" 	    # duh
-    # "python-psutil" 
-    # "python-rich" 
-    # "python-click" 
-    # "python-pywal"
-    # "python-gobject"
+    "python-pip" 	    # duh
+    "python-psutil" 
+    "python-rich" 
+    "python-click" 
+    "python-pywal"
+    "python-gobject"
     "pavucontrol" 	    # mixer
     "tumbler"		    # thumbnail stuff 
     "papirus-icon-theme"    # icon font

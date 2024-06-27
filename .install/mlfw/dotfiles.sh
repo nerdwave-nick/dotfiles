@@ -5,9 +5,10 @@
 
 dsymlink_dotfiles() {
     name="$1"
-    existing_path="~/.config/${name}"
-    source_path="~/dotfiles/dotconfig/${name}/"
-    target="~/.config"
+    existing_path="${HOME}/.config/${name}"
+    source_path="${HOME}/dotfiles/dotconfig/${name}"
+    target="${HOME}/.config"
+    echo "installing symlink ${name} ${existing_path} ${source_path} ${target}"
     _installSymLink "${name}" "${existing_path}" "${source_path}" "${target}"
 }
 

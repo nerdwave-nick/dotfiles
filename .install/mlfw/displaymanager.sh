@@ -72,7 +72,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
     fi
 
     # Copy sddm.conf
-    sudo cp sddm/sddm.conf /etc/sddm.conf.d/
+    sudo cp ../sddm/sddm.conf /etc/sddm.conf.d/
     echo ":: File /etc/sddm.conf.d/sddm.conf updated."
 
     # Download and install sugar candy theme if not exists
@@ -95,9 +95,9 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
 
     # Install background wallpaper for sddm
     if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
-        sudo cp wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
+        sudo cp ../wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
         echo ":: Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
-        sudo cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
+        sudo cp ../sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
         sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/sugar-candy/theme.conf
         echo ":: File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
     fi
@@ -122,7 +122,7 @@ echo -e "${GREEN}"
 figlet "TTY issue"
 echo -e "${NONE}"
     if gum confirm "Do you want to install the custom tty login issue?" ;then
-        sudo cp login/issue /etc/issue
+        sudo cp ../login/issue /etc/issue
         echo "Custom tty login issue installed successfully."
     elif [ $? -eq 130 ]; then
         exit 130

@@ -1,2 +1,5 @@
 #!/bin/bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+yay --noconfirm -S rustup
+echo -e ":: Rustup installed"
+rustup install toolchain stable
+echo -e ":: Rustup stable toolchain installed"

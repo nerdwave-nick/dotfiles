@@ -22,12 +22,12 @@ echo -e "${NONE}"
 echo ""
 source ./mlfw/required.sh
 source ./mlfw/rustup.sh
-source ~/.cargo/env
+#source ~/.cargo/env
 source ./mlfw/volta.sh
 source ./mlfw/paralleldownloads.sh
 source ./mlfw/yay.sh
 source ./mlfw/updatesystem.sh
-source ./mlfw/backup.sh
+# source ./mlfw/backup.sh
 source ./mlfw/installer.sh
 source ./mlfw/remove.sh
 
@@ -50,16 +50,16 @@ fi
 echo -e "${GREEN}"
 figlet "Hyprland"
 echo -e "${NONE}"
-source .install/packages/hyprland-packages.sh
-source .install/install-packages.sh
-source .install/wallpapers.sh
-source .install/displaymanager.sh
-source .install/restore.sh
-source .install/keyboard.sh
-source .install/init-pywal.sh
-source .install/dotfiles.sh
-source .install/gtk.sh
-source .install/bashrc.sh
-source .install/diagnostics.sh
-source .install/reboot.sh
+source ./mlfw/packages/hyprland.sh
+source ./mlfw/install-packages.sh
+source ./mlfw/wallpaper.sh
+source ./mlfw/displaymanager.sh
+# source ./mlfw/restore.sh
+source ./mlfw/keyboard.sh
+source ./mlfw/init-pywal.sh
+source ./mlfw/dotfiles.sh
+source ./mlfw/gtk.sh
+source ./mlfw/bashrc.sh
+source ./mlfw/diagnostics.sh
+source ./mlfw/reboot.sh
 sleep 3
