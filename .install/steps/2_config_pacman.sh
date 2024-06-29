@@ -1,8 +1,4 @@
 #!/bin/bash
-# ------------------------------------------------------
-# Activate parallel downloads
-# ------------------------------------------------------
-
 # Search for the line containing "ParallelDownloads = 5"
 line=$(grep "ParallelDownloads = 5" /etc/pacman.conf)
 
@@ -53,3 +49,4 @@ then
     echo ":: Color activated in pacman.conf"
 fi
 echo
+
