@@ -6,7 +6,7 @@ line=$(grep "ParallelDownloads = 5" /etc/pacman.conf)
 if [[ $line == \#* ]]; then
     echo -e "${GREEN}"
     figlet "Downloads"
-    echo -e "${NONE}"
+    echo -e "${RESET}"
     echo ":: You can activate parallel downloads in pacman.conf to speedup the download of packages?"
     if gum confirm "Do you want to activate parallel downloads?"; then
 

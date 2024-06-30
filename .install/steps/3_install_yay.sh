@@ -3,7 +3,7 @@ if sudo pacman -Qs yay > /dev/null ; then
 else
     echo -e "${GREEN}"
     figlet "yay"
-    echo -e "${NONE}"
+    echo -e "${RESET}"
     echo ":: yay is not installed. Starting the installation!"
     install_pacman_packages "base-devel"
     temp_path=$PWD

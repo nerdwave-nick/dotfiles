@@ -1,0 +1,21 @@
+packages=(
+    "hyprland"
+    "hyprpaper"
+    "hyprlock"
+    "hypridle"
+    "xdg-desktop-portal-hyprland"
+    "waybar"
+    "grim"
+    "slurp"
+    "swappy"
+    "cliphist"
+    "wlogout"
+    "nwg-look"
+    "eww"
+    "hyprshade"
+)
+
+echo -e "${PURPLE}"
+figlet "Hyprland Packages"
+echo -e "${RESET}"
+install_packages "${packages[@]}"

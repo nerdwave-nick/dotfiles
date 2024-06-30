@@ -1,7 +1,5 @@
 #!/bin/bash
 
-FORCE_INSTALL=0
-
 _is_installed() {
     package="$1"
     check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")"
@@ -32,10 +30,6 @@ install_packages() {
     to_install=()
     if [[ "$FORCE_INSTALL" == "1" ]]; then
         for var in "$@"; do
-            if [[ $(_is_installed "${var}") == 0 ]]; then
-                echo ":: ${var} is already installed."
-                continue
-            fi
             to_install+=("${var}")
         done
     else
@@ -64,10 +58,6 @@ install_pacman_packages() {
     to_install=()
     if [[ "$FORCE_INSTALL" == "1" ]]; then
         for var in "$@"; do
-            if [[ $(_is_installed_pacman "${var}") == 0 ]]; then
-                echo ":: ${var} is already installed."
-                continue
-            fi
             to_install+=("${var}")
         done
     else
