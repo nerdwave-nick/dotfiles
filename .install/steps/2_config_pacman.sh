@@ -12,7 +12,7 @@ if [[ $line == \#* ]]; then
 
         # Remove the '#' character from the beginning of the line
         echo ":: Modifying pacman.conf to enable parallel downloads."
-        new_line=$(echo $line | sed 's/^#//')
+        new_line=$(echo "$line" | sed 's/^#//')
 
         # Replace the original line with the new line in the configuration file
         sudo sed -i "s/$line/$new_line/g" /etc/pacman.conf

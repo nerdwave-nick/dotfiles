@@ -35,7 +35,6 @@ fi
 
 if [ "$dmsel" == "Install sddm and theme" ]; then
 
-    disman=0
     # Try to force the installation of sddm
     echo ":: Install sddm"
     yay -S --noconfirm sddm --ask 4
@@ -87,7 +86,6 @@ elif [ "$dmsel" == "Deactivate current display manager" ]; then
 
     sudo rm /etc/systemd/system/display-manager.service
     echo_s ":: Current display manager deactivated."
-    disman=1
 
 elif [ "$dmsel" == "Keep current setup" ]; then
     echo ":: sddm setup skipped."

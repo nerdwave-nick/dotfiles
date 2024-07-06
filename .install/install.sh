@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # to ensure that the relative paths are correct
-BASE_PATH=$(realpath $(dirname "$0"))
-cd $BASE_PATH
+BASE_PATH="$(realpath "$(dirname "$0")")"
+cd "$BASE_PATH" || exit
 
 source ./lib/colors.sh
 source ./lib/dir_variables.sh
@@ -30,5 +30,14 @@ source ./steps/9_hyprland_packages.sh
 source ./steps/10_wallpaper.sh
 source ./steps/11_displaymanager.sh
 source ./steps/12_keyboard.sh
+# this one symlinks the dotfiles
+source ./steps/13_hyprland-dotfiles.sh
+# set up settings and program
+# source ./steps/14_settings.sh
+# source ./steps/15_apps.sh
+source ./steps/16_gtk.sh
+source ./steps/17_cleanup.sh
+source ./steps/18_diagnosis.sh
+source ./steps/19_reboot.sh
 
 sleep 3

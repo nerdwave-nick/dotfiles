@@ -8,9 +8,9 @@ else
     install_pacman_packages "base-devel"
     temp_path=$PWD
     git clone https://aur.archlinux.org/yay-git.git ~/yay-git
-    cd ~/yay-git
+    cd ~/yay-git || exit
     makepkg -si
-    cd $temp_path
+    cd "$temp_path" || exit
     echo ":: yay has been installed successfully."
     rm -rf ~/yay-git
     echo ":: cleaned up"
