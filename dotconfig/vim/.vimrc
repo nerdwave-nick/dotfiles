@@ -8,7 +8,7 @@
 " ----------------------------------------------------- 
 
 " Add line numbers
-set number
+set relative
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -41,7 +41,7 @@ set nobackup
 set scrolloff=10
 
 " Set Mouse support
-set mouse=a
+set mouse=off
 
 " Do not wrap lines. Allow long lines to extend as far as the line goes.
 " set nowrap

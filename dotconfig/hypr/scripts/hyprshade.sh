@@ -26,7 +26,7 @@ else
 
     # Check if hyprshade.sh settings file exists and load
     if [ -f ~/dotfiles/.settings/hyprshade.sh ] ;then
-        source ~/dotfiles/.settings/hyprshade.sh
+        source "$HOME"/dotfiles/.settings/hyprshade.sh
     fi
 
     # Toggle Hyprshade
