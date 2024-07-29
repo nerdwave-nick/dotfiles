@@ -18,3 +18,4 @@ if [ ! -f "$rasi_file" ] ;then
     echo "* { current-image: url(\"${R_WALLPAPERS_DIR}/shaded_landscape.jpg\", height); }" > "$rasi_file"
 fi
 
+create_generic_symlink "${R_WALLPAPERS_DIR}" "$HOME/wallpapers"

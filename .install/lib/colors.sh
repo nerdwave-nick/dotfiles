@@ -21,12 +21,12 @@ BCYAN='\033[1;36m'
 BWHITE='\033[1;37m'
 
 echo_s() {
-    echo -e "${RESET}${GREEN}"
+    echo -en "${RESET}${GREEN}"
     echo "$@"
-    echo -e "${RESET}"
+    echo -en "${RESET}"
 }
 echo_e() {
-    echo -e "${RESET}${RED}"
+    echo -en "${RESET}${RED}"
     echo "$@"
-    echo -e "${RESET}"
+    echo -en "${RESET}"
 }

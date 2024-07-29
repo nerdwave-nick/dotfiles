@@ -1,6 +1,6 @@
 echo -e "${RED}"
 figlet "System check"
-echo -e "${NONE}"
+echo -e "${RESET}"
 
 cmd_exists(){
     package="$1";

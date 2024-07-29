@@ -10,10 +10,7 @@
 # ----------------------------------------------------- 
 
 # Cache file for holding the current wallpaper
-wallpaper_folder="$HOME/wallpaper"
-if [ -f ~/dotfiles/.settings/wallpaper-folder.sh ] ;then
-    source ~/dotfiles/.settings/wallpaper-folder.sh
-fi
+wallpaper_folder="$HOME/wallpapers"
 used_wallpaper="$HOME/.cache/used_wallpaper"
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
@@ -56,7 +53,7 @@ case $1 in
         selected=$( find "$wallpaper_folder" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec basename {} \; | sort -R | while read rfile
         do
             echo -en "$rfile\x00icon\x1f$wallpaper_folder/${rfile}\n"
-        done | rofi -dmenu -i -replace -config ~/dotfiles/rofi/config-wallpaper.rasi)
+        done | rofi -dmenu -i -replace -config "$HOME"/.config/rofi/config-wallpaper.rasi)
         if [ ! "$selected" ]; then
             echo "No wallpaper selected"
             exit
@@ -84,7 +81,7 @@ newwall=$(echo $wallpaper | sed "s|$wallpaper_folder/||g")
 # ----------------------------------------------------- 
 # Reload waybar with new colors
 # -----------------------------------------------------
-~/dotfiles/waybar/launch.sh
+"$HOME"/.config/waybar/launch.sh
 
 # ----------------------------------------------------- 
 # Set the new wallpaper

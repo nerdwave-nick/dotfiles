@@ -31,7 +31,7 @@ source ./steps/10_wallpaper.sh
 source ./steps/11_displaymanager.sh
 source ./steps/12_keyboard.sh
 # this one symlinks the dotfiles
-source ./steps/13_hyprland-dotfiles.sh
+source ./steps/13_dotfiles_symlinks.sh
 # set up settings and program
 # source ./steps/14_settings.sh
 # source ./steps/15_apps.sh

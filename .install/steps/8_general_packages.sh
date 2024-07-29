@@ -5,7 +5,9 @@ packages=(
     "bluez-utils"            # bluetooth stuff more
     "curl"                   # curl
     "unzip"                  # unzippy boi
-    "wezterm-git"            # default terminal
+    # "wezterm-git"            # default terminal
+    "foot"
+    "alacritty"
     "chromium"               # browser to try out
     "firefox"                # browser to try out
     "dunst"                  # notifications
@@ -20,6 +22,7 @@ packages=(
     "figlet"                 # ascii art text thing
     "vlc"                    # media
     "eza"                    # exa but maintained
+    "bat"                    # exa but maintained
     "python-pip"             # pip
     "python-psutil"          # pip
     "python-rich"            # pip
@@ -60,14 +63,26 @@ packages=(
     "stylua"                 # you know what it is
     "ripgrep"                # ripgrep is love
     "fd"                     # fd is life
+    "lazygit"		     # i'm too dumb to use git without
     "wget"                   # curl alternative
-    # "neovim-git"             # duh
+    "neovim-git"             # duh
     # "thunar-archive-plugin"  # archives for thunar
-    # "vim"                    # just to make sure
+    "vim"                    # just to make sure
     # "alacritty"              # fast terminal
     # "thunar"                 # file browser to try out
     # "mousepad"               # text editor,like notepad
 )
+
+echo -e "${YELLOW}"
+figlet "Rustup"
+echo -e "${RESET}"
+
+rustupPackages=(
+    "rustup"                 # rustup
+)
+install_packages "${rustupPackages[@]}"
+
+rustup default stable
 
 echo -e "${YELLOW}"
 figlet "General Packages"
@@ -81,3 +96,4 @@ echo -e "${RESET}"
 
 # missing is volta
 curl -s "https://get.volta.sh" | bash
+volta install node@latest
