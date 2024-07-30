@@ -38,6 +38,7 @@ if [ "$dmsel" == "Install sddm and theme" ]; then
     # Try to force the installation of sddm
     echo ":: Install sddm"
     yay -S --noconfirm sddm --ask 4
+    yay -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
 
     # Enable sddm
     if [ -f /etc/systemd/system/display-manager.service ]; then

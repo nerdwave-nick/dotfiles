@@ -114,7 +114,7 @@
     // Waybar Themes
     "custom/waybarthemes": {
         "format": "",
-        "on-click": "~/dotfiles/waybar/themeswitcher.sh",
+        "on-click": "~/.config/waybar/themeswitcher.sh",
         "tooltip": false
     },
     
