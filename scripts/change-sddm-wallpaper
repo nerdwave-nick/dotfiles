@@ -12,8 +12,6 @@ if ! [[ -f "$wallpaperpath" ]]; then
 fi
 cache_file="$HOME/.cache/current_wallpaper"
 echo "$wallpaperpath" > "$cache_file"
-sleep 1
-clear
 figlet "Set Wallpaper"
 echo
 echo "Set the current wallpaper as SDDM wallpaper."

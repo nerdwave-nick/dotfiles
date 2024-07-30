@@ -18,6 +18,7 @@ if ! [[ -f "$wallpaperpath" ]]; then
     >&2 echo "ERROR: $wallpaperpath does not exist" 
     exit 1
 fi
+
 square_version_path=~/.cache/square_wallpaper.png
 square_thumbnail_path=~/.cache/square_wallpaper_thumbnail.png
 blurred_version_path=~/.cache/blurred_wallpaper.png
