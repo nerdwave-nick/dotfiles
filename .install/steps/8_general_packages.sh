@@ -5,9 +5,8 @@ packages=(
     "bluez-utils"            # bluetooth stuff more
     "curl"                   # curl
     "unzip"                  # unzippy boi
-    # "wezterm-git"            # default terminal
-    "foot"
-    "alacritty"
+    "foot"                   # terminal
+    "alacritty"              # terminal
     "chromium"               # browser to try out
     "firefox"                # browser to try out
     "dunst"                  # notifications
@@ -63,14 +62,11 @@ packages=(
     "stylua"                 # you know what it is
     "ripgrep"                # ripgrep is love
     "fd"                     # fd is life
-    "lazygit"		     # i'm too dumb to use git without
+    "lazygit"                # i'm too dumb to use git without
     "wget"                   # curl alternative
     "neovim-git"             # duh
-    # "thunar-archive-plugin"  # archives for thunar
     "vim"                    # just to make sure
-    # "alacritty"              # fast terminal
-    # "thunar"                 # file browser to try out
-    # "mousepad"               # text editor,like notepad
+    "libnotify"              # get notifications to work
 )
 
 echo -e "${YELLOW}"

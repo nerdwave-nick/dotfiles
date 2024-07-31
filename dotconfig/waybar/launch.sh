@@ -13,7 +13,7 @@
 # ----------------------------------------------------- 
 killall waybar
 pkill waybar
-sleep 0.2
+sleep 0.5
 
 # ----------------------------------------------------- 
 # Default theme: /THEMEFOLDER;/VARIATION

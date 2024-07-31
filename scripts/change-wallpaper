@@ -29,5 +29,6 @@ echo ":: creating blurred version at $blurred_version_path"
 magick "$wallpaperpath" -alpha deactivate -scale 5% -blur 0x1.5 -brightness-contrast -35,-35 -resize 2000% "$blurred_version_path" &
 
 echo ":: changin wallpaper in hyprpaper"
+hyprctl hyprpaper unload all >/dev/null
 hyprctl hyprpaper preload "$wallpaperpath" >/dev/null
 hyprctl hyprpaper wallpaper ",$wallpaperpath" >/dev/null

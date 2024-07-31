@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-echo ":: toggling hypridle"
-pkill hypridle >/dev/null || hypridle >/dev/null &
