@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kitty --single-instance -e fish
+footclient # --single-instance -e fish

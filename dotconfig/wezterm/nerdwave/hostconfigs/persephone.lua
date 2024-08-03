@@ -1,12 +1,13 @@
 ---@type HostConfig
 local M = {
+  shell= 'fish',
   sessionizer = {
     fd = '/usr/bin/fd',
     paths = { os.getenv('HOME') .. '/repos', os.getenv('HOME') .. '/dotfiles' },
   },
   font = {
-    size = 10.5,
-    family = 'FiraCode Nerd Font',
+    size = 10,
+    family = 'FiraCode Nerd Font Mono',
     harfbuzz_features = {
       'liga=0',
       'clig=0',
@@ -15,7 +16,7 @@ local M = {
       'cv01', -- a simple
       'cv02', -- g simple
       -- "cv03", -- i 03-06
-      -- "cv08", -- l changes 07-10
+      "cv08", -- l changes 07-10
       'ss01', -- r simple
       -- "cv17", -- ~ further up
       'ss05', -- @ sign shape

@@ -4,7 +4,7 @@ return {
   --@param fontOpts FontConfig
   setup = function(opts, fontOpts)
     opts.font = wezterm.font_with_fallback({
-      fontOpts.name,
+      fontOpts.family,
       'Noto Sans Emoji',
     })
     opts.font_size = fontOpts.size
