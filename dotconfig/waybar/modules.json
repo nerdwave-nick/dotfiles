@@ -152,7 +152,11 @@
     // Hyprshade
     "custom/hyprshade": {
         "format": "",
-        "tooltip-format": "Toggle Screen Shader",
+        "return-type": "json",
+        "escape": true,
+        "exec": "sleep 0.5; ~/dotfiles/dotconfig/hypr/scripts/hyprshade.sh status",
+        "exec-on-event": true,
+        "interval": 60,
         "on-click": "sleep 0.5; ~/dotfiles/dotconfig/hypr/scripts/hyprshade.sh",
         "on-click-right": "sleep 0.5; ~/dotfiles/dotconfig/hypr/scripts/hyprshade.sh rofi"
     },

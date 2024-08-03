@@ -19,6 +19,13 @@ if [[ "$1" == "rofi" ]]; then
         dunstify "Changing Hyprshade to $choice" "Toggle shader with SUPER+SHIFT+S"
     fi
     
+elif [[ "$1" == "status" ]]; then
+    sleep 1
+    if ! [[ -z "$(hyprshade current)" ]]; then
+        echo '{"text": "RUNNING", "class": "active", "tooltip": "Shader active"}'
+    else
+        echo '{"text": "NOT RUNNING", "class": "notactive", "tooltip": "Shader deactivated"}'
+    fi
 else
 
     # Toggle Hyprshade based on the selected filter
@@ -26,7 +33,7 @@ else
 
     # Check if hyprshade.sh settings file exists and load
     if [ -f ~/dotfiles/.settings/hyprshade.sh ] ;then
-        source "$HOME"/dotfiles/.settings/hyprshade.sh
+        source "$HOME"/dotfiles/.Settings/hyprshade.sh
     fi
 
     # Toggle Hyprshade
