@@ -63,6 +63,7 @@ packages=(
     "stylua"                 # you know what it is
     "ripgrep"                # ripgrep is love
     "fd"                     # fd is life
+    "fzf"                    # my love, my life, my fuzzy finder
     "lazygit"                # i'm too dumb to use git without
     "wget"                   # curl alternative
     "neovim-git"             # duh
