@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "enable" ]]; then
+    if [[ -d "$HOME/.config/gcloud_disabled" ]]; then
+        mv "$HOME/.config/gcloud_disabled" "$HOME/.config/gcloud"
+        notify-send "gcloud enabled"
+    fi
+elif [[ "$1" == "disable" ]]; then
+    if [[ -d "$HOME/.config/gcloud" ]]; then
+        mv "$HOME/.config/gcloud" "$HOME/.config/gcloud_disabled"
+        notify-send "gcloud disabled"
+    fi
+fi

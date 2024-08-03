@@ -2,9 +2,10 @@
 
 format = """
 $os \
+$shell\
 $username\
-$hostname \
-$directory \
+$hostname\
+$directory\
 $git_branch\
 $git_status\
 $git_state\
@@ -41,8 +42,16 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
+[shell]
+disabled = false
+fish_indicator = '󰈺'
+bash_indicator = '󱆃'
+zsh_indicator = '󰰶'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+
 [username]
-show_always = true
+show_always = false
 style_user = "mauve"
 style_root = "teal bold"
 format = '[$user]($style)'
@@ -51,10 +60,10 @@ format = '[$user]($style)'
 disabled = false
 ssh_only = true
 style = "cyan"
-format = "[[@](overlay2)$hostname]($style)"
+format = "[$hostname]($style)"
 
 [directory]
-format='[$path]($style)[$read_only]($read_only_style)'
+format='[$path]($style)[$read_only]($read_only_style) '
 style = "green"
 truncation_length = 1
 truncation_symbol = ""
@@ -65,6 +74,7 @@ fish_style_pwd_dir_length = 1
 symbol = ""
 style = "maroon"
 format = '[\($symbol $branch]($style)'
+truncation_length = 20
 
 [git_status]
 style = "maroon"
@@ -89,6 +99,11 @@ symbol = "\ue620"
 format = '[$symbol ]($style)'
 style = 'sapphire'
 
+[gcloud]
+disabled = false
+symbol = "󱇶"
+format = '[$symbol]($style) '
+
 [time]
 disabled = false
 time_format = "%R"
@@ -101,14 +116,9 @@ disabled = false
 [cmd_duration]
 min_time = 2_000
 format = "[$duration ](bold yellow)"
-# [character]
-# disabled = false
-# success_symbol = '[](bold fg:color_green)'
-# error_symbol = '[](bold fg:color_red)'
-# vimcmd_symbol = '[](bold fg:color_green)'
-# vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-# vimcmd_replace_symbol = '[](bold fg:color_purple)'
-# vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[package]
+disabled = true
 
 [character]
 success_symbol = "[[♥](green) ❯](pink)"
