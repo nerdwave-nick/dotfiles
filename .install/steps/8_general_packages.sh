@@ -14,6 +14,7 @@ packages=(
     "mpv"                    # command line media player
     "nautilus"               # file browser default
     "noto-fonts"             # fonts
+    "noto-fonts-emoji"       # font with emoji c:
     "otf-font-awesome"       # fonts
     "ttf-fira-sans"          # fonts
     "ttf-fira-code"          # fonts
