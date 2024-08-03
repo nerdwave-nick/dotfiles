@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kitty -e fish
+kitty --single-instance -e fish
