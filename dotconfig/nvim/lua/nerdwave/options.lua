@@ -17,7 +17,7 @@ vim.o.relativenumber = true
 -- fold settings
 vim.o.foldenable = true
 vim.o.foldlevelstart = 99
-vim.o.foldlevel= 99
+vim.o.foldlevel = 99
 vim.o.foldcolumn = '1'
 vim.o.foldmethod = 'manual'
 
@@ -45,7 +45,6 @@ vim.o.foldmethod = 'manual'
 --   end,
 -- })
 
-
 -- mouse mode disabled
 vim.o.mouse = ''
 
@@ -54,7 +53,7 @@ vim.o.wrap = true
 vim.o.breakindent = true
 vim.o.smartindent = true
 vim.o.linebreak = true
-vim.o.showbreak = "  "
+vim.o.showbreak = '  '
 
 -- Save undo history
 vim.o.undofile = true
@@ -84,9 +83,11 @@ vim.o.expandtab = true
 vim.o.listchars = 'tab:┊ ,trail:~,extends:>,precedes:<,nbsp:+'
 vim.o.list = true
 
-vim.api.nvim_create_autocmd('BufEnter', {
+vim.api.nvim_create_autocmd('BufRead', {
   pattern = '*',
-  callback = function() require('lazygit.utils').project_root_dir() end,
+  callback = function()
+    if not (vim.bo.filetype == 'oil') then require('lazygit.utils').project_root_dir() end
+  end,
 })
 
 vim.o.fillchars = 'stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬'
