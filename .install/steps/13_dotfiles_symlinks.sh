@@ -16,9 +16,8 @@ create_dotfiles_symlink gtk
 create_dotfiles_symlink hypr
 create_dotfiles_symlink kitty
 create_dotfiles_symlink nvim
-create_dotfiles_symlink rofi
+create_dotfiles_symlink rofi/rofi rofi # inner folder
 create_dotfiles_symlink sddm
-create_dotfiles_symlink starship
 create_dotfiles_symlink swappy
 create_dotfiles_symlink vim
 create_dotfiles_symlink wal
