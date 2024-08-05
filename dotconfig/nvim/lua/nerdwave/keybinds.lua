@@ -144,7 +144,3 @@ vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR><Tab>return err<CR>}<ESC>
 
 -- oil
 vim.keymap.set('n', '-', '<CMD>Oil<CR>')
-
--- ufo
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').openAllFolds)
