@@ -4,6 +4,7 @@ local lsp_servers = {
   bashls = require('nerdwave.plugins.lsp.servers.bashls'),
   eslint = require('nerdwave.plugins.lsp.servers.eslint'),
   tsserver = require('nerdwave.plugins.lsp.servers.tsserver'),
+  volar = require('nerdwave.plugins.lsp.servers.volar'),
 }
 local set_lsp_keymap = require('nerdwave.lsp-keymap').on_attach_keymap
 local lsp_config_setup = function()
@@ -15,6 +16,7 @@ local lsp_config_setup = function()
       'lua_ls',
       'rust_analyzer',
       'tsserver',
+      'volar@1.8.27'
     },
   })
   vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
