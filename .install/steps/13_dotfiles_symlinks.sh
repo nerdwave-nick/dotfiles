@@ -6,6 +6,7 @@ echo -e "${NONE}"
 
 create_generic_symlink "$R_DOTCONFIG_DIR/bashrc" "$HOME/.bashrc"
 create_generic_symlink "$R_DOTCONFIG_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
+create_generic_symlink "$R_DOTCONFIG_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 create_dotfiles_symlink alacritty
 create_dotfiles_symlink dunst
