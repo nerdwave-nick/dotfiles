@@ -7,6 +7,7 @@ M.formatter_by_file_type = {
   go = { 'gofmt', 'goimports' },
   lua = { 'stylua' },
   zig = { 'zigfmt' },
+  sql = { 'sqlfmt' },
 }
 
 M.format_with_notif = function()
