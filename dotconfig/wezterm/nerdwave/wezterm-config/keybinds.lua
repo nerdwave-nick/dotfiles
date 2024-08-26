@@ -59,7 +59,7 @@ map('v', { 'SHIFT|CTRL', 'SUPER' }, act.PasteFrom('Clipboard'))
 -- view
 map(' ', { default_mods }, act.DecreaseFontSize)
 map('.', { default_mods }, act.IncreaseFontSize)
-map('*', { default_mods }, act.ResetFontSize)
+map('[', { default_mods }, act.ResetFontSize)
 -- sessions
 local sessionizer = require('nerdwave.wezterm-config.lib.sessionizer')
 map('f', 'LEADER', wezterm.action_callback(sessionizer.toggle))
