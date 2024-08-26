@@ -3,7 +3,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   opts = {
     highlight = {
-      pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns, used for highlighting (vim regex)
+      pattern = [[.*<(KEYWORDS):\s*]], -- pattern or table of patterns, used for highlighting (vim regex)
       comments_only = true, -- uses treesitter to match keywords in comments only
       multiline = false, -- don't highlight multiline comments
     },
@@ -11,7 +11,7 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     search = {
-      pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+      pattern = [[\b(KEYWORDS):\b]], -- match without the extra colon. You'll likely get false positives
     },
   },
 }
