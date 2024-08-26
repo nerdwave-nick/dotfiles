@@ -22,7 +22,7 @@ return function(hostname)
       brightness = 0.3,
       hue = 1.0,
     },
-    adjust_window_size_when_changing_font_size = false,
+    adjust_window_size_when_changing_font_size = true,
     default_cursor_style = 'SteadyBlock',
     force_reverse_video_cursor = true,
     enable_scroll_bar = false,
