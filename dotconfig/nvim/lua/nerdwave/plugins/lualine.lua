@@ -13,10 +13,15 @@ return {
       return project .. ' ' .. relative_path .. ' ' .. modified_suffix
     end
 
+    local is_recording = function()
+      local reg = vim.fn.reg_recording()
+      if reg == '' then return '' end -- not recording
+      return 'MACRO >> ' .. reg
+    end
     local clients_lsp = function()
       local bufnr = vim.api.nvim_get_current_buf()
 
-      local clients = vim.lsp.get_clients(bufnr)
+      local clients = vim.lsp.get_clients({ bufnr = bufnr })
       if next(clients) == nil then return '' end
 
       local c = {}
@@ -44,7 +49,7 @@ return {
         section_separators = { left = '', right = '' },
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { 'mode', is_recording },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { filename_plus_project, clients_lsp, clients_formatter },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
