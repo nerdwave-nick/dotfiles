@@ -11,7 +11,7 @@ return {
     require('noice').setup({
       lsp = {
         -- suppress the whole no info available notification
-        hover= {
+        hover = {
           silent = true,
         },
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -28,10 +28,19 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
+      routes = {
+        { filter = { find = 'E162' }, view = 'mini' },
+        { filter = { event = 'msg_show', kind = '', find = 'written' }, view = 'mini' },
+        { filter = { event = 'msg_show', kind='', find = 'search hit BOTTOM' }, view = 'mini' },
+        { filter = { event = 'msg_show', kind='', find = 'search hit TOP' }, view = 'mini' },
+        -- { filter = { event = 'emsg', find = 'E23' }, skip = true },
+        -- { filter = { event = 'emsg', find = 'E20' }, skip = true },
+        -- { filter = { find = 'E37' }, skip = true },
+      },
     })
-    require('notify').setup({
-      background_colour = '#000000',
-    })
+    -- require('notify').setup({
+    --   background_colour = '#000000',
+    -- })
     require('telescope').load_extension('noice')
   end,
 }
