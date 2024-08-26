@@ -37,7 +37,9 @@ return {
       whitespace = {
         highlight = { 'Comment' },
       },
-      scope = { enabled = false },
+      scope = {
+        enabled = false,
+      },
     })
   end,
 }

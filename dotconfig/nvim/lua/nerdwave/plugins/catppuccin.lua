@@ -13,13 +13,13 @@ return {
         light = 'latte',
         dark = 'mocha',
       },
-      transparent_background = true, -- disables setting the background color.
+      -- transparent_background = true, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
+        enabled = true, -- dims the background color of inactive window
         shade = 'dark',
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+        percentage = 0.55, -- percentage of the shade to apply to the inactive window
       },
       native_lsp = {
         enabled = true,
@@ -42,6 +42,7 @@ return {
       integrations = {
         cmp = true,
         treesitter = true,
+        treesitter_context = true,
         notify = true,
         harpoon = true,
         mason = true,
@@ -52,10 +53,10 @@ return {
         indent_blankline = {
           enabled = true,
           scope_color = 'lavender', -- catppuccin color (eg. `lavender`) Default: text
-          colored_indent_levels = false,
+          colored_indent_levels = true,
         },
       },
     })
-   vim.cmd('colorscheme catppuccin')
+    vim.cmd('colorscheme catppuccin')
   end,
 }

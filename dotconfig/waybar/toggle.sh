@@ -9,7 +9,8 @@
 
 if [ -f ~/.cache/waybar-disabled ] ;then
     rm ~/.cache/waybar-disabled
+    ~/dotfiles/dotconfig/waybar/launch.sh&
 else
     touch ~/.cache/waybar-disabled
+    killall waybar
 fi
-~/dotfiles/dotconfig/waybar/launch.sh &

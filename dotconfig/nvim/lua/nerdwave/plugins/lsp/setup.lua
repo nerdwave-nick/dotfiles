@@ -19,6 +19,7 @@ local lsp_config_setup = function()
       'volar@1.8.27'
     },
   })
+  require('neodev').setup()
   vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     signs = true,
     underline = true,

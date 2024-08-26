@@ -69,6 +69,7 @@ packages=(
     "neovim-git"             # duh
     "vim"                    # just to make sure
     "libnotify"              # get notifications to work
+    "gwenview"               # image viewer
 )
 
 echo -e "${YELLOW}"

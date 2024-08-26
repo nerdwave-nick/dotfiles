@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- vim.o.guicursor = "n:block-MiniStatusLineModeNormal,v:block-MiniStatusLineModeVisual,i:block-MiniStatusLineModeInsert"
+vim.o.guicursor = 'a:TermCursor'
+vim.o.cursorline = true
 -- floating window via noice.nvim, so no need
 vim.o.cmdheight = 0
 
@@ -21,30 +24,6 @@ vim.o.foldlevel = 99
 vim.o.foldcolumn = '1'
 vim.o.foldmethod = 'manual'
 
--- local view_group = vim.api.nvim_create_augroup("auto_view", { clear = true })
--- vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
---   desc = "Save view with mkview for real files",
---   group = view_group,
---   callback = function(args)
---     if vim.b[args.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
---   end,
--- })
--- vim.api.nvim_create_autocmd("BufWinEnter", {
---   desc = "Try to load file view if available and enable view saving for real files",
---   group = view_group,
---   callback = function(args)
---     if not vim.b[args.buf].view_activated then
---       local filetype = vim.api.nvim_get_option_value("filetype", { buf = args.buf })
---       local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
---       local ignore_filetypes = { "gitcommit", "gitrebase", "svg", "hgcommit" }
---       if buftype == "" and filetype and filetype ~= "" and not vim.tbl_contains(ignore_filetypes, filetype) then
---         vim.b[args.buf].view_activated = true
---         vim.cmd.loadview { mods = { emsg_silent = true } }
---       end
---     end
---   end,
--- })
-
 -- mouse mode disabled
 vim.o.mouse = ''
 
@@ -64,8 +43,8 @@ vim.o.backup = false
 vim.o.scrolloff = 10
 
 -- Case-insensitive searching UNLESS \C or capital in search
--- vim.o.ignorecase = true
--- vim.o.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -95,3 +74,20 @@ vim.o.laststatus = 3
 vim.o.title = true
 
 vim.filetype.add({ extension = { templ = 'templ' } })
+
+local yank_group = vim.api.nvim_create_augroup('HighlightYank', {})
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = yank_group,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 100,
+    })
+  end,
+})
+
+local hl_groups = { 'DiagnosticUnderlineError','DiagnosticUnderlineWarn' }
+for _, hl in ipairs(hl_groups) do
+  vim.cmd.highlight(hl .. ' gui=undercurl')
+end
