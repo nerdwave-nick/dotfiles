@@ -6,6 +6,11 @@ return {
       custom_highlights = function()
         return {
           Comment = { fg = '#545d7d' },
+          DiagnosticUnderlineError = { style = { 'undercurl' } },
+          DiagnosticUnderlineWarn = { style = { 'undercurl' } },
+          LspDiagnosticUnderlineError = { style = { 'undercurl' } },
+          LspDiagnosticUnderlineWarning = { style = { 'undercurl' } },
+          TreesitterContextSeparator = { fg = '#45475a' },
         }
       end,
       flavour = 'mocha', -- latte, frappe, macchiato, mocha
@@ -30,9 +35,9 @@ return {
           information = { 'italic' },
         },
         underlines = {
-          errors = { 'underline' },
+          errors = { 'undercurl' },
           hints = { 'underline' },
-          warnings = { 'underline' },
+          warnings = { 'undercurl' },
           information = { 'underline' },
         },
         inlay_hints = {

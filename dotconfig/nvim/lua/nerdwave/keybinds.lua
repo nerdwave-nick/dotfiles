@@ -56,8 +56,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'n', 'nzzzv') vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- take care of te devil
 vim.keymap.set('n', 'Q', '<nop>')
@@ -68,14 +67,24 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- undotree
 vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
 
--- harpoon
-local harpoon = require('harpoon')
-vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
-vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set('n', '<C-h>', function() harpoon:list():select(1) end)
-vim.keymap.set('n', '<C-t>', function() harpoon:list():select(2) end)
-vim.keymap.set('n', '<C-n>', function() harpoon:list():select(3) end)
-vim.keymap.set('n', '<C-s>', function() harpoon:list():select(4) end)
+-- -- harpoon
+-- local harpoon = require('harpoon')
+-- vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end)
+-- vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- vim.keymap.set('n', '<C-h>', function() harpoon:list():select(1) end)
+-- vim.keymap.set('n', '<C-t>', function() harpoon:list():select(2) end)
+-- vim.keymap.set('n', '<C-n>', function() harpoon:list():select(3) end)
+-- vim.keymap.set('n', '<C-s>', function() harpoon:list():select(4) end)
+
+-- graple
+vim.keymap.set('n', '<leader>a', '<cmd>Grapple toggle<cr>', { desc = 'Tag a file', noremap = true })
+vim.keymap.set('n', '<c-e>', '<cmd>Grapple toggle_tags<cr>', { desc = 'Toggle tags menu', noremap = true })
+vim.keymap.set('n', '<C-S-e>', '<cmd>Grapple toggle_scopes<cr>', { desc = 'Toggle tags menu', noremap = true })
+
+vim.keymap.set('n', '<c-h>', '<cmd>Grapple select index=1<cr>', { desc = 'Select first tag', noremap = true })
+vim.keymap.set('n', '<c-t>', '<cmd>Grapple select index=2<cr>', { desc = 'Select second tag', noremap = true })
+vim.keymap.set('n', '<c-n>', '<cmd>Grapple select index=3<cr>', { desc = 'Select third tag', noremap = true })
+vim.keymap.set('n', '<c-s>', '<cmd>Grapple select index=4<cr>', { desc = 'Select fourth tag', noremap = true })
 
 -- nvim-comment
 vim.keymap.set('n', '<leader>/', vim.cmd.CommentToggle)
@@ -97,9 +106,15 @@ vim.keymap.set(
   function() telescopeBuiltin.find_files({ hidden = true }) end,
   { noremap = true, desc = 'Find files, including hidden files' }
 )
-vim.keymap.set('n', '<C-p>', telescopeBuiltin.git_files, { noremap = true, desc = 'Find git files' })
 vim.keymap.set('n', '<leader>ps', telescopeBuiltin.live_grep, { noremap = true, desc = 'Search in files' })
 vim.keymap.set('n', '<leader>ph', telescopeBuiltin.help_tags, { noremap = true, desc = 'Find help tags' })
+vim.keymap.set('n', '<leader>pb', telescopeBuiltin.buffers, { noremap = true, desc = 'Find buffers' })
+vim.keymap.set(
+  'n',
+  '<leader>pr',
+  telescopeBuiltin.grep_string,
+  { noremap = true, desc = 'Find in current buffer' }
+)
 vim.keymap.set(
   'n',
   '<leader>pc',
@@ -111,7 +126,7 @@ vim.keymap.set(
   '<leader>sk',
   function()
     telescopeBuiltin.keymaps(
-      require('telescope.themes').get_dropdown({ previewer = false, layout_config = { width = 0.6 } })
+      require('telescope.themes').get_dropdown({ previewer = true, layout_config = { width = 0.6 } })
     )
   end,
   { noremap = true, desc = 'Show keymaps' }
@@ -119,7 +134,7 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   '<leader>ss',
-  function() telescopeBuiltin.builtin(require('telescope.themes').get_dropdown({ previewer = false })) end,
+  function() telescopeBuiltin.builtin(require('telescope.themes').get_dropdown({ previewer = true })) end,
   { noremap = true, desc = 'Show telescope builtin' }
 )
 vim.keymap.set(

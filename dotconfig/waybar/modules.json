@@ -52,10 +52,10 @@
         "format": "   {}",
         "escape": true,
         "return-type": "json",       
-        "exec": "~/dotfiles/dotconfig/scripts/updates.sh",
+        "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
-        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/dotconfig/scripts/installupdates.sh",
-        "on-click-right": "~/dotfiles/.settings/software.sh"
+        // /"on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/dotconfig/scripts/installupdates.sh",
+        // "on-click-right": "~/dotfiles/.settings/software.sh"
     },
     
     // Waybar Themes

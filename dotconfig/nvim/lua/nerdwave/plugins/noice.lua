@@ -4,7 +4,7 @@ return {
   event = 'VeryLazy',
   dependencies = {
     'MunifTanjim/nui.nvim',
-    'rcarriga/nvim-notify',
+    -- 'rcarriga/nvim-notify',
     'nvim-telescope/telescope.nvim',
   },
   config = function()
@@ -31,8 +31,9 @@ return {
       routes = {
         { filter = { find = 'E162' }, view = 'mini' },
         { filter = { event = 'msg_show', kind = '', find = 'written' }, view = 'mini' },
-        { filter = { event = 'msg_show', kind='', find = 'search hit BOTTOM' }, view = 'mini' },
-        { filter = { event = 'msg_show', kind='', find = 'search hit TOP' }, view = 'mini' },
+        { filter = { event = 'msg_show', kind = '', find = 'search hit BOTTOM' }, view = 'mini' },
+        { filter = { event = 'msg_show', kind = '', find = 'search hit TOP' }, view = 'mini' },
+        { filter = { find = 'E486' }, view = 'mini' },
         -- { filter = { event = 'emsg', find = 'E23' }, skip = true },
         -- { filter = { event = 'emsg', find = 'E20' }, skip = true },
         -- { filter = { find = 'E37' }, skip = true },

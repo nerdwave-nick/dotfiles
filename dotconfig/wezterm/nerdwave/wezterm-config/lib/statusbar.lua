@@ -43,7 +43,7 @@ M.setup = function(opts, hostopts)
     opts.tab_bar_at_bottom = false
     opts.tab_max_width = 30
     opts.hide_tab_bar_if_only_one_tab = false
-    opts.enable_tab_bar = true
+    -- opts.enable_tab_bar = true
 
     local dividers = {
       slant_right = {
@@ -100,7 +100,6 @@ M.setup = function(opts, hostopts)
 
     C.p = (M.config.dividers == 'rounded') and '' or ' '
 
-    wezterm.log_info(C)
   end
   return opts
 end

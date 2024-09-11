@@ -87,7 +87,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-local hl_groups = { 'DiagnosticUnderlineError','DiagnosticUnderlineWarn' }
-for _, hl in ipairs(hl_groups) do
-  vim.cmd.highlight(hl .. ' gui=undercurl')
-end
+-- local hl_groups = {
+--   'DiagnosticUnderlineError',
+--   'DiagnosticUnderlineWarn',
+--   'LspDiagnosticUnderlineError',
+--   'LspDiagnosticUnderlineWarning',
+-- }
+-- for _, hl in ipairs(hl_groups) do
+--   vim.cmd.highlight(hl .. ' gui=undercurl')
+-- end

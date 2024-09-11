@@ -27,13 +27,14 @@ return function(hostname)
     force_reverse_video_cursor = true,
     enable_scroll_bar = false,
     check_for_updates = false,
-    enable_tab_bar = true,
+    enable_tab_bar = false,
     hide_tab_bar_if_only_one_tab = false,
     term = 'wezterm',
     underline_thickness = '1pt',
   }
   if hostopts.initial_cols ~= nil then opts.initial_cols = hostopts.initial_cols end
   if hostopts.initial_rows ~= nil then opts.initial_rows = hostopts.initial_rows end
+
   sessionizer(hostopts.sessionizer)
   opts = theme(opts)
   opts = font(opts, hostopts.font)

@@ -1,5 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
+local toggleTabBar = require('nerdwave.wezterm-config.lib.statusbar-toggle')
 
 local shortcuts = {}
 
@@ -49,9 +50,9 @@ map('`', default_mods, act.AdjustPaneSize({ 'Left', 5 }))
 map('4', default_mods, act.RotatePanes('Clockwise'))
 map('5', default_mods, act.RotatePanes('CounterClockwise'))
 -- spawn & close
-map('c', default_mods, act.SpawnTab 'CurrentPaneDomain')
-map('s', default_mods, act.SplitHorizontal({ domain = 'CurrentPaneDomain' }))
-map('w', default_mods, act.CloseCurrentPane({ confirm = true }))
+map('c', 'LEADER', act.SpawnTab('CurrentPaneDomain'))
+map('s', 'LEADER', act.SplitHorizontal({ domain = 'CurrentPaneDomain' }))
+map('w', 'LEADER', act.CloseCurrentPane({ confirm = true }))
 -- zoom states
 -- copy & paste
 map('c', { 'SHIFT|CTRL', 'SUPER' }, act.CopyTo('Clipboard'))
@@ -64,6 +65,8 @@ map('[', { default_mods }, act.ResetFontSize)
 local sessionizer = require('nerdwave.wezterm-config.lib.sessionizer')
 map('f', 'LEADER', wezterm.action_callback(sessionizer.toggle))
 map('F', 'LEADER', wezterm.action_callback(sessionizer.resetCacheAndToggle))
+
+map('t', 'LEADER', wezterm.action_callback(toggleTabBar.toggleTabBar))
 
 local keybind_settings = {
   leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 10000 },

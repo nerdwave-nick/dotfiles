@@ -190,15 +190,6 @@ window#waybar.empty #window {
     color: #dc2f2f;
 }
 
-#custom-hyprshade.active {
-    color: #dc2f2f;
-}
-
-#custom-hyprshade.notactive {
-    color: @iconcolor;
-}
-
-
 #custom-system {
     margin-right:15px;
 }

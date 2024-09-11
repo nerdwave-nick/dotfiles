@@ -3,6 +3,9 @@ return {
   -- lazy = true, event = "BufReadPost",
   config = function()
     require('nvim-treesitter.configs').setup({
+      ignore_install = {},
+      sync_install = false,
+      modules = {},
       ensure_installed = {
         'html',
         'css',
