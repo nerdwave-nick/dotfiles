@@ -4,7 +4,7 @@ M.formatter_by_file_type = {
   rust = { 'rustfmt' },
   typescript = { 'prettierd', 'prettier', 'eslint_d', 'eslint', stop_after_first = true },
   vue = { 'prettierd', 'prettier', 'eslint_d', 'eslint', stop_after_first = true },
-  go = { 'gofmt', 'goimports' },
+  go = { 'gofumpt', 'gofmt', 'goimports' },
   lua = { 'stylua' },
   zig = { 'zigfmt' },
   sql = { 'sqlfmt' },

@@ -19,6 +19,7 @@ killall xdg-desktop-portal
 sleep 1
 
 # start xdg-desktop-portal-hyprland
+# /usr/lib/xdg-desktop-portal-hyprland &
 /usr/lib/xdg-desktop-portal-hyprland &
 sleep 2
 

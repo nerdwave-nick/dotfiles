@@ -1,6 +1,7 @@
 local lsp_servers = {
   lua_ls = require('nerdwave.plugins.lsp.servers.lua_ls'),
   gopls = require('nerdwave.plugins.lsp.servers.gopls'),
+  ['golangci-lint-languageserver'] = require('nerdwave.plugins.lsp.servers.golangci_lint'),
   bashls = require('nerdwave.plugins.lsp.servers.bashls'),
   eslint = require('nerdwave.plugins.lsp.servers.eslint'),
   tsserver = require('nerdwave.plugins.lsp.servers.tsserver'),
@@ -16,7 +17,12 @@ local lsp_config_setup = function()
       'lua_ls',
       'rust_analyzer',
       'tsserver',
-      'volar@1.8.27'
+      'volar@1.8.27',
+      'golangci-lint-langserver',
+      'golangci-lint',
+      'gopls',
+      'gofumpt',
+      'gofmt',
     },
   })
   require('neodev').setup()
