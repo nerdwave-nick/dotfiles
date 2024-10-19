@@ -301,7 +301,7 @@ git:
     pattern: "^(\\w+)\\/(\\w+-\\w+).*"
 
     # Replace directive. E.g. for 'feature/AB-123' to start the commit message with 'AB-123 ' use "[$1] "
-    replace: "$1($2):"
+    replace: "$1: [$2]"
 
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
   branchPrefix: ""
