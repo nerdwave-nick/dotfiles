@@ -27,3 +27,4 @@ create_dotfiles_symlink waybar
 create_dotfiles_symlink wezterm
 create_dotfiles_symlink wlogout
 create_dotfiles_symlink yazi
+create_dotfiles_symlink lazygit
