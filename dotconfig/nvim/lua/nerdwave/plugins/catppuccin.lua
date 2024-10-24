@@ -51,6 +51,7 @@ return {
         notify = true,
         harpoon = true,
         mason = true,
+        render_markdown = true,
         telescope = { enabled = true },
         lsp_trouble = true,
         which_key = true,
