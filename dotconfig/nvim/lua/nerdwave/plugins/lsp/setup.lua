@@ -4,7 +4,7 @@ local lsp_servers = {
   ['golangci-lint-languageserver'] = require('nerdwave.plugins.lsp.servers.golangci_lint'),
   bashls = require('nerdwave.plugins.lsp.servers.bashls'),
   eslint = require('nerdwave.plugins.lsp.servers.eslint'),
-  tsserver = require('nerdwave.plugins.lsp.servers.tsserver'),
+  -- tsserver = require('nerdwave.plugins.lsp.servers.tsserver'),
   volar = require('nerdwave.plugins.lsp.servers.volar'),
 }
 local set_lsp_keymap = require('nerdwave.lsp-keymap').on_attach_keymap
@@ -16,8 +16,9 @@ local lsp_config_setup = function()
       'eslint',
       'lua_ls',
       'rust_analyzer',
-      'tsserver',
-      'volar@1.8.27',
+      -- 'tsserver',
+      -- 'volar@1.8.27',
+      'volar',
       'golangci-lint-langserver',
       'golangci-lint',
       'gopls',
@@ -43,6 +44,8 @@ local lsp_config_setup = function()
   }
   local nvim_lsp = require('lspconfig')
   local function mason_lsp_handler(lsp_name)
+    -- disable lsp via local neoconf
+    if require('neoconf').get('lspconfig.' .. lsp_name .. '.disabled') then return end
     local custom_handler = {}
     if lsp_servers[lsp_name] ~= nil then
       custom_handler = lsp_servers[lsp_name].custom_opts

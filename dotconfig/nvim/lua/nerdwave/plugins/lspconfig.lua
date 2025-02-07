@@ -6,6 +6,7 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'nvim-telescope/telescope.nvim',
+    'folke/neoconf.nvim',
   },
   config = require('nerdwave.plugins.lsp.setup'),
 }

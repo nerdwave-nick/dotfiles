@@ -4,6 +4,6 @@ return {
     settings = {
       documentFormatting = false,
     },
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
   },
 }
