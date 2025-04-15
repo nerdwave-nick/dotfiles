@@ -56,7 +56,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv') vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- take care of te devil
 vim.keymap.set('n', 'Q', '<nop>')
@@ -109,12 +110,7 @@ vim.keymap.set(
 vim.keymap.set('n', '<leader>ps', telescopeBuiltin.live_grep, { noremap = true, desc = 'Search in files' })
 vim.keymap.set('n', '<leader>ph', telescopeBuiltin.help_tags, { noremap = true, desc = 'Find help tags' })
 vim.keymap.set('n', '<leader>pb', telescopeBuiltin.buffers, { noremap = true, desc = 'Find buffers' })
-vim.keymap.set(
-  'n',
-  '<leader>pr',
-  telescopeBuiltin.grep_string,
-  { noremap = true, desc = 'Find in current buffer' }
-)
+vim.keymap.set('n', '<leader>pr', telescopeBuiltin.grep_string, { noremap = true, desc = 'Find in current buffer' })
 vim.keymap.set(
   'n',
   '<leader>pc',
@@ -150,12 +146,6 @@ vim.keymap.set(
   ':TodoTelescope<CR>',
   { noremap = true, silent = true, desc = 'Open todos in telescope' }
 )
-
--- lazygirl
-vim.keymap.set('n', '<leader>gg', function() telescope.extensions.lazygit.lazygit() end)
-
--- go
-vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR><Tab>return err<CR>}<ESC>')
 
 -- oil
 vim.keymap.set('n', '-', '<CMD>Oil<CR>')

@@ -62,13 +62,6 @@ vim.o.expandtab = true
 vim.o.listchars = 'tab:┊ ,trail:~,extends:>,precedes:<,nbsp:+'
 vim.o.list = true
 
-vim.api.nvim_create_autocmd('BufRead', {
-  pattern = '*',
-  callback = function()
-    if not (vim.bo.filetype == 'oil') then require('lazygit.utils').project_root_dir() end
-  end,
-})
-
 vim.o.fillchars = 'stlnc:─,vert:│,horiz:─,stl: ,horizup:┴,horizdown:┬'
 vim.o.laststatus = 3
 vim.o.title = true
