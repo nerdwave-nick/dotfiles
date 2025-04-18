@@ -17,7 +17,7 @@ create_dotfiles_symlink fish
 create_dotfiles_symlink gtk
 create_dotfiles_symlink hypr
 create_dotfiles_symlink kitty
-create_dotfiles_symlink dotfiles-nvim/nvim nvim
+create_dotfiles_symlink dotfiles-nvim nvim
 create_dotfiles_symlink rofi/rofi rofi # inner folder
 create_dotfiles_symlink sddm
 create_dotfiles_symlink swappy
