@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR --export ANTHROPIC_API_KEY:sk\x2dant\x2dapi03\x2d7VzvHvhdQKlsByleSs\x2dFuZhsnVrZiOsrGfSjZyyvMD5AhKRrHxjAgbUbIFzdfs6b35QiPyIArb\x2dyhU9Oe83nkw\x2dJQdRoAAA
+# VERSION: 3.0h
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
