@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# What needs to be done?
+# 1. show selection list
+# 2. create all the stuff
+#   - little square image
+#   - blurred image
+# 3. set up hyprpaper
+
+# check path prefix
+wallpaperpath=$1
+if ! [[ "$wallpaperpath" =~ "$HOME/wallpapers" ]]; then
+    wallpaperpath="$HOME/wallpapers/$wallpaperpath"
+fi
+
+# check if file exists
+if ! [[ -f "$wallpaperpath" ]]; then 
+    >&2 echo "ERROR: $wallpaperpath does not exist" 
+    exit 1
+fi
+
+square_version_path=~/.cache/square_wallpaper.png
+square_thumbnail_path=~/.cache/square_wallpaper_thumbnail.png
+blurred_version_path=~/.cache/blurred_wallpaper.png
+
+echo ":: creating square version at $square_version_path"
+magick "$wallpaperpath" -gravity Center -extent 1:1 -strip "$square_version_path" &
+echo ":: creating blurred version at $blurred_version_path"
+magick "$wallpaperpath" -alpha deactivate -scale 5% -blur 0x1.5 -brightness-contrast -35,-35 -resize 2000% "$blurred_version_path" &
+
+echo ":: changin wallpaper in hyprpaper"
+hyprctl hyprpaper unload all >/dev/null
+hyprctl hyprpaper preload "$wallpaperpath" >/dev/null
+hyprctl hyprpaper wallpaper ",$wallpaperpath" >/dev/null

@@ -1,1 +1,1 @@
-return require('nerdwave')(require('wezterm').hostname())
+return require('nerdwave.wezterm-config')(require('wezterm').hostname())
