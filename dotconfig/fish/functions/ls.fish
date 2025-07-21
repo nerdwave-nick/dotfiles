@@ -1,4 +1,3 @@
-function ls --wraps=exa --description 'alias ls exa'
-  exa $argv
-        
+function ls --wraps=eza --description 'alias ls eza'
+  exa -lh --group-directories-first --icons=auto $argv
 end

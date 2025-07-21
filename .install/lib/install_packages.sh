@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_is_installed() {
+_is_installed_yay() {
     package="$1"
     check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")"
     if [ -n "${check}" ]; then
@@ -34,7 +34,7 @@ install_packages() {
         done
     else
         for var in "$@"; do
-            if [[ $(_is_installed "${var}") == 0 ]]; then
+            if [[ $(_is_installed_yay "${var}") == 0 ]]; then
                 echo ":: ${var} is already installed."
                 continue
             fi
@@ -74,4 +74,12 @@ install_pacman_packages() {
         return
     fi
     sudo pacman --noconfirm -S "${to_install[@]}"
+}
+
+is_installed() {
+    if command -v $1 > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
 }

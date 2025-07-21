@@ -12,5 +12,3 @@ source ./lib/exists.sh
 
 source ./steps/0_install_requirements.sh
 clear
-
-source ./steps/13_dotfiles_symlinks.sh
