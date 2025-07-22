@@ -1,3 +1,4 @@
+figlet -f drpepper "Cleanup"
 # Remove hypridle-bin
 deprecated_packages=""
 rem_deprecated_pkg() {
@@ -11,12 +12,10 @@ rem_deprecated_pkg() {
 
 echo_c "Removing deprecated packages" $PURPLE
 
-rem_deprecated_pkg "alacritty"
 rem_deprecated_pkg "zoom"
 rem_deprecated_pkg "localsend-bin" 
 rem_deprecated_pkg "1password-beta" 
 rem_deprecated_pkg "1password-cli" 
-rem_deprecated_pkg "chromium" 
 rem_deprecated_pkg "kdenlive" 
 rem_deprecated_pkg "spotify"
 rem_deprecated_pkg "signal-desktop"

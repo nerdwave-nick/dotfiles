@@ -1,3 +1,5 @@
+figlet -f drpepper "Packages"
+
 echo_c "Installing rustup" $PURPLE
 rustupPackages=(
     "rustup"                 # rustup
@@ -20,8 +22,10 @@ packages=(
 
     "zen-browser-bin"        # browser
     "obsidian-bin"           # markdown editor
+    "proton-pass-bin"           # markdown editor
 
     "ghostty"                # terminal
+    "fish"                   # shell
     "starship"               # prompt because I'm a moron who loves the pretty
     "eza"                    # exa but maintained
     "bat"                    # cat alternative
