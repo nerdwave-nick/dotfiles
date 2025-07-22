@@ -10,9 +10,11 @@ keybind = ctrl+a>r=reload_config
 keybind = ctrl+a>zero=reset_font_size
 keybind = ctrl+a>equal=increase_font_size:1
 keybind = ctrl+a>plus=increase_font_size:1
-keybind = ctrl+a>minus=decrease_font_size:1
+keybind = ctrl+a>minus=decrease_font_size:0.5
 
 keybind = ctrl+a>up=jump_to_prompt:-1
 keybind = ctrl+a>down=jump_to_prompt:1
 
 command = /usr/bin/fish
+font-family = "DM Mono","Symbols Nerd Font"
+font-size = 12
