@@ -36,6 +36,8 @@ packages=(
     "fzf"                    # my love, my life, my fuzzy finder
     "lazygit"                # i'm too dumb to use git without
     "vim"                    # just to make sure
+
+    "intel-media-driver"     # intel driver for screen recording etc
 )
 install_packages "${packages[@]}"
 echo_s "Packages installed"
