@@ -6,15 +6,16 @@ keybind = ctrl+shift+v=paste_from_clipboard
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+a=select_all
 
-keybind = ctrl+a>r=reload_config
-keybind = ctrl+a>zero=reset_font_size
-keybind = ctrl+a>equal=increase_font_size:1
-keybind = ctrl+a>plus=increase_font_size:1
-keybind = ctrl+a>minus=decrease_font_size:0.5
+keybind = ctrl+b>r=reload_config
+keybind = ctrl+b>zero=reset_font_size
+keybind = ctrl+b>equal=increase_font_size:0.5
+keybind = ctrl+b>minus=decrease_font_size:0.5
 
-keybind = ctrl+a>up=jump_to_prompt:-1
-keybind = ctrl+a>down=jump_to_prompt:1
+keybind = ctrl+b>up=jump_to_prompt:-1
+keybind = ctrl+b>down=jump_to_prompt:1
 
 command = /usr/bin/fish
-font-family = "DM Mono","Symbols Nerd Font"
+font-family = ""
+font-family = "CaskaydiaMono Nerd Font","Symbols Nerd Font"
 font-size = 12
+window-padding-y = 4,0

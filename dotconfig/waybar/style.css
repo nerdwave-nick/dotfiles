@@ -8,7 +8,7 @@
   border-radius: 0;
   min-height: 0;
   font-family: CaskaydiaMono Nerd Font Propo;
-  font-size: 12.5px;
+  font-size: 12px;
 }
 
 .modules-left {
@@ -23,6 +23,7 @@
   all: initial;
   padding: 0 6px;
   margin: 0 1.5px;
+  min-width: 9px;
 }
 
 #tray,
@@ -32,23 +33,13 @@
 #bluetooth,
 #pulseaudio,
 #clock,
-#custom-updates,
 #custom-power-menu {
   min-width: 12px;
   margin: 0 7.5px;
 }
 
-#custom-updates.red {
-  color: red;
-}
-#custom-updates.yellow {
-  color: yellow;
-}
-#custom-updates.green {
-  color: @foreground;
-}
 #custom-expand-icon {
-  margin-right: 4px;
+  margin-right: 12px;
 }
 
 tooltip {

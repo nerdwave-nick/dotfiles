@@ -105,7 +105,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "uwsm app -- pavucontrol",
+    "on-click": "uwsm app -- ghostty --title=wiremix -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
