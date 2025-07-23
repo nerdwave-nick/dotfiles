@@ -4,7 +4,8 @@
     "source": "~/.config/fastfetch/bongocat.txt",
     "padding": {
       "top": 5,
-      "right": 5
+      "right": 1,
+      "left": 1
     },
     "color": {
       "1": "36",

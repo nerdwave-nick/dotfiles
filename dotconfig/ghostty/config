@@ -16,6 +16,9 @@ keybind = ctrl+b>down=jump_to_prompt:1
 
 command = /usr/bin/fish
 font-family = ""
-font-family = "CaskaydiaMono Nerd Font","Symbols Nerd Font"
+font-family = DM Mono
+font-family = Symbols Nerd Font
 font-size = 12
 window-padding-y = 4,0
+
+background-opacity = 0.9
