@@ -11,6 +11,9 @@ fi
 if gum confirm "Overwrite electron-flags?"; then
     create_generic_symlink "$R_DOTCONFIG_DIR/electron-flags.conf" "$HOME/.config/electron-flags.conf"
 fi
+if gum confirm "Overwrite tmux config?"; then
+    create_generic_symlink "$R_DOTCONFIG_DIR/tmux.conf" "$HOME/.tmux.conf"
+fi
 
 if gum confirm "Overwrite fastfetch config?"; then
     create_dotfiles_symlink fastfetch
@@ -20,6 +23,9 @@ if gum confirm "Overwrite fish config?"; then
 fi
 if gum confirm "Overwrite ghostty config?"; then
     create_dotfiles_symlink ghostty
+fi
+if gum confirm "Overwrite fontconfig config?"; then
+    create_dotfiles_symlink fontconfig 
 fi
 if gum confirm "Overwrite lazygit config?"; then
     create_dotfiles_symlink lazygit
