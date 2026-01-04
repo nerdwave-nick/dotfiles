@@ -1,0 +1,7 @@
+{
+    "lspconfig": {
+        "lua_ls": {
+            "disabled": false
+        }
+    }
+}

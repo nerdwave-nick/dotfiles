@@ -1,0 +1,18 @@
+cursor {// Hide the cursor after one second of inactivity.
+    hide-after-inactive-ms 500
+}
+clipboard {
+    disable-primary
+}
+overview {
+    zoom 0.5
+    workspace-shadow {
+        off
+    }
+}
+hotkey-overlay {
+    skip-at-startup
+}
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+

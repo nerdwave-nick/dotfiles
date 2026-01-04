@@ -1,0 +1,45 @@
+animations {// Uncomment to turn off all animations.
+    // You can also put "off" into each individual animation to disable it.
+    // off
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+    // Individual animations.
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+    window-close {
+        duration-ms 550
+        curve "ease-out-quad"
+        custom-shader "\n            // Example: make the window 'fall down' with slight rotation.\n            vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {\n                // For this shader, set animation curve to linear for best results.\n\n                // Simulate an accelerated fall: square the (linear) progress.\n                float progress = niri_clamped_progress * niri_clamped_progress;\n\n                // Get our rotation pivot point coordinates at the bottom center of the window.\n                vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;\n\n                // Move the window down to simulate a fall.\n                coords.y -= progress * 200.0;\n\n                // Randomize rotation direction and maximum angle.\n                float random = (niri_random_seed - 0.5) / 2.0;\n                random = sign(random) - random;\n                float max_angle = 0.05 * random;\n\n                // Rotate the window around our pivot point.\n                float angle = progress * max_angle;\n                mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));\n                coords = rotate * coords;\n\n                // Transform the coordinates back.\n                coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);\n\n                // Sample the window texture.\n                vec3 coords_tex = niri_geo_to_tex * coords_geo;\n                vec4 color = texture2D(niri_tex, coords_tex.st);\n\n                // Multiply by alpha to fade out.\n                return color * (1.0 - niri_clamped_progress);\n            }\n\n            // This is the function that you must define.\n            vec4 close_color(vec3 coords_geo, vec3 size_geo) {\n                return default_close(coords_geo, size_geo);\n            }\n        "
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.3 stiffness=800 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+ // recent-windows-close {
+    //     spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    // }
+}
+

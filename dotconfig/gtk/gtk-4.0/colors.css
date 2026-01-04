@@ -1,0 +1,54 @@
+@define-color accent_color #7B4C9A;
+@define-color accent_fg_color #B39BCC;
+@define-color accent_bg_color #7B4C9A;
+@define-color window_bg_color #1A121F;
+@define-color window_fg_color #CDC5D9;
+@define-color headerbar_bg_color #1A121F;
+@define-color headerbar_fg_color #CDC5D9;
+@define-color popover_bg_color #1A121F;
+@define-color popover_fg_color #CDC5D9;
+@define-color view_bg_color #2A2035;
+@define-color view_fg_color #CDC5D9;
+@define-color card_bg_color #2A2035;
+@define-color card_fg_color #CDC5D9;
+@define-color sidebar_bg_color @window_bg_color;
+@define-color sidebar_fg_color @window_fg_color;
+@define-color sidebar_border_color @window_bg_color;
+@define-color sidebar_backdrop_color @window_bg_color;
+@define-color destrictve_bg_color #F44336;
+@define-color destrictve_fg_color #FFFFFF;
+@define-color error_bg_color #F44336;
+@define-color error_fg_color #FFFFFF;
+/* This is taken from dank material shell and adjusted */
+:root {
+    --destructive-bg-color: @destrictve_bg_color;
+    --destructive-fg-color: @destrictve_fg_color;
+    /* Follow material spec */
+    --error-bg-color: @error_bg_color;
+    --error-fg-color: @error_fg_color;
+    /* Follow material spec (also I think looks nicer) */
+    --accent-fg-color: @accent_fg_color;
+    --accent-bg-color: @accent_bg_color;
+    /* Use surface instead of background */
+    --window-bg-color: @window_bg_color;
+    --window-fg-color: @window_fg_color;
+    /* Make it more similar to Adwaita */
+    --view-bg-color: @view_bg_color;
+    --view-fg-color: @view_fg_color;
+    --headerbar-bg-color: @headerbar_bg_color;
+    --headerbar-fg-color: @headerbar_fg_color;
+    --sidebar-bg-color: @sidebar_bg_color;
+    --sidebar-fg-color: @sidebar_fg_color;
+    /* There is only like one application I know that uses this, and there isn't a good way to get
+a color between surface and surface container so I think just giving this surface is a good enough fallback*/
+    --secondary-sidebar-bg-color: @sidebar_backdrop_color;
+    --secondary-sidebar-fg-color: @sidebar_border_color;
+    --card-bg-color: @card_bg_color;
+    --card-fg-color: @card_fg_color;
+    --overview-bg-color: @window_bg_color;
+    --overview-fg-color: @window_fg_color;
+    --popover-bg-color: @popover_bg_color;
+    --popover-fg-color: @popover_fg_color;
+    --dialog-bg-color: @window_bg_color;
+    --dialog-fg-color: @window_fg_color;
+}

@@ -1,0 +1,11 @@
+layer-rule {
+    match namespace="awww"
+    place-within-backdrop true
+    block-out-from "screencast"
+}
+layer-rule {
+    match namespace="mpvpaper"
+    place-within-backdrop true
+    block-out-from "screencast"
+}
+

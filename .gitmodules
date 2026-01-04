@@ -1,3 +1,0 @@
-[submodule "dotconfig/dotfiles-nvim"]
-	path = dotconfig/dotfiles-nvim
-	url = git@github.com:nerdwave-nick/dotfiles-nvim.git
