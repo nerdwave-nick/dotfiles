@@ -1,0 +1,37 @@
+@import url('https://raw.githubusercontent.com/refact0r/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+body {
+    --font: 'Geist';
+    /* letter-spacing: -0.07ch; */
+    --small-user-panel: on; /* turn on to make the user panel smaller like in old discord */
+    --bg-1: #45475ad9;
+    --bg-2: #313244d9;
+    --bg-3: #181825d9;
+    --bg-4: #1e1e2ed9;
+}
+
+/* Hide Nitro gift button, language dependent*/
+*[aria-label="Send a gift"] {
+    display: none !important;
+}
+*[aria-label="Apps"] {
+    display: none !important;
+}
+*[aria-label="More message options"] {
+    display: none !important;
+}
+*[aria-label="Add a Server"] {
+    display: none !important;
+}
+*[aria-label="Discover"] {
+    display: none !important;
+}
+*[href="/store"] {
+    display: none !important;
+}
+*[href="/shop"] {
+    display: none !important;
+}
+*[href="/quest-home"] {
+    display: none !important;
+}

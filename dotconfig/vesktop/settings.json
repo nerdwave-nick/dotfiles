@@ -1,0 +1,22 @@
+{
+    "discordBranch": "stable",
+    "minimizeToTray": false,
+    "arRPC": false,
+    "splashColor": "rgb(186, 194, 222)",
+    "splashBackground": "rgba(30, 30, 46, 0.85)",
+    "hardwareVideoAcceleration": false,
+    "staticTitle": true,
+    "tray": false,
+    "spellCheckLanguages": [
+        "en-US",
+        "en"
+    ],
+    "enableSplashScreen": true,
+    "hardwareAcceleration": true,
+    "appBadge": false,
+    "audio": {
+        "ignoreVirtual": true,
+        "granularSelect": true,
+        "deviceSelect": false
+    }
+}
