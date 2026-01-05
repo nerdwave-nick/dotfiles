@@ -1,1 +1,2 @@
 spawn-at-startup "awww-daemon"
+spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"

@@ -14,3 +14,18 @@ output "Elgato Systems LLC HD60 X Unknown" {
     position x=-1920 y=0
     focus-at-startup
 }
+
+output "Samsung Electric Company LS28AG700N H4ZRC00287" {
+    mode "3840x2160@119.880"
+    scale 2.0
+    transform "normal"
+    position x=-1920 y=0
+}
+
+output "Samsung Electric Company LS28AG700N H4ZRC00447" {
+    mode "3840x2160@119.880"
+    scale 2.0
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+}

@@ -25,8 +25,10 @@ create_dotfiles_symlink gtk/gtk-4.0 gtk-4.0
 create_dotfiles_symlink kitty
 create_dotfiles_symlink lazygit
 create_dotfiles_symlink niri
+create_dotfiles_symlink nvim
 create_dotfiles_symlink starship
 create_dotfiles_symlink swaylock
 create_dotfiles_symlink vim
 create_dotfiles_symlink wireplumber
 create_dotfiles_symlink yazi
+create_dotfiles_symlink vesktop
