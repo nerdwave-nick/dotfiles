@@ -15,5 +15,8 @@
     "spellCheckLanguages": [
         "en-US",
         "en"
-    ]
+    ],
+    "tray": false,
+    "disableMinSize": true,
+    "staticTitle": true
 }

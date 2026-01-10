@@ -247,5 +247,9 @@ binds {
     Mod+Shift+E {
         quit
     }
+
+    Mod+M {
+        spawn-sh "~/bin/toggle-mute-midi"
+    }
 }
 

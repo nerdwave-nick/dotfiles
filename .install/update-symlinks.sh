@@ -32,3 +32,4 @@ create_dotfiles_symlink vim
 create_dotfiles_symlink wireplumber
 create_dotfiles_symlink yazi
 create_dotfiles_symlink vesktop
+create_dotfiles_symlink mako

@@ -8,7 +8,7 @@
         "current.css"
     ],
     "enableReactDevtools": false,
-    "frameless": false,
+    "frameless": true,
     "transparent": true,
     "winCtrlQ": false,
     "disableMinSize": false,
@@ -247,7 +247,14 @@
             "enabled": false
         },
         "ImageZoom": {
-            "enabled": false
+            "enabled": false,
+            "saveZoomValues": false,
+            "invertScroll": true,
+            "nearestNeighbour": false,
+            "square": false,
+            "zoom": 2,
+            "size": 100,
+            "zoomSpeed": 0.5
         },
         "ImplicitRelationships": {
             "enabled": false
@@ -517,7 +524,9 @@
             "enabled": false
         },
         "UserMessagesPronouns": {
-            "enabled": false
+            "enabled": true,
+            "showSelf": true,
+            "pronounsFormat": "LOWERCASE"
         },
         "UserVoiceShow": {
             "enabled": false
@@ -553,13 +562,15 @@
             "enabled": false
         },
         "VolumeBooster": {
-            "enabled": false
+            "enabled": false,
+            "multiplier": 2
         },
         "WebKeybinds": {
             "enabled": false
         },
         "WebScreenShareFixes": {
-            "enabled": true
+            "enabled": true,
+            "experimentalAV1Support": false
         },
         "WhoReacted": {
             "enabled": false
@@ -589,6 +600,9 @@
         },
         "WebContextMenus": {
             "enabled": true
+        },
+        "MoreQuickReactions": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -601,7 +615,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1764786095752
+        "settingsSyncVersion": 1768051404741
     },
     "uiElements": {
         "chatBarButtons": {},
