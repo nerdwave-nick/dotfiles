@@ -1,0 +1,17 @@
+/etc/default/limine
+TARGET_OS_NAME="nkiss"
+ESP_PATH="/boot"
+
+ENABLE_UKI=yes
+CUSTOM_UKI_NAME="nkiss"
+
+BOOT_ORDER="*, *fallback, Snapshots"
+
+KERNEL_CMDLINE[default]="cryptdevice=PARTUUID=cf458e6c-be16-43b2-8ff6-7d3be050c55e:root root=/dev/mapper/root zswap.enabled=0 rw rootfstype=btrfs"
+KERNEL_CMDLINE[default]+="quiet splash nvidia_drm.modeset=1 nvidia_drm.fbdev=1"
+
+FIND_BOOTLOADERS=yes
+ENABLE_LIMINE_FALLBACK=yes
+
+MAX_SNAPSHOT_ENTRIES=5
+SNAPSHOT_FORMAT_CHOICE=4
