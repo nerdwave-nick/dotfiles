@@ -1,7 +1,7 @@
 {
     "autoUpdate": true,
     "autoUpdateNotification": true,
-    "useQuickCss": false,
+    "useQuickCss": true,
     "themeLinks": [],
     "eagerPatches": false,
     "enabledThemes": [
@@ -615,7 +615,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1768051404741
+        "settingsSyncVersion": 1768086429185
     },
     "uiElements": {
         "chatBarButtons": {},

@@ -251,5 +251,11 @@ binds {
     Mod+M {
         spawn-sh "~/bin/toggle-mute-midi"
     }
+    Mod+Shift+M {
+        spawn-sh "~/bin/toggle-asmr-midi"
+    }
+    Mod+Alt+M {
+        spawn-sh "~/bin/toggle-reverb-midi"
+    }
 }
 
