@@ -1,0 +1,29 @@
+input {
+    keyboard {
+        xkb {
+            options "compose:menu"
+        }
+        numlock
+    }
+    mouse {
+        // hide-after-inactive-ms 1000
+        // off
+        // natural-scroll
+        accel-speed 0.0
+        accel-profile "flat"
+ // scroll-method "no-scroll"
+    }
+    trackball {
+        // off
+        // natural-scroll
+        accel-speed 0.0
+        accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // left-handed
+        // middle-emulation
+    }
+    // warp-mouse-to-focus mode="center-xy-always"
+    workspace-auto-back-and-forth
+    focus-follows-mouse max-scroll-amount="0%"
+}

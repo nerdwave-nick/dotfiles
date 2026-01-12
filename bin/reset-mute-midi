@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sendmidi dev "USB MIDI Interface MIDI 1" ch 1 cc 43 5
+if [ -f ~/.local/state/unmuted-midi ]; then
+    rm ~/.local/state/unmuted-midi
+fi

@@ -13,22 +13,6 @@ alias ls="exa"
 alias ll="exa -al"
 alias cat="bat --paging=never --style=plain"
 alias catte="bat"
-alias bathelp='bat --plain --language=help'
-# alias vim=nvim
-# alias vi=nvim
-help() {
-    "$@" --help 2>&1 | bathelp
-}
-rfv() {
-  rg --color=always --line-number --no-heading --smart-case "${*:-}" |
-    fzf --ansi \
-      --color "hl:-1:underline,hl+:-1:underline:reverse" \
-      --delimiter : \
-      --preview 'bat --color=always {1} --highlight-line {2}' \
-      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-      --bind 'enter:become(nvim {1} +{2})'
-}
-
 
 if $(which starship > /dev/null 2>&1); then 
   eval "$(starship init bash)"
@@ -36,16 +20,8 @@ fi
 if $(which fzf > /dev/null 2>&1); then
   eval "$(fzf --bash)"
 fi
-
+if $(which zoxide > /dev/null 2>&1); then
+  eval "$(zoxide init bash --cmd cd)"
+fi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

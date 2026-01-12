@@ -1,0 +1,261 @@
+binds {
+    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
+        spawn "kitty"
+    }
+    // Mod+B hotkey-overlay-title="Toggle waybar" {
+    //     spawn-sh "pkill -USR1 waybar || waybar"
+    // }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" {
+        spawn "fuzzel"
+    }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
+    //     spawn "swaylock"
+    // }
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    }
+    XF86AudioMicMute allow-when-locked=true {
+        spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "brightnessctl" "--class=backlight" "set" "+10%"
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "brightnessctl" "--class=backlight" "set" "10%-"
+    }
+    Mod+O repeat=false {
+        toggle-overview
+    }
+    Mod+Q repeat=false {
+        close-window
+    }
+    Mod+Left {
+        focus-column-left
+    }
+    Mod+Down {
+        focus-window-down
+    }
+    Mod+Up {
+        focus-window-up
+    }
+    Mod+Right {
+        focus-column-right
+    }
+    Mod+Alt+Left {
+        move-column-left
+    }
+    Mod+Alt+Down {
+        move-window-down
+    }
+    Mod+Alt+Up {
+        move-window-up
+    }
+    Mod+Alt+Right {
+        move-column-right
+    }
+    Mod+Shift+Left {
+        focus-monitor-left
+    }
+    Mod+Shift+Down {
+        focus-monitor-down
+    }
+    Mod+Shift+Up {
+        focus-monitor-up
+    }
+    Mod+Shift+Right {
+        focus-monitor-right
+    }
+    Mod+Shift+Alt+Left {
+        move-column-to-monitor-left
+    }
+    Mod+Shift+Alt+Down {
+        move-column-to-monitor-down
+    }
+    Mod+Shift+Alt+Up {
+        move-column-to-monitor-up
+    }
+    Mod+Shift+Alt+Right {
+        move-column-to-monitor-right
+    }
+    Mod+Alt+U {
+        move-workspace-up
+    }
+    Mod+Alt+D {
+        move-workspace-down
+    }
+    Mod+WheelScrollDown cooldown-ms=150 {
+        focus-workspace-down
+    }
+    Mod+WheelScrollUp cooldown-ms=150 {
+        focus-workspace-up
+    }
+    Mod+Alt+WheelScrollDown cooldown-ms=150 {
+        move-column-to-workspace-down
+    }
+    Mod+Alt+WheelScrollUp cooldown-ms=150 {
+        move-column-to-workspace-up
+    }
+    Mod+WheelScrollRight {
+        focus-column-right
+    }
+    Mod+WheelScrollLeft {
+        focus-column-left
+    }
+    Mod+Ctrl+WheelScrollRight {
+        move-column-right
+    }
+    Mod+Ctrl+WheelScrollLeft {
+        move-column-left
+    }
+    Mod+Shift+WheelScrollDown {
+        focus-column-right
+    }
+    Mod+Shift+WheelScrollUp {
+        focus-column-left
+    }
+    Mod+Alt+Shift+WheelScrollDown {
+        move-column-right
+    }
+    Mod+Alt+Shift+WheelScrollUp {
+        move-column-left
+    }
+    Mod+1 {
+        focus-workspace 1
+    }
+    Mod+2 {
+        focus-workspace 2
+    }
+    Mod+3 {
+        focus-workspace 3
+    }
+    Mod+4 {
+        focus-workspace 4
+    }
+    Mod+5 {
+        focus-workspace 5
+    }
+    Mod+6 {
+        focus-workspace 6
+    }
+    Mod+7 {
+        focus-workspace 7
+    }
+    Mod+8 {
+        focus-workspace 8
+    }
+    Mod+9 {
+        focus-workspace 9
+    }
+    Mod+Alt+1 {
+        move-column-to-workspace 1
+    }
+    Mod+Alt+2 {
+        move-column-to-workspace 2
+    }
+    Mod+Alt+3 {
+        move-column-to-workspace 3
+    }
+    Mod+Alt+4 {
+        move-column-to-workspace 4
+    }
+    Mod+Alt+5 {
+        move-column-to-workspace 5
+    }
+    Mod+Alt+6 {
+        move-column-to-workspace 6
+    }
+    Mod+Alt+7 {
+        move-column-to-workspace 7
+    }
+    Mod+Alt+8 {
+        move-column-to-workspace 8
+    }
+    Mod+Alt+9 {
+        move-column-to-workspace 9
+    }
+    Mod+BracketLeft {
+        consume-or-expel-window-left
+    }
+    Mod+BracketRight {
+        consume-or-expel-window-right
+    }
+    Mod+R {
+        switch-preset-column-width
+    }
+    Mod+F {
+        maximize-column
+    }
+    Mod+Shift+F {
+        maximize-window-to-edges
+    }
+    Mod+Shift+Alt+F {
+        fullscreen-window
+    }
+    // // Expand the focused column to space not taken up by other fully visible columns.
+    // // Makes the column "fill the rest of the space".
+    // Mod+Ctrl+F {
+    //     expand-column-to-available-width
+    // }
+    Mod+C {
+        center-column
+    }
+    Mod+Minus {
+        set-column-width "-10%"
+    }
+    Mod+Equal {
+        set-column-width "+10%"
+    }
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus {
+        set-window-height "-10%"
+    }
+    Mod+Shift+Equal {
+        set-window-height "+10%"
+    }
+    // Move the focused window between the floating and the tiling layout.
+    Mod+V {
+        toggle-window-floating
+    }
+    Mod+Shift+V {
+        switch-focus-between-floating-and-tiling
+    }
+    // // Toggle tabbed column display mode.
+    // // Windows in this column will appear as vertical tabs,
+    // // rather than stacked on top of each other.
+    Mod+W {
+        toggle-column-tabbed-display
+    }
+    Mod+S {
+        screenshot
+    }
+    Mod+Ctrl+S {
+        screenshot-screen
+    }
+    Mod+Alt+S {
+        screenshot-window
+    }
+    Mod+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit
+    }
+    // The quit action will show a confirmation dialog to avoid accidental exits.
+    Mod+Shift+E {
+        quit
+    }
+
+    Mod+M {
+        spawn-sh "~/bin/toggle-mute-midi"
+    }
+    Mod+Shift+M {
+        spawn-sh "~/bin/toggle-asmr-midi"
+    }
+    Mod+Alt+M {
+        spawn-sh "~/bin/toggle-reverb-midi"
+    }
+}
+

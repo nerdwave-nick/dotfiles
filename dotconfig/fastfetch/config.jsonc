@@ -8,13 +8,15 @@
     },
     "color": {
       "1": "36",
-      "2": "35",
+      "2": "35"
     }
   },
   "display": {
     "bar": {
-      "charElapsed": "=",
-      "charTotal": "-",
+      "char": {
+        "elapsed": "=",
+        "total": "-"
+      },
       "width": 13
     }
   },
