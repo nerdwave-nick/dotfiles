@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # to ensure that the relative paths are correct
 BASE_PATH="$(realpath "$(dirname "$0")")"
 cd "$BASE_PATH" || exit
@@ -9,14 +11,17 @@ source ./lib/dir_variables.sh
 source ./lib/symlinks.sh
 source ./lib/exists.sh
 
-echo -e "${GREEN}"
-figlet "Linking..."
-echo -e "${NONE}"
+echo "Linking..."
 
 create_generic_symlink "$R_DOTCONFIG_DIR/bashrc" "$HOME/.bashrc"
 create_generic_symlink "$R_DOTCONFIG_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 create_generic_symlink "$R_DOTCONFIG_DIR/electron-flags.conf" "$HOME/.config/electron-flags.conf"
 create_generic_symlink "$R_DOTCONFIG_DIR/electron-flags.conf" "$HOME/.config/chrome-flags.conf"
+
+create_generic_symlink "$R_APPLICATIONS_DIR/google-chrome.desktop" "$H_APPLICATIONS_DIR/google-chrome.desktop"
+create_generic_symlink "$R_APPLICATIONS_DIR/jellyfin-tui.desktop" "$H_APPLICATIONS_DIR/jellyfin-tui.desktop"
+create_generic_symlink "$R_APPLICATIONS_DIR/obsidian.desktop" "$H_APPLICATIONS_DIR/obsidian.desktop"
+create_generic_symlink "$R_APPLICATIONS_DIR/vesktop.desktop" "$H_APPLICATIONS_DIR/vesktop.desktop"
 
 create_dotfiles_symlink dunst
 create_dotfiles_symlink fastfetch
