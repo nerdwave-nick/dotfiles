@@ -9,13 +9,13 @@
     ],
     "enableReactDevtools": false,
     "frameless": true,
-    "transparent": true,
+    "transparent": false,
     "winCtrlQ": false,
     "disableMinSize": false,
     "winNativeTitleBar": false,
     "plugins": {
         "ChatInputButtonAPI": {
-            "enabled": false
+            "enabled": true
         },
         "CommandsAPI": {
             "enabled": true
@@ -158,7 +158,7 @@
             "enabled": false
         },
         "DisableCallIdle": {
-            "enabled": false
+            "enabled": true
         },
         "DontRoundMyTimestamps": {
             "enabled": false
@@ -310,7 +310,7 @@
             "enabled": false
         },
         "MutualGroupDMs": {
-            "enabled": false
+            "enabled": true
         },
         "NewGuildSettings": {
             "enabled": false
@@ -320,7 +320,7 @@
             "ignoreMessages": false
         },
         "NoDevtoolsWarning": {
-            "enabled": false
+            "enabled": true
         },
         "NoF1": {
             "enabled": true
@@ -386,7 +386,23 @@
             "enabled": false
         },
         "PinDMs": {
-            "enabled": false
+            "enabled": true,
+            "userBasedCategoryList": {
+                "1039961982079619122": [
+                    {
+                        "id": "ojpm0xh4c3l",
+                        "name": "Love",
+                        "color": 10181046,
+                        "collapsed": false,
+                        "channels": [
+                            "1039963859051610194"
+                        ]
+                    }
+                ],
+                "1299735980152193117": []
+            },
+            "canCollapseDmSection": false,
+            "pinOrder": 0
         },
         "PlainFolderIcon": {
             "enabled": false
@@ -395,7 +411,7 @@
             "enabled": false
         },
         "PreviewMessage": {
-            "enabled": false
+            "enabled": true
         },
         "QuickMention": {
             "enabled": false
@@ -603,6 +619,12 @@
         },
         "MoreQuickReactions": {
             "enabled": false
+        },
+        "StereoScreenShareAudio": {
+            "enabled": true
+        },
+        "StereoScreenshareAudio": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -615,7 +637,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1768086429185
+        "settingsSyncVersion": 1768607551745
     },
     "uiElements": {
         "chatBarButtons": {},

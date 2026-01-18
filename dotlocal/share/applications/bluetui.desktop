@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=bluetui
+GenericName=Bluetooth
+Comment=Bluetooth management tui
+Exec=kitty --title=bluetui -e bluetui
+Terminal=true
+Categories=Bluetooth;BluetoothManagement;ConsoleOnly;
+Keywords=bluetooth;tui;bluez;

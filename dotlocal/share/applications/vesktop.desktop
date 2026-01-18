@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Vesktop
-Exec=/usr/bin/vesktop --enable-blink-features=MiddleClickAutoscroll --ozone-platform-hint=x11 --enable-features=UseOzonePlatform,VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo %U
+Exec=/usr/bin/vesktop --enable-blink-features=MiddleClickAutoscroll --ozone-platform-hint=wayland --enable-features=UseOzonePlatform,VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,UseMultiPlaneFormatForHardwareVideo %U
 Terminal=false
 Type=Application
 Icon=vesktop

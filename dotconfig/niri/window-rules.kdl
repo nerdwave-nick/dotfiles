@@ -10,7 +10,7 @@ window-rule {
     block-out-from "screen-capture"
 }
 window-rule {
-    geometry-corner-radius 2
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 

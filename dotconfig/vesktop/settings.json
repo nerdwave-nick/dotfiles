@@ -18,5 +18,6 @@
     ],
     "tray": false,
     "disableMinSize": true,
-    "staticTitle": true
+    "staticTitle": true,
+    "hardwareAcceleration": false
 }

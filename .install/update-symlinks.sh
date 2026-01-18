@@ -16,12 +16,13 @@ echo "Linking..."
 create_generic_symlink "$R_DOTCONFIG_DIR/bashrc" "$HOME/.bashrc"
 create_generic_symlink "$R_DOTCONFIG_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 create_generic_symlink "$R_DOTCONFIG_DIR/electron-flags.conf" "$HOME/.config/electron-flags.conf"
-create_generic_symlink "$R_DOTCONFIG_DIR/electron-flags.conf" "$HOME/.config/chrome-flags.conf"
+create_generic_symlink "$R_DOTCONFIG_DIR/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
 
-create_generic_symlink "$R_APPLICATIONS_DIR/google-chrome.desktop" "$H_APPLICATIONS_DIR/google-chrome.desktop"
-create_generic_symlink "$R_APPLICATIONS_DIR/jellyfin-tui.desktop" "$H_APPLICATIONS_DIR/jellyfin-tui.desktop"
-create_generic_symlink "$R_APPLICATIONS_DIR/obsidian.desktop" "$H_APPLICATIONS_DIR/obsidian.desktop"
-create_generic_symlink "$R_APPLICATIONS_DIR/vesktop.desktop" "$H_APPLICATIONS_DIR/vesktop.desktop"
+create_apps_symlink google-chrome
+create_apps_symlink jellyfin-tui
+create_apps_symlink obsidian
+create_apps_symlink vesktop
+create_apps_symlink bluetui
 
 create_dotfiles_symlink dunst
 create_dotfiles_symlink fastfetch

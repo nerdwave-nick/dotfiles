@@ -35,3 +35,13 @@ create_dotfiles_symlink() {
     fi
     create_generic_symlink "$source" "$target"
 }
+
+create_apps_symlink() {
+    source="$R_APPLICATIONS_DIR/$1.desktop"
+    if [ $# -eq 2 ]; then
+        target="$H_APPLICATIONS_DIR/$2.desktop"
+    else 
+        target="$H_APPLICATIONS_DIR/$1.desktop"
+    fi
+    create_generic_symlink "$source" "$target"
+}

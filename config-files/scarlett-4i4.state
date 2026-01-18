@@ -220,7 +220,7 @@ state.Gen {
 	control.19 {
 		iface MIXER
 		name 'Line In 1 Autogain Status Capture Enum'
-		value FailMaxGainLimit
+		value Success
 		comment {
 			access read
 			type ENUMERATED
@@ -263,7 +263,7 @@ state.Gen {
 	control.22 {
 		iface MIXER
 		name 'Line In 2 Autogain Status Capture Enum'
-		value FailMaxGainLimit
+		value Success
 		comment {
 			access read
 			type ENUMERATED
@@ -1054,7 +1054,7 @@ state.Gen {
 	control.53 {
 		iface MIXER
 		name 'Mix A Input 03 Playback Volume'
-		value 0
+		value 125
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1062,7 +1062,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -8000
+			dbvalue.0 -1750
 		}
 	}
 	control.54 {
@@ -1138,7 +1138,7 @@ state.Gen {
 	control.59 {
 		iface MIXER
 		name 'Mix A Input 09 Playback Volume'
-		value 137
+		value 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1146,7 +1146,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -1150
+			dbvalue.0 -8000
 		}
 	}
 	control.60 {
@@ -1208,7 +1208,7 @@ state.Gen {
 	control.64 {
 		iface MIXER
 		name 'Mix B Input 04 Playback Volume'
-		value 0
+		value 125
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1216,7 +1216,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -8000
+			dbvalue.0 -1750
 		}
 	}
 	control.65 {
@@ -1292,7 +1292,7 @@ state.Gen {
 	control.70 {
 		iface MIXER
 		name 'Mix B Input 10 Playback Volume'
-		value 137
+		value 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1300,7 +1300,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -1150
+			dbvalue.0 -8000
 		}
 	}
 	control.71 {
@@ -1642,7 +1642,7 @@ state.Gen {
 	control.95 {
 		iface MIXER
 		name 'Mix E Input 05 Playback Volume'
-		value 154
+		value 160
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1650,7 +1650,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -300
+			dbvalue.0 0
 		}
 	}
 	control.96 {
@@ -1796,7 +1796,7 @@ state.Gen {
 	control.106 {
 		iface MIXER
 		name 'Mix F Input 06 Playback Volume'
-		value 154
+		value 160
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1804,7 +1804,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 -300
+			dbvalue.0 0
 		}
 	}
 	control.107 {
@@ -1870,14 +1870,14 @@ state.Gen {
 		value.1 0
 		value.2 0
 		value.3 0
-		value.4 20
-		value.5 19
-		value.6 2
-		value.7 2
+		value.4 17
+		value.5 17
+		value.6 17
+		value.7 17
 		value.8 0
 		value.9 0
-		value.10 29
-		value.11 29
+		value.10 0
+		value.11 0
 		value.12 0
 		value.13 0
 		value.14 0
@@ -1886,8 +1886,8 @@ state.Gen {
 		value.17 0
 		value.18 0
 		value.19 0
-		value.20 20
-		value.21 20
+		value.20 0
+		value.21 0
 		value.22 0
 		value.23 0
 		comment {
