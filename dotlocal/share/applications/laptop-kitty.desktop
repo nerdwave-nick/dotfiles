@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Laptop
+GenericName=Laptop Terminal
+Comment=Opens a new terminal window on my laptop
+Exec=fish -c 'laptop kitty'
+Terminal=true
+Categories=ConsoleOnly;
+Keywords=laptop;work;terminal;coding;

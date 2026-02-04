@@ -1,0 +1,15 @@
+pulse.cmd = [
+  { cmd = "load-module"
+    args = "module-remap-source master=virt.primary.inbus.monitor source_name=virt.primary.in source_properties=device.description=\"Primary In\""
+  }
+  { cmd = "load-module"
+    args = "module-remap-source master=virt.comms.inbus.monitor source_name=virt.comms.in source_properties=device.description=\"Comms In\""
+  }
+  { cmd = "load-module"
+    args = "module-remap-source master=virt.secondary.inbus.monitor source_name=virt.secondary.in source_properties=device.description=\"Secondary In\""
+  }
+  { cmd = "load-module"
+    args = "module-remap-source master=virt.guitar.inbus.monitor source_name=virt.guitar.in source_properties=device.description=\"Guitar In\""
+  }
+]
+

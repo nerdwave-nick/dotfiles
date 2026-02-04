@@ -1,0 +1,14 @@
+wireplumber.components = [
+  {
+    name = "~/.config/wireplumber/scripts/semantic-routing.lua"
+    type = "script/lua"
+    provides = "custom.semantic-routing"
+  }
+]
+
+wireplumber.profiles = {
+  main = {
+    "custom.semantic-routing" = "required"
+  }
+}
+

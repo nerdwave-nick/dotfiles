@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=termusic
+GenericName=Music Player
+Comment=Modern music client for the terminal.
+Exec=kitty --title termusic termusic
+Terminal=true
+Categories=Audio;Player;ConsoleOnly;
+Keywords=music;

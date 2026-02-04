@@ -106,7 +106,7 @@ Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
 StartupWMClass=Google-chrome
-Exec=/usr/bin/google-chrome-stable --enable-blink-features=MiddleClickAutoscroll --ozone-platform=x11 %U
+Exec=/usr/bin/google-chrome-stable --enable-blink-features=MiddleClickAutoscroll --ozone-platform=wayland --disable-gpu-compositing %U
 StartupNotify=true
 Terminal=false
 Icon=google-chrome

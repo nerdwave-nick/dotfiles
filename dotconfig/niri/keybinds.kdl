@@ -1,16 +1,15 @@
 binds {
-    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" {
         spawn "kitty"
     }
-    // Mod+B hotkey-overlay-title="Toggle waybar" {
-    //     spawn-sh "pkill -USR1 waybar || waybar"
-    // }
+    Mod+Alt+T hotkey-overlay-title="Open a Terminal on my work laptop: kitty" {
+        spawn "kitty"  "fish" "-c" "cdl ~"
+    }
+
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" {
         spawn "fuzzel"
     }
-    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
-    //     spawn "swaylock"
-    // }
+
     XF86AudioRaiseVolume allow-when-locked=true {
         spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
     }
@@ -218,13 +217,15 @@ binds {
     Mod+Shift+Equal {
         set-window-height "+10%"
     }
+
     // Move the focused window between the floating and the tiling layout.
-    Mod+V {
+    Mod+Shift+V {
         toggle-window-floating
     }
-    Mod+Shift+V {
+    Mod+V {
         switch-focus-between-floating-and-tiling
     }
+
     // // Toggle tabbed column display mode.
     // // Windows in this column will appear as vertical tabs,
     // // rather than stacked on top of each other.
